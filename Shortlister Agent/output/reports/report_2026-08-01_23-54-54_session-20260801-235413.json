@@ -1,0 +1,34 @@
+{
+  "session_id": "session-20260801-235413",
+  "timestamp": "2026-08-01_23-54-54",
+  "screener_query": {
+    "sector": "Health Technology",
+    "industry": null,
+    "revenue_min": null,
+    "revenue_max": null,
+    "profit_min": null,
+    "profit_max": null,
+    "market": "india",
+    "location": "India",
+    "limit": 1
+  },
+  "total_companies": 1,
+  "companies": [
+    {
+      "ticker": "BSE:SUNPHARMA",
+      "name": "SUNPHARMA",
+      "industry": "Pharmaceuticals: Major",
+      "revenue_ttm": 599105200000,
+      "net_income_ttm": 120955800000,
+      "employee_count": 43000,
+      "business_summary": "Sun Pharmaceutical Industries Limited, a generic pharmaceutical company, develops, manufactures, and markets branded and generic formulations, and active pharmaceutical ingredients (APIs) in India, the United States, and internationally. The company offers formulations in various therapeutic areas, including neuropsychiatry, cardiology, diabetes, gastroenterology, pain/analgesics, gynecology, ophthalmology, urology, dermatology, respiratory, anti-infectives, oncology, psychiatry, neurology, orthopaedic, nephrology, urology, dermatology, respiratory, dental, and nutritionals. It also provides generic medications, such as tablets, capsules, injectables, inhalers, ointments, creams, and liquids; speciality medications; antiretrovirals medications; and over-the-counter products, such as vitamins, analgesics, digestives, and lifestyle. In addition, the company offers APIs for anti-cancers, peptides, steroids, sex hormones, immunosuppressant drugs, and controlled substances. It exports its products to approximately 90 countries across Asia, North America, Europe, Africa, South America, and Australia. Sun Pharmaceutical Industries Limited was founded in 1983 and is headquartered in Mumbai, India.",
+      "website": "https://sunpharma.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/sun-pharma",
+      "linkedin_confirmed": true,
+      "decision_makers": [],
+      "location": "India"
+    }
+  ]
+}

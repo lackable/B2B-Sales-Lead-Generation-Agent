@@ -1,0 +1,658 @@
+{
+  "session_id": "session-20260804-163248",
+  "timestamp": "2026-08-04_16-37-11",
+  "screener_query": {
+    "sector": "Producer Manufacturing",
+    "industry": null,
+    "revenue_min": 7500000000.0,
+    "revenue_max": 75000000000.0,
+    "profit_min": 750000000.0,
+    "profit_max": 6000000000.0,
+    "market": "india",
+    "location": "India",
+    "limit": 60
+  },
+  "total_companies": 10,
+  "companies": [
+    {
+      "ticker": "NSE:ASTRAL",
+      "name": "Astral Limited",
+      "industry": "Miscellaneous Manufacturing",
+      "revenue_ttm": 65686000000,
+      "net_income_ttm": 5366000000.0,
+      "employee_count": 4899,
+      "business_summary": "Astral Limited engages in the manufacture and marketing of pipes and fittings, water tanks, and adhesives and sealants in India and internationally. It operates in two segments, Plumbing, and Paints and Adhesives. It offers plumbing pipes and fittings, sewerage and drainage pipes and fittings, agriculture pipes and fittings, cable protection system, industrial piping system, fire protection system, urban infrastructure, ancillary products, and column pipe; and roto moulding, blow moulded, loft, and anti-viral copper shield water tanks. It also provides bath-ware products comprising faucets, sanitarywares, cisterns, and showers; paints, such as interior and exterior emulsions, distempers, enamels, and primer and wall putty undercoats; adhesives and sealants, including epoxy, PVA, rubber, anaerobic tapes, silicone, acrylic, hybrid, instant, solvent, specialised, industrial adhesives, and epoxy putty; specialized valves, such as compact true, single union, and industrial ball valves; construction chemicals comprising bathroom and basement waterproofing, tile adhesives and grouts, exterior roof and wall coatings, polymers and integral compounds, and repair products; and infrastructure products comprising drainage, cable protection, and PT duct systems; and specialised fittings, such as electrofusion, compression, PPR fittings, integrated and mechanica clamp, integrated composite strap-on saddles, PVC conduit for concealed wiring system, and investment castings. The company was formerly known as Astral Poly Technik Limited and changed its name to Astral Limited in April 2021. Astral Limited was incorporated in 1996 and is headquartered in Ahmedabad, India.",
+      "website": "https://astralltd.com",
+      "city": "Ahmedabad",
+      "state": null,
+      "country": "India",
+      "location": "Ahmedabad, India",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/astralpipesofficial",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Saumya Engineer",
+          "position": "Chief Executive Officer - Adhesives & Paints, Astral Limited",
+          "linkedin_url": "https://in.linkedin.com/in/saumya-engineer-6a8803206"
+        },
+        {
+          "name": "Hiranand Savlani",
+          "position": "Chief Financial Officer & Executive Director, Astral Limited",
+          "linkedin_url": "https://in.linkedin.com/in/hiranand-savlani-816b994b"
+        },
+        {
+          "name": "Vikas Sharma",
+          "position": "Vice President (Projects), Astral Limited",
+          "linkedin_url": "https://in.linkedin.com/in/vikas-sharma-20970921"
+        },
+        {
+          "name": "Vikash Kumar Jha",
+          "position": "Head of Sales – MNT/Auto & FMCG",
+          "linkedin_url": "https://in.linkedin.com/in/vikashjha83"
+        },
+        {
+          "name": "Kairav Engineer",
+          "position": "Executive Director",
+          "linkedin_url": "https://in.linkedin.com/in/kairav-engineer-79682530"
+        }
+      ]
+    },
+    {
+      "ticker": "BSE:VGUARD",
+      "name": "V-Guard Industries Limited",
+      "industry": "Electrical Products",
+      "revenue_ttm": 63103500000,
+      "net_income_ttm": 3647300000.0,
+      "employee_count": 3219,
+      "business_summary": "V-Guard Industries Limited manufactures and sells electrical and electronic products in India and internationally. It operates through four segments: Electronics, Electrical, Consumer Durables and Sunflame. The Electronics segment offers voltage stabilizers; and inverter, digital DUPS, inverter batteries, UPS, solar inverters, solar power systems, off grid and on grid systems and inverters, and on grid photovoltaic (PV) inverters. The Electrical segment provides wires; pumps, such as domestic and agricultural pumps, and electric motors; modular switches, including matteo, novio, and torio switches; switchgears; and PVC insulated cables. The Consumer Durables Segment offers fans, such as ceiling, table, pedestal, wall, ventilating and exhaust, and other fans; air coolers, including desert, window-mounted, and personal and room variants; water heaters, such as electric, solar and heat pump water heaters; and kitchen appliances comprising induction cooktop, mixer grinders, gas cooktops, rice cookers, water purifiers, small and large appliances like kitchen hoods, and breakfast appliances. The Sunflame segment sells products under Sunflame and Superflame brands. It sells its products through a network of distributors and dealers. V-Guard Industries Limited was founded in 1977 and is headquartered in Kochi, India.",
+      "website": "https://www.vguard.in",
+      "city": "Kochi",
+      "state": null,
+      "country": "India",
+      "location": "Kochi, India",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/v-guard",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Mithun K Chittilappilly",
+          "position": "Managing Director (MD)",
+          "linkedin_url": "https://in.linkedin.com/in/mithun-chittilappilly-6834a2197"
+        },
+        {
+          "name": "Ramachandran Venkataraman",
+          "position": "Director & Chief Operating Officer (COO)",
+          "linkedin_url": "https://in.linkedin.com/in/ramachandranvenketaraman"
+        },
+        {
+          "name": "Deepak Augustine",
+          "position": "Sr. Vice President – Marketing",
+          "linkedin_url": "https://in.linkedin.com/in/deepak-augustine-6947443a"
+        },
+        {
+          "name": "Karthikeyan S",
+          "position": "Asst Vice President - SCM",
+          "linkedin_url": "https://in.linkedin.com/in/karthikeyan-s-5ba2887"
+        },
+        {
+          "name": "Sreekanth Kamalasanan",
+          "position": "Head - Civil & MEP Projects",
+          "linkedin_url": "https://in.linkedin.com/in/sreekanth-kamalasanan-10b25438"
+        }
+      ]
+    },
+    {
+      "ticker": "NSE:SUNDRMFAST",
+      "name": "Sundram Fasteners Limited",
+      "industry": "Auto Parts: OEM",
+      "revenue_ttm": 62888200000,
+      "net_income_ttm": 5911900000.0,
+      "employee_count": 3108,
+      "business_summary": "Sundram Fasteners Limited manufactures and sells components for the automotive, infrastructure, wind energy, aerospace, defense, farm equipment, industrial, aviation, and other sectors in India, China, the Americas, and internationally. The company's products include high tensile fasteners, such as wind energy, automotive, engine, chassis, and aerospace and aviation fasteners; cold extruded parts, including gear blanks, transmission shafts, cams, starter sleeves and pinions, CV joint parts, and fan hubs; and hot forged parts, such as bevel gears and pinions, hub rings, clutch hubs, crankshafts sprockets, stainless steel turbocharger parts, and connecting rods. It also provides powertrain components, such as turbine and output shafts, sungear shafts, slip yokes, clutch hubs, and crankshaft sprockets; powder metallurgy parts comprising rotors and gears, synchronizer hubs, shock absorber components, valve train components, bushes, and structural parts; metal and nylon radiator caps; pumps and assemblies comprising water and oil pumps, mechanical fuel pumps, manual and auto belt tensioners, rocker assemblies, suspension and precision parts, and fan support and camshafts products, as well as iron powder units, including powders for press and sinter applications, plain iron powders, diffusion bonded powders, pre-alloyed powders, and press ready mixes units. In addition, the company generates power using non-conventional sources; manufactures spokes and nipples, automobile kits, tools, dowel pins, small screws, cold extruded parts and other parts; and engages in information technology business providing enterprise solutions for core industries like manufacturing, automotive and distribution. Sundram Fasteners Limited was incorporated in 1962 and is headquartered in Chennai, India.",
+      "website": "https://www.sundram.com",
+      "city": "Chennai",
+      "state": null,
+      "country": "India",
+      "location": "Chennai, India",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/sundram-fasteners",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Krishnan Ramanujan",
+          "position": "Executive Vice President - Marketing",
+          "linkedin_url": "https://in.linkedin.com/in/krishnan-ramanujan-7246936"
+        },
+        {
+          "name": "Seshadri Ramanujam",
+          "position": "Head of Manufacturing",
+          "linkedin_url": "https://in.linkedin.com/in/seshadri-ramanujam-9411178b"
+        },
+        {
+          "name": "S V Mahesh",
+          "position": "Executive Director",
+          "linkedin_url": "https://in.linkedin.com/in/s-v-mahesh-b64a745"
+        },
+        {
+          "name": "Dr. Ramesh S",
+          "position": "Executive Vice President - Operations",
+          "linkedin_url": "https://in.linkedin.com/in/dr-ramesh-s-569150223"
+        },
+        {
+          "name": "P Padmanabhan",
+          "position": "Sr. General Manager",
+          "linkedin_url": "https://in.linkedin.com/in/p-padmanabhan-45b11bb"
+        }
+      ]
+    },
+    {
+      "ticker": "BSE:JBMA",
+      "name": "JBM Auto Limited",
+      "industry": "Auto Parts: OEM",
+      "revenue_ttm": 62769400000,
+      "net_income_ttm": 2241800000.0,
+      "employee_count": 3555,
+      "business_summary": "JBM Auto Limited engages in the manufacture and sale sheet metal components, tools, dies and moulds, and buses in India and internationally. It operates through three segments: Sheet Metal Components, Assemblies & Sub-assemblies (Component Division); Tool, Dies & Moulds (Tool Room Division); and OEM Division. The company offers auto components and systems, such as BIW, chassis and suspension systems, pedal boxes, tubular products, safety-critical components, and various auto assemblies for two-wheelers, three-wheelers, passenger vehicles, commercial vehicles, and farm and construction equipment. It also provides low emission and electric buses; lithium ion batteries solutions for HV- LV battery operated vehicle, energy storage systems, and solar; and operates electric vehicles charging infrastructure. In addition, it is involved in the provision of utility scale solar power projects, battery energy storage, and power infrastructure solutions; and environment management, as well as spare parts, accessories, and maintenance contracts. It serves original equipment manufacturers in the passenger vehicles, commercial vehicles, farm equipment, and auto component manufacturers, etc., as well as state transport undertakings, aviation sector, ground handling companies, multiple aggregator and operator, defense sector, and Fortune 500 Companies. JBM Auto Limited was incorporated in 1996 and is headquartered in Gurugram, India.",
+      "website": "https://www.jbmgroup.com",
+      "city": "Gurugram",
+      "state": null,
+      "country": "India",
+      "location": "Gurugram, India",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/jbm-group",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Selvaraj Muthiah",
+          "position": "Chief Executive Officer, JBM Group",
+          "linkedin_url": "https://in.linkedin.com/in/selvaraj-muthiah-888746236"
+        },
+        {
+          "name": "Sanjay Rusia",
+          "position": "President & CEO at JBM Electric Vehicles",
+          "linkedin_url": "https://in.linkedin.com/in/sanjay-rusia-85a45442"
+        },
+        {
+          "name": "Rajiv Sahdev",
+          "position": "President & Group CHRO, JBM Group",
+          "linkedin_url": "https://in.linkedin.com/in/rajiv-sahdev-7a436410"
+        },
+        {
+          "name": "Dhiraj Mohan",
+          "position": "Executive Director, JBM Auto Ltd",
+          "linkedin_url": "https://in.linkedin.com/in/dhiraj-mohan-74958411"
+        },
+        {
+          "name": "H R Saini",
+          "position": "Executive Director, JBM Auto Limited",
+          "linkedin_url": "https://in.linkedin.com/in/h-r-saini-54458411"
+        },
+        {
+          "name": "Praveen Malik",
+          "position": "Executive Vice President / Head Group Business Excellence, JBM Group",
+          "linkedin_url": "https://in.linkedin.com/in/praveen-malik-99457a23"
+        },
+        {
+          "name": "Mayank Varma",
+          "position": "President & Business Head (Group Technology / Tooling), JBM Group",
+          "linkedin_url": "https://in.linkedin.com/in/mayankvarma"
+        },
+        {
+          "name": "Sushil Tiwari",
+          "position": "Head Manufacturing Quality, JBM Auto",
+          "linkedin_url": "https://in.linkedin.com/in/sushil-tiwari-00786a24"
+        },
+        {
+          "name": "Anil Kamble",
+          "position": "Engineering Head, JBM Auto (Pune)",
+          "linkedin_url": "https://in.linkedin.com/in/anil-kamble-89022aab"
+        }
+      ]
+    },
+    {
+      "ticker": "BSE:MINDACORP",
+      "name": "Minda Corporation Limited",
+      "industry": "Auto Parts: OEM",
+      "revenue_ttm": 61853400000,
+      "net_income_ttm": 3602600000.0,
+      "employee_count": 3405,
+      "business_summary": "Minda Corporation Limited manufactures and sells automobile components and parts in India, rest of Asia, America, Europe, and Africa. The company offers mechatronic products, such as ignition switch cum steering locks, smart key systems and keyless entry, access systems, mechatronics handles, immobiliser fuel tank caps, aluminium and zinc die casting components, flush outer door handles, knob type smart lock systems, starter motors, and alternators; information and connected systems, including wiring harness, connectors, cockpit, fully digital clusters, terminals, and components; and instrument clusters and dashboard, as well as speed, temperature, position, pressure, and exhaust gas sensors. It also provides plastic and interior products comprising air vent rears, glove boxes, center consoles, cup holders, ash trays, louvers, oil slumps, cylinder heads, battery trays, and light weight solutions; and aftermarket products that comprise locks, lubricants, filters, clutch plates, bearings, wiper blades, brake shoes, and cables. In addition, the company offers DC-DC convertors, battery chargers, motor controllers, intelligent transport system, telematics, connected clusters, MFECU, and vehicle control units; and rod, micro pole, shark fin, and LF antennas. Further, it offers kick and tilt gyro IMU sensors, tyre pressure monitoring systems, EV supply equipment, primary gears, ignition coils, cooling fans, and spark plug caps, as well as various type of motors and invertors. The company serves passenger and commercial vehicle, motorcycle and scooter, off-road vehicle, and tier 1 manufacturers, as well as original equipment manufacturers. It exports its products. The company was formerly known as Minda Switch Auto Pvt. Ltd. and changed its name to Minda Corporation Limited in 2007. Minda Corporation Limited was founded in 1958 and is based in Noida, India.",
+      "website": "https://sparkminda.com",
+      "city": "Noida",
+      "state": null,
+      "country": "India",
+      "location": "Noida, India",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/sparkminda",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Sumit Doseja",
+          "position": "CEO at Minda Corporation Limited",
+          "linkedin_url": "https://in.linkedin.com/in/sumit-doseja-80442016"
+        },
+        {
+          "name": "Sunil Goel",
+          "position": "CEO at Minda Corporation limited (AMD)",
+          "linkedin_url": "https://in.linkedin.com/in/sunil-goel-4b275b24"
+        },
+        {
+          "name": "Deepak Arora",
+          "position": "CEO at Spark Minda, Ashok Minda Group",
+          "linkedin_url": "https://in.linkedin.com/in/deepak-arora-57655215"
+        },
+        {
+          "name": "Dr. Suresh D",
+          "position": "Group CTO, Minda Corporation & CEO, Spark Minda Technical Centre (SMIT)",
+          "linkedin_url": "https://in.linkedin.com/in/dr-suresh-d-402a6229"
+        },
+        {
+          "name": "Aakash Minda",
+          "position": "Executive Director, Minda Corporation Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/aakash-minda-638a1121"
+        },
+        {
+          "name": "Vinod Raheja",
+          "position": "Group CFO, Spark Minda Group",
+          "linkedin_url": "https://in.linkedin.com/in/vinod-raheja-429aa51b2"
+        },
+        {
+          "name": "Neeraj Gupta",
+          "position": "CFO (Business Vertical II), Minda Corporation Limited",
+          "linkedin_url": "https://in.linkedin.com/in/neeraj-gupta-8a4ab127b"
+        },
+        {
+          "name": "Sandeep Gupta",
+          "position": "Division CFO, Minda Corporation",
+          "linkedin_url": "https://in.linkedin.com/in/sandeep-gupta-70bb86189"
+        },
+        {
+          "name": "Ajay Agrawal",
+          "position": "Chief Financial Officer",
+          "linkedin_url": "https://in.linkedin.com/in/ajay-agrawal-7baa8315b"
+        },
+        {
+          "name": "Sanjiv Kumar Jalan",
+          "position": "Group Finance Controller, Minda Corporation Limited",
+          "linkedin_url": "https://in.linkedin.com/in/ca-sanjiv-kumar-jalan-042b66108"
+        },
+        {
+          "name": "Jitendra Kumar Gupta",
+          "position": "Business Vertical CFO, Spark Minda",
+          "linkedin_url": "https://in.linkedin.com/in/jitendra-kumar-gupta-741885225"
+        },
+        {
+          "name": "Ajay Kumar",
+          "position": "Business Head (P&L), Spark Minda",
+          "linkedin_url": "https://in.linkedin.com/in/ajay-kumar-a56a8021"
+        },
+        {
+          "name": "Suresh Guleria",
+          "position": "Deputy General Manager - Systems, Spark Minda",
+          "linkedin_url": "https://in.linkedin.com/in/suresh-guleria-012770335"
+        }
+      ]
+    },
+    {
+      "ticker": "NSE:RAMRAT",
+      "name": "Ram Ratna Wires Limited",
+      "industry": "Electrical Products",
+      "revenue_ttm": 60474618000,
+      "net_income_ttm": 1268083000.0,
+      "employee_count": 1288,
+      "business_summary": "Ram Ratna Wires Limited, together with its subsidiaries, manufactures and sells winding wires in India and internationally. It operates through the Winding Wires and Strips, Copper Tubes and Pipes, and Other segments. The company is involved in the manufacture of BLDC motors for air conditioners, hub motors, HVLS fans, submersible pumps, and related products, as well as the manufacture of fabricated components and assemblies for the renewable energy sector. It offers enameled aluminum and copper wires; enameled copper strips; submersible winding wires; paper-covered wires and strips; bunched and braided wires; fine and ultra-fine enamelled wires; Litz wires; MCB coils; self-bondable wires; NOMEX-insulated conductors; and fiberglass-covered strips. The company also provides parallel winding wires for EV hub motors; advanced EV-grade enamelled conductors and strips; Class 240 enamelled wires for EV and specialized motor applications; and continuously transposed conductors for transformers and high-efficiency power applications. Its products are used in various applications, such as motors, transformers, generators, automotive systems and electrical equipment requiring reliable insulation, electronic circuits, inverters, fans, compressors, and automotive parts. The company exports its products to various international markets. Ram Ratna Wires Limited was founded in 1965 and is headquartered in Mumbai, India.",
+      "website": "https://www.rrshramik.com",
+      "city": "Mumbai",
+      "state": null,
+      "country": "India",
+      "location": "Mumbai, India",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/rr-sharamik",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "SUNIL KUMAR SINGH",
+          "position": "A G M - Marketing at RAM RATNA WIRES LTD",
+          "linkedin_url": "https://in.linkedin.com/in/sunil-kumar-singh-ba25b436"
+        },
+        {
+          "name": "Subhashish Ghosh",
+          "position": "MANAGER, MAINTENANCE at RAM RATNA WIRES LTD",
+          "linkedin_url": "https://in.linkedin.com/in/subhashish-ghosh-95231125"
+        },
+        {
+          "name": "CA DIVAKAR YADAV",
+          "position": "Deputy Manager at Ram Ratna Wires Limited",
+          "linkedin_url": "https://in.linkedin.com/in/ca-divakar-yadav-1a8552229"
+        },
+        {
+          "name": "santosh gupta",
+          "position": "MANAGER at RAM RATNA WIRES LTD",
+          "linkedin_url": "https://in.linkedin.com/in/santosh-gupta-50ab051a"
+        },
+        {
+          "name": "Dinesh Lahoti",
+          "position": "Purchase Manager at RAM RATNA INFRASTRUCTURE PVT LIMITED",
+          "linkedin_url": "https://in.linkedin.com/in/dinesh-lahoti-bb925884"
+        }
+      ]
+    },
+    {
+      "ticker": "BSE:RANEHOLDIN",
+      "name": "Rane Holdings Limited",
+      "industry": "Auto Parts: OEM",
+      "revenue_ttm": 58833100000,
+      "net_income_ttm": 978700000.0,
+      "employee_count": 130,
+      "business_summary": "Rane Holdings Limited, together with its subsidiaries, manufactures and markets automotive components for the transportation industry in India and internationally. The company offers steering and suspension systems comprising manual steering gears, steering linkages, suspension components, and hydraulic products; hydraulic power rack and pinion steering gear, power steering gear, power steering pump assemblies, and power steering fluid- power cruises; and intermediate shafts, electric power steering, solid steering energy absorbing and collapsible, and tilt and telescopic steering columns, as well as universal joint assemblies. It also provides engine components, including engine valves, and valve guides and mechanical tappets; brake components, such as brake linings, clutch facings, disc pads, commercial vehicle brake pads, railways brake blocks, and sintered brake pads; and occupant safety systems, including seat belts and air bags. In addition, the company offers light metal casting products comprising hydraulic pinion housings, pump housings, EPAS outboard and pinion housings, gear cases, brake, transmission, and battery housings, engine oil sumps, timing case covers, and luminaries; and aftermarket products. It serves its products to passenger vehicles, commercial vehicles, farm tractors, two-wheelers, and railways and stationary engines industries. The company was formerly known as Rane (Madras) Limited and changed its name to Rane Holdings Limited in July 2004. Rane Holdings Limited was founded in 1929 and is based in Chennai, India.",
+      "website": "https://www.ranegroup.com",
+      "city": "Chennai",
+      "state": null,
+      "country": "India",
+      "location": "Chennai, India",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/rane-holdings-limited",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Rajesh Raghavan",
+          "position": "President - Corporate, Rane Holdings Ltd",
+          "linkedin_url": "https://in.linkedin.com/in/rajesh-raghavan-900b8710"
+        },
+        {
+          "name": "Dr. P.A. Padmanabhan",
+          "position": "President - Finance & Group CFO, Rane Group / Rane Holdings Limited",
+          "linkedin_url": "https://in.linkedin.com/in/dr-p-a-padmanabhan-7247b61b"
+        },
+        {
+          "name": "Varadharajan S",
+          "position": "Executive Vice President, Rane Group",
+          "linkedin_url": "https://in.linkedin.com/in/varadharajan-s-6b7340225"
+        },
+        {
+          "name": "Santhanam Guruprasad",
+          "position": "Head - Procurement, Rane Holdings Limited",
+          "linkedin_url": "https://in.linkedin.com/in/santhanam-guruprasad-ba362b39"
+        },
+        {
+          "name": "Siva Chandrasekaran",
+          "position": "Advisor (former Senior Executive Vice President – Secretarial & Legal Services & Company Secretary), Rane Holdings Limited",
+          "linkedin_url": "https://in.linkedin.com/in/siva-chandrasekaran-a9488b17"
+        },
+        {
+          "name": "Muralidharan K Dharan",
+          "position": "General Manager - Marketing, Rane Holdings Limited",
+          "linkedin_url": "https://in.linkedin.com/in/muralidharan-k-dharan-90488851"
+        },
+        {
+          "name": "Leslie C",
+          "position": "General Manager, Rane Holdings Limited",
+          "linkedin_url": "https://in.linkedin.com/in/leslie-c-51a734138"
+        },
+        {
+          "name": "Srinivasan Thiagarajan",
+          "position": "GM - Information Systems / Deputy General Manager - Information Systems, Rane Group / Rane Holdings",
+          "linkedin_url": "https://in.linkedin.com/in/srinivasan-thiagarajan-88198424"
+        },
+        {
+          "name": "Seetha Lakshmi",
+          "position": "Assistant General Manager - HR, Rane Holdings Limited",
+          "linkedin_url": "https://in.linkedin.com/in/seetha-lakshmi-050b4138"
+        }
+      ]
+    },
+    {
+      "ticker": "BSE:CENTURYPLY",
+      "name": "Century Plyboards (India) Limited",
+      "industry": "Building Products",
+      "revenue_ttm": 57892045000,
+      "net_income_ttm": 2911405000.0,
+      "employee_count": null,
+      "business_summary": "Century Plyboards (India) Limited engages in the manufacture and sale of plywood, laminates, decorative veneers, medium density fiber boards (MDF), pre-laminated boards, particle boards, and flush doors in India. It operates through Plywood, Laminate, MDF, Plain Particle Board, CFS Services, and Others segments. The company provides plywood, blockboard, veneer, and timber; decorative laminates; and plain and pre-laminated medium density fibre boards, as well as particle boards. It also provides container freight stations services; trades in chemicals and panel products; and offers pre-engineered doors, fibre cement boards, and PVC sheets. The company also exports its products. It provides its products primarily under the ARCHITECT PLY, CENTURYEXPERIA, CENTURYTEAK, SAINIK 710, SAINIK MR, SAINIK DOORS, SAINIK LAMINATES, CENTURYDOORS, CENTURYPROWUD, CENTURYLAMINATES, CENTURYVENEERS, Zykron, and CENTURYPLY brands. Century Plyboards (India) Limited was incorporated in 1982 and is headquartered in Kolkata, India.",
+      "website": "https://www.centuryply.com",
+      "city": "Kolkata",
+      "state": null,
+      "country": "India",
+      "location": "Kolkata, India",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/century-plyboards-limited",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Naveen Lohia",
+          "position": "Vice President - Exports, Century Plyboards (I) Limited",
+          "linkedin_url": "https://in.linkedin.com/in/naveen-lohia-10408711"
+        },
+        {
+          "name": "Navarun Sen",
+          "position": "Chief Operating Officer - Panel, Century Plyboards India Limited",
+          "linkedin_url": "https://in.linkedin.com/in/navarunsen41"
+        },
+        {
+          "name": "O P TIWARI",
+          "position": "Head HR, Century Plyboards (I) Limited",
+          "linkedin_url": "https://in.linkedin.com/in/o-p-tiwari-37167019"
+        },
+        {
+          "name": "prem kumar",
+          "position": "Joint Managing Director, Century Plyboards (I) Limited",
+          "linkedin_url": "https://in.linkedin.com/in/prem-kumar-763a9228"
+        },
+        {
+          "name": "Vishnu Khemani",
+          "position": "Managing Director, Century Plyboards (I) Limited",
+          "linkedin_url": "https://in.linkedin.com/in/vishnu-khemani-7a9045361"
+        },
+        {
+          "name": "Dr. Sandip Pradhan",
+          "position": "CDIO / CIO, Century Plyboards India Limited",
+          "linkedin_url": "https://in.linkedin.com/in/dr-sandip-pradhan-208420118"
+        },
+        {
+          "name": "Abhishek Chawla",
+          "position": "Commercial Head, Century Plyboards India Limited",
+          "linkedin_url": "https://in.linkedin.com/in/abhishek-chawla-84a51572"
+        },
+        {
+          "name": "Shishiv Jain",
+          "position": "Chief Sales & Marketing Officer, CenturyPly",
+          "linkedin_url": "https://in.linkedin.com/in/shishiv"
+        },
+        {
+          "name": "Pradeep Kumar Verma",
+          "position": "Vice President (Business Development), Century Plyboards (I) Limited",
+          "linkedin_url": "https://in.linkedin.com/in/pradeep-kumar-verma-266212217"
+        },
+        {
+          "name": "Suraj Patra",
+          "position": "Vice President & Business Head, CenturyPly",
+          "linkedin_url": "https://in.linkedin.com/in/suraj-patra-5616b918"
+        },
+        {
+          "name": "Sushil Singh",
+          "position": "Vice President, Century Plyboards (I) Limited",
+          "linkedin_url": "https://in.linkedin.com/in/sushil-singh-a03258247"
+        },
+        {
+          "name": "Avtar Singh Bhullar",
+          "position": "Chief Sales & Marketing - MDF & Particle Board Division / Senior Vice President, Century Plyboards (I) Limited",
+          "linkedin_url": "https://in.linkedin.com/in/avtar-singh-bhullar-49245b52"
+        },
+        {
+          "name": "Rajeev Dua",
+          "position": "Senior Vice President - National Sales, Century Plyboards (I) Limited",
+          "linkedin_url": "https://in.linkedin.com/in/rajeevdua-56789"
+        },
+        {
+          "name": "Jayanta Chaudhuri",
+          "position": "Vice President - Research And Development, Century Plyboards (I) Limited",
+          "linkedin_url": "https://in.linkedin.com/in/jayanta-chaudhuri-8791001b0"
+        },
+        {
+          "name": "Sajjan Bhajanka",
+          "position": "Chairman, Century Plyboards (I) Limited",
+          "linkedin_url": "https://in.linkedin.com/in/sajjan-bhajanka-28b545152"
+        },
+        {
+          "name": "Rajesh Kumar Agarwal",
+          "position": "Executive Director, Century Plyboards (I) Limited",
+          "linkedin_url": "https://in.linkedin.com/in/rajesh-kumar-agarwal-00b80254"
+        },
+        {
+          "name": "Abhishek Rathi",
+          "position": "Head - Finance and Accounts (related roles at Century Plyboards listed)",
+          "linkedin_url": "https://in.linkedin.com/in/abhishek-rathi-3015881a"
+        }
+      ]
+    },
+    {
+      "ticker": "NSE:WHEELS",
+      "name": "Wheels India Limited",
+      "industry": "Auto Parts: OEM",
+      "revenue_ttm": 56904400000,
+      "net_income_ttm": 1634600000.0,
+      "employee_count": 2735,
+      "business_summary": "Wheels India Limited, together with its subsidiary, manufactures and sells automotive and industrial components in India and internationally. The company provides steel, cast aluminum, forged aluminum, and wire wheel for use in passenger and light cargo vehicles, trucks, trailers, buses, agriculture and farm equipment, off-road vehicles, and defense vehicles; vehicle chassis and suspensions; wind turbines; fabricated and precision products for construction, mining vehicle, and other equipment; hydraulic cylinders for energy equipment and off-road vehicles; and railway products, such as bogie frames and bolsters. It also offers components and structures for windmill, railways, and thermal power plants. The company was incorporated in 1960 and is headquartered in Chennai, India.",
+      "website": "https://www.wheelsindia.com",
+      "city": "Chennai",
+      "state": null,
+      "country": "India",
+      "location": "Chennai, India",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/wheelsindialimited",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Natarajan Ponnusamy",
+          "position": "Vice President",
+          "linkedin_url": "https://in.linkedin.com/in/natarajan-ponnusamy-b0399b12"
+        },
+        {
+          "name": "Sundar M",
+          "position": "Vice President - Operations",
+          "linkedin_url": "https://in.linkedin.com/in/sundar-m-511b272a2"
+        },
+        {
+          "name": "Venkataramanan V",
+          "position": "Vice President - Finance",
+          "linkedin_url": "https://in.linkedin.com/in/venkataramanan-v-69280465"
+        },
+        {
+          "name": "Sanjay Pande",
+          "position": "Sr Vice President (Marketing)",
+          "linkedin_url": "https://in.linkedin.com/in/sanjay-pande-6232b039"
+        },
+        {
+          "name": "Rajeev Kapoor",
+          "position": "Sr Vice President - Automotive Business",
+          "linkedin_url": "https://in.linkedin.com/in/rajeev-kapoor-ba209935"
+        },
+        {
+          "name": "Sridhar Raman",
+          "position": "Vice President (Accounts)",
+          "linkedin_url": "https://in.linkedin.com/in/sridhar-raman-08787a19"
+        },
+        {
+          "name": "Rajasekar Lakshmanan",
+          "position": "Vice President",
+          "linkedin_url": "https://in.linkedin.com/in/rajasekar-lakshmanan-83528b19"
+        },
+        {
+          "name": "P Ramesh Srinivas",
+          "position": "Chief Financial Officer (CFO)",
+          "linkedin_url": "https://in.linkedin.com/in/p-ramesh-srinivas-02805549"
+        },
+        {
+          "name": "Barathi Brahmendra",
+          "position": "Vice President (Supply Chain)",
+          "linkedin_url": "https://in.linkedin.com/in/barathi-brahmendra-150b6939"
+        },
+        {
+          "name": "Venkatasami Babu",
+          "position": "Vice President",
+          "linkedin_url": "https://in.linkedin.com/in/venkatasami-babu-4266681b5"
+        }
+      ]
+    },
+    {
+      "ticker": "BSE:SSWL",
+      "name": "Steel Strips Wheels Limited",
+      "industry": "Auto Parts: OEM",
+      "revenue_ttm": 55058362000,
+      "net_income_ttm": 2124273000.0000002,
+      "employee_count": null,
+      "business_summary": "Steel Strips Wheels Limited engages in the design, manufacture, and sale of automotive wheel rims and other auto components in India and internationally. It offers steel wheels rims, alloy wheel rims, and hot rolling mills for two and three wheelers, passenger cars, multi utility vehicles, tractors, commercial vehicles, and OTR vehicles; trailer and caravan; and aluminium steering knuckle. The company was incorporated in 1985 and is headquartered in Chandigarh, India.",
+      "website": "https://sswlindia.com",
+      "city": "Chandigarh",
+      "state": null,
+      "country": "India",
+      "location": "Chandigarh, India",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/steel-strips-wheels-limited",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Rajesh Trikha",
+          "position": "Sr Executive Director at Steel Strips Wheels Limited",
+          "linkedin_url": "https://in.linkedin.com/in/rajesh-trikha-a16324269"
+        },
+        {
+          "name": "Mohan Joshi",
+          "position": "Deputy Managing Director",
+          "linkedin_url": "https://in.linkedin.com/in/mohan-joshi-44290a218"
+        },
+        {
+          "name": "Dheeraj Garg",
+          "position": "Managing Director",
+          "linkedin_url": "https://in.linkedin.com/in/dheeraj-garg-a7aa3797"
+        },
+        {
+          "name": "Aditya Dixit",
+          "position": "Executive Director, International Marketing & Operations",
+          "linkedin_url": "https://in.linkedin.com/in/aditya-dixit-60525116"
+        },
+        {
+          "name": "Rajith M K",
+          "position": "Vice President Manufacturing",
+          "linkedin_url": "https://in.linkedin.com/in/rajith-m-k-263b5565"
+        },
+        {
+          "name": "Sushil Gupta",
+          "position": "Sr. Executive Director",
+          "linkedin_url": "https://in.linkedin.com/in/sushil-gupta-5115141a"
+        },
+        {
+          "name": "Sanjay Singh",
+          "position": "Vice President - Finance & Accounts",
+          "linkedin_url": "https://in.linkedin.com/in/sanjay-singh-3459a562"
+        },
+        {
+          "name": "Sarabjeet Singh",
+          "position": "General Manager",
+          "linkedin_url": "https://in.linkedin.com/in/sarabjeet-singh-1b72929"
+        },
+        {
+          "name": "Sajeev V",
+          "position": "Deputy General Manager, Commercial",
+          "linkedin_url": "https://in.linkedin.com/in/sajeev-v-b9643b267"
+        },
+        {
+          "name": "Ns Reddy",
+          "position": "General Manager",
+          "linkedin_url": "https://in.linkedin.com/in/ns-reddy-41a73536b"
+        }
+      ]
+    }
+  ]
+}

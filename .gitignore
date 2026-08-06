@@ -1,0 +1,43 @@
+# Environment & Secret Files
+.env
+.env.*
+!.env.example
+*.env
+
+# Python Caches & Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+.pytest_cache/
+
+# Node & Frontend Build Artifacts
+node_modules/
+dist/
+dist-ssr/
+build/
+.vite/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+logs/
+*.log
+
+# IDE & OS Metadata
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.user
+*.swp

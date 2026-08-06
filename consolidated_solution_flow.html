@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture Solution Flow — Native Subgraph Architecture</title>
+  
+  <!-- Typography & Document Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Export Dependencies: html2canvas & jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <style>
+    :root {
+      /* Dark Theme Design System (Default) */
+      --bg-page: #080c14;
+      --bg-header: #0d1322;
+      --bg-canvas: #0b101d;
+      --border-main: #1e293b;
+      --border-subtle: #192338;
+      
+      --text-heading: #f8fafc;
+      --text-body: #94a3b8;
+      --text-muted: #64748b;
+      --text-accent: #38bdf8;
+      
+      /* Phase Banners & Tier Headers */
+      --banner-bg-1: rgba(56, 189, 248, 0.09);
+      --banner-stroke-1: rgba(56, 189, 248, 0.4);
+      --banner-text-1: #38bdf8;
+
+      --banner-bg-2: rgba(168, 85, 247, 0.09);
+      --banner-stroke-2: rgba(168, 85, 247, 0.4);
+      --banner-text-2: #c084fc;
+
+      --banner-bg-3: rgba(16, 185, 129, 0.09);
+      --banner-stroke-3: rgba(16, 185, 129, 0.4);
+      --banner-text-3: #34d399;
+
+      --banner-bg-4: rgba(245, 158, 11, 0.09);
+      --banner-stroke-4: rgba(245, 158, 11, 0.4);
+      --banner-text-4: #fbbf24;
+
+      --banner-bg-5: rgba(236, 72, 153, 0.09);
+      --banner-stroke-5: rgba(236, 72, 153, 0.4);
+      --banner-text-5: #f472b6;
+
+      /* Cards & Nodes */
+      --card-bg: #111827;
+      --card-border: #1f2937;
+      --card-hover: #1e293b;
+      --card-inner-bg: rgba(15, 23, 42, 0.6);
+      
+      /* Connectors & Pills */
+      --arrow-line: #475569;
+      --arrow-head: #64748b;
+      --pill-bg: #0f172a;
+      --pill-border: #334155;
+      --pill-text: #cbd5e1;
+    }
+
+    [data-theme="light"] {
+      /* Light Theme Design System */
+      --bg-page: #f8fafc;
+      --bg-header: #ffffff;
+      --bg-canvas: #ffffff;
+      --border-main: #e2e8f0;
+      --border-subtle: #f1f5f9;
+
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-accent: #0284c7;
+
+      --banner-bg-1: #f0f9ff;
+      --banner-stroke-1: #bae6fd;
+      --banner-text-1: #0369a1;
+
+      --banner-bg-2: #faf5ff;
+      --banner-stroke-2: #e9d5ff;
+      --banner-text-2: #7e22ce;
+
+      --banner-bg-3: #ecfdf5;
+      --banner-stroke-3: #a7f3d0;
+      --banner-text-3: #047857;
+
+      --banner-bg-4: #fffbeb;
+      --banner-stroke-4: #fde68a;
+      --banner-text-4: #b45309;
+
+      --banner-bg-5: #fdf2f8;
+      --banner-stroke-5: #fbcfe8;
+      --banner-text-5: #be185d;
+
+      --card-bg: #ffffff;
+      --card-border: #cbd5e1;
+      --card-hover: #f8fafc;
+      --card-inner-bg: #f1f5f9;
+
+      --arrow-line: #94a3b8;
+      --arrow-head: #64748b;
+      --pill-bg: #ffffff;
+      --pill-border: #cbd5e1;
+      --pill-text: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      min-height: 100vh;
+      padding: 24px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .main-wrapper {
+      width: 100%;
+      max-width: 1980px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Header Bar with Well-Proportioned Compact Controls */
+    header.diagram-header {
+      background-color: var(--bg-header);
+      border: 1px solid var(--border-main);
+      border-radius: 12px;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .header-titles {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .header-titles h1 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-titles p {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Small, Clean Header Controls */
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-compact {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-main);
+      color: var(--text-body);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.18s ease;
+      user-select: none;
+      height: 30px;
+    }
+
+    .btn-compact:hover {
+      background-color: var(--card-hover);
+      border-color: var(--text-accent);
+      color: var(--text-heading);
+      transform: translateY(-1px);
+    }
+
+    .btn-compact svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Main Canvas Container */
+    .canvas-container {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-main);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+      overflow-x: auto;
+      position: relative;
+    }
+
+    svg.diagram-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Typography inside SVG */
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .font-sans {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Summary Footer Section */
+    .summary-footer {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .summary-card {
+      background-color: var(--bg-header);
+      border: 1px solid var(--border-main);
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .summary-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-heading);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .summary-card p {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Toast Notification */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #0f172a;
+      color: #f8fafc;
+      border: 1px solid #38bdf8;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-wrapper" id="report-container">
+    
+    <!-- Header Bar with Compact Controls -->
+    <header class="diagram-header">
+      <div class="header-titles">
+        <h1>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          Multi-Agent System Architecture &amp; Native Subgraph Flow
+        </h1>
+        <p>Shortlister Agent &amp; LinkedIn Finder Subgraph · Native In-Process Multi-Agent LangGraph Pipeline</p>
+      </div>
+
+      <!-- Small & Compact Controls -->
+      <div class="header-controls">
+        <button class="btn-compact" id="themeToggleBtn" onclick="toggleTheme()" title="Switch Light/Dark Mode">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <span id="themeLabel">Light</span>
+        </button>
+
+        <button class="btn-compact" onclick="copyPNG()" title="Copy Diagram as PNG Image">
+          <svg viewBox="0 0 24 24">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          Copy PNG
+        </button>
+
+        <button class="btn-compact" onclick="downloadPNG()" title="Download High-Res PNG">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download PNG
+        </button>
+
+        <button class="btn-compact" onclick="downloadPDF()" title="Download Document PDF">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          Download PDF
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Canvas Container -->
+    <div class="canvas-container">
+      <svg class="diagram-svg" viewBox="0 0 1920 1640" xmlns="http://www.w3.org/2000/svg">
+        
+        <!-- ========================================================================= -->
+        <!-- REUSABLE SVG DEFS & BRAND LOGOS                                          -->
+        <!-- ========================================================================= -->
+        <defs>
+          <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+          </marker>
+          <marker id="arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#c084fc"/>
+          </marker>
+          <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399"/>
+          </marker>
+          <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#fbbf24"/>
+          </marker>
+          <marker id="arrow-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748b"/>
+          </marker>
+
+          <!-- React Logo -->
+          <g id="logo-react">
+            <ellipse cx="10" cy="10" rx="9" ry="3.5" fill="none" stroke="#38bdf8" stroke-width="1.2" transform="rotate(0 10 10)"/>
+            <ellipse cx="10" cy="10" rx="9" ry="3.5" fill="none" stroke="#38bdf8" stroke-width="1.2" transform="rotate(60 10 10)"/>
+            <ellipse cx="10" cy="10" rx="9" ry="3.5" fill="none" stroke="#38bdf8" stroke-width="1.2" transform="rotate(120 10 10)"/>
+            <circle cx="10" cy="10" r="1.8" fill="#38bdf8"/>
+          </g>
+
+          <!-- FastAPI Logo -->
+          <g id="logo-fastapi">
+            <circle cx="10" cy="10" r="9.5" fill="#059669"/>
+            <path d="M 11 3 L 5 11.5 L 10 11.5 L 9 17 L 15 8.5 L 10 8.5 Z" fill="#ffffff"/>
+          </g>
+
+          <!-- Python Logo -->
+          <g id="logo-python">
+            <path d="M 9.9 1 C 5.5 1 5.8 2.9 5.8 2.9 L 5.8 4.8 L 10 4.8 L 10 5.4 L 4.1 5.4 C 2.3 5.4 1 6.7 1 9 C 1 11.3 2.1 12.3 3.9 12.3 L 5.1 12.3 L 5.1 10.6 C 5.1 8.6 6.8 7 8.9 7 L 12.9 7 C 14.5 7 15.8 5.7 15.8 4.1 C 15.8 2.5 14.3 1 9.9 1 Z M 7.3 2.4 C 7.8 2.4 8.2 2.8 8.2 3.3 C 8.2 3.8 7.8 4.2 7.3 4.2 C 6.8 4.2 6.4 3.8 6.4 3.3 C 6.4 2.8 6.8 2.4 7.3 2.4 Z" fill="#38bdf8"/>
+            <path d="M 10.1 19 C 14.5 19 14.2 17.1 14.2 17.1 L 14.2 15.2 L 10 15.2 L 10 14.6 L 15.9 14.6 C 17.7 14.6 19 13.3 19 11 C 19 8.7 17.9 7.7 16.1 7.7 L 14.9 7.7 L 14.9 9.4 C 14.9 11.4 13.2 13 11.1 13 L 7.1 13 C 5.5 13 4.2 14.3 4.2 15.9 C 4.2 17.5 5.7 19 10.1 19 Z M 12.7 17.6 C 12.2 17.6 11.8 17.2 11.8 16.7 C 11.8 16.2 12.2 15.8 12.7 15.8 C 13.2 15.8 13.6 16.2 13.6 16.7 C 13.6 17.2 13.2 17.6 12.7 17.6 Z" fill="#fbbf24"/>
+          </g>
+
+          <!-- Azure OpenAI Logo -->
+          <g id="logo-azure">
+            <path d="M 2 15.5 L 8.5 2.5 L 14 12 L 8 18 Z" fill="#0078d4"/>
+            <path d="M 8.5 2.5 L 18 17.5 L 12.5 17.5 L 8.5 11.5 Z" fill="#50e6ff"/>
+          </g>
+
+          <!-- TradingView Logo -->
+          <g id="logo-tradingview">
+            <rect x="2" y="2" width="16" height="16" rx="3" fill="#131722"/>
+            <path d="M 4 14 L 8 9 L 11 12 L 16 6" fill="none" stroke="#2962ff" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="16" cy="6" r="1.5" fill="#2962ff"/>
+          </g>
+
+          <!-- LinkedIn Logo -->
+          <g id="logo-linkedin">
+            <rect x="1" y="1" width="18" height="18" rx="4" fill="#0a66c2"/>
+            <path d="M 5 8 h 2 v 7 H 5 Z M 6 5.5 a 1.25 1.25 0 1 1 0 -2.5 a 1.25 1.25 0 0 1 0 2.5 Z M 9.5 8 h 2 v 1 h 0.1 a 2.3 2.3 0 0 1 2.1 -1.2 c 2.2 0 2.6 1.5 2.6 3.4 v 4.8 h -2 v -4.3 c 0 -1.1 0 -2.4 -1.5 -2.4 c -1.5 0 -1.7 1.2 -1.7 2.3 v 4.4 h -2 Z" fill="#ffffff"/>
+          </g>
+
+          <!-- Bright Data Logo -->
+          <g id="logo-brightdata">
+            <circle cx="10" cy="10" r="9" fill="#10b981"/>
+            <path d="M 6 10 C 6 7.8 7.8 6 10 6 C 12.2 6 14 7.8 14 10 C 14 12.2 12.2 14 10 14" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="10" cy="10" r="2" fill="#ffffff"/>
+          </g>
+
+          <!-- SQLite Logo -->
+          <g id="logo-sqlite">
+            <ellipse cx="10" cy="5" rx="8" ry="3" fill="#0284c7"/>
+            <path d="M 2 5 v 5 c 0 1.65 3.58 3 8 3 s 8 -1.35 8 -3 V 5" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+            <path d="M 2 10 v 5 c 0 1.65 3.58 3 8 3 s 8 -1.35 8 -3 v -5" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+          </g>
+        </defs>
+
+        <!-- ========================================================================= -->
+        <!-- PHASE 1: USER PRESENTATION & INGESTION LAYER                              -->
+        <!-- ========================================================================= -->
+        <g id="phase-1-banner">
+          <rect x="40" y="40" width="1840" height="44" rx="8" fill="var(--banner-bg-1)" stroke="var(--banner-stroke-1)" stroke-width="1.2"/>
+          <text x="60" y="67" class="font-mono" font-size="12.5" font-weight="700" fill="var(--banner-text-1)" letter-spacing="1.5">PHASE 01 / USER INPUT INGESTION &amp; REACT FRONTEND INTERFACE (PORT 5173)</text>
+          <use href="#logo-react" x="1840" y="52" width="20" height="20"/>
+        </g>
+
+        <!-- Step 1 Card -->
+        <g id="card-step-1">
+          <rect x="40" y="98" width="430" height="118" rx="10" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="66" cy="122" r="12" fill="#38bdf8"/>
+          <text x="66" y="126" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">1</text>
+          <text x="88" y="126" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">Natural Language Prompt Input</text>
+
+          <text x="60" y="151" class="font-sans" font-size="11.5" fill="var(--text-body)">• User enters company criteria ("Tech companies in India")</text>
+          <text x="60" y="170" class="font-sans" font-size="11.5" fill="var(--text-body)">• Auto-detects target geographic location &amp; revenue bounds</text>
+          <text x="60" y="189" class="font-sans" font-size="11" fill="var(--text-accent)" class="font-mono">POST /api/shortlister/run → Submits payload</text>
+        </g>
+
+        <!-- Step 2 Card -->
+        <g id="card-step-2">
+          <rect x="490" y="98" width="440" height="118" rx="10" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="516" cy="122" r="12" fill="#38bdf8"/>
+          <text x="516" y="126" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">2</text>
+          <text x="538" y="126" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">FastAPI Async Router &amp; SSE Setup</text>
+
+          <text x="510" y="151" class="font-sans" font-size="11.5" fill="var(--text-body)">• Spawns Agent Pipeline in non-blocking async task</text>
+          <text x="510" y="170" class="font-sans" font-size="11.5" fill="var(--text-body)">• Initializes real-time SSE stream (<tspan class="font-mono">EventSourceResponse</tspan>)</text>
+          <text x="510" y="189" class="font-sans" font-size="11" fill="var(--text-accent)" class="font-mono">backend/main.py · Async FastAPI App</text>
+        </g>
+
+        <!-- Step 3 Card -->
+        <g id="card-step-3">
+          <rect x="950" y="98" width="450" height="118" rx="10" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="976" cy="122" r="12" fill="#38bdf8"/>
+          <text x="976" y="126" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">3</text>
+          <text x="998" y="126" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">Live Terminal &amp; Telemetry Stream</text>
+
+          <text x="970" y="151" class="font-sans" font-size="11.5" fill="var(--text-body)">• Unbuffered stdout log streaming to browser UI</text>
+          <text x="970" y="170" class="font-sans" font-size="11.5" fill="var(--text-body)">• Execution timers, active company counters &amp; API token costs</text>
+          <text x="970" y="189" class="font-sans" font-size="11" fill="var(--text-muted)">In-memory log replay buffer for reconnecting clients</text>
+        </g>
+
+        <!-- Step 4 Card -->
+        <g id="card-step-4">
+          <rect x="1420" y="98" width="460" height="118" rx="10" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="1446" cy="122" r="12" fill="#38bdf8"/>
+          <text x="1446" y="126" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">4</text>
+          <text x="1468" y="126" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">Interactive Excel Preview Dashboard</text>
+
+          <text x="1440" y="151" class="font-sans" font-size="11.5" fill="var(--text-body)">• Renders shortlisted company tables &amp; verified status</text>
+          <text x="1440" y="170" class="font-sans" font-size="11.5" fill="var(--text-body)">• Deep-dive view for C-Level / VP decision maker contacts</text>
+          <text x="1440" y="189" class="font-sans" font-size="11" fill="var(--text-accent)" class="font-mono">GET /api/shortlister/excel → Download Workbook</text>
+        </g>
+
+        <!-- Step Connectors Row 1 -->
+        <path d="M 470 157 L 490 157" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+        <path d="M 930 157 L 950 157" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+        <path d="M 1400 157 L 1420 157" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+
+
+        <!-- Connector Pill: Phase 1 to Phase 2 (Well Proportioned) -->
+        <path d="M 710 216 L 710 268" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-purple)"/>
+        <rect x="625" y="230" width="170" height="22" rx="5" fill="var(--pill-bg)" stroke="var(--pill-border)" stroke-width="1"/>
+        <text x="710" y="245" text-anchor="middle" class="font-mono" font-size="10.5" font-weight="600" fill="var(--pill-text)">Executes Master Graph</text>
+
+
+        <!-- ========================================================================= -->
+        <!-- PHASE 2: SHORTLISTER AGENT SCANNING & DISCOVERY PIPELINE                   -->
+        <!-- ========================================================================= -->
+        <g id="phase-2-banner">
+          <rect x="40" y="275" width="1840" height="44" rx="8" fill="var(--banner-bg-2)" stroke="var(--banner-stroke-2)" stroke-width="1.2"/>
+          <text x="60" y="302" class="font-mono" font-size="12.5" font-weight="700" fill="var(--banner-text-2)" letter-spacing="1.5">PHASE 02 / SHORTLISTER AGENT PIPELINE — STOCK SCANNER &amp; DATA ENRICHMENT</text>
+          <use href="#logo-python" x="1840" y="287" width="20" height="20"/>
+        </g>
+
+        <!-- Phase 2 Boundary Box -->
+        <rect x="40" y="330" width="1840" height="280" rx="10" fill="none" stroke="var(--banner-stroke-2)" stroke-width="1.2" stroke-dasharray="6,4"/>
+        <text x="58" y="350" class="font-mono" font-size="10.5" font-weight="700" fill="var(--banner-text-2)">Shortlister Agent Graph (Steps 5 to 8: LLM Query → Screener → yfinance → Cleaner)</text>
+
+        <!-- Step 5 Card -->
+        <g id="card-step-5">
+          <rect x="60" y="365" width="410" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="86" cy="389" r="12" fill="#c084fc"/>
+          <text x="86" y="393" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">5</text>
+          <text x="108" y="393" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">LLM Query Formulator</text>
+
+          <text x="80" y="418" class="font-sans" font-size="11.5" fill="var(--text-body)">• Azure OpenAI <tspan font-weight="600" fill="var(--text-heading)">gpt-5-mini-2</tspan> with Pydantic</text>
+          <text x="80" y="437" class="font-sans" font-size="11.5" fill="var(--text-body)">• Parses sector, industry, market &amp; revenue bounds</text>
+          <text x="80" y="456" class="font-sans" font-size="11" fill="var(--banner-text-2)" class="font-mono">query_formulator node → ScreenerQuery</text>
+        </g>
+
+        <!-- Step 6 Card -->
+        <g id="card-step-6">
+          <rect x="515" y="365" width="420" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="541" cy="389" r="12" fill="#c084fc"/>
+          <text x="541" y="393" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">6</text>
+          <text x="563" y="393" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">TradingView Screener Fetch</text>
+
+          <text x="535" y="418" class="font-sans" font-size="11.5" fill="var(--text-body)">• Executes stock scanner via <tspan class="font-mono">tradingview_screener</tspan></text>
+          <text x="535" y="437" class="font-sans" font-size="11.5" fill="var(--text-body)">• 2-Level fallback: Sector-only &amp; relaxed financial bounds</text>
+          <text x="535" y="456" class="font-sans" font-size="11" fill="var(--text-muted)">Deduplicates BSE entries, keeping primary NSE symbols</text>
+        </g>
+
+        <!-- Step 7 Card -->
+        <g id="card-step-7">
+          <rect x="975" y="365" width="430" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="1001" cy="389" r="12" fill="#c084fc"/>
+          <text x="1001" y="393" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">7</text>
+          <text x="1023" y="393" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">yfinance Data Enricher</text>
+
+          <text x="995" y="418" class="font-sans" font-size="11.5" fill="var(--text-body)">• Concurrent worker pool (<tspan class="font-mono">asyncio.Semaphore(5)</tspan>)</text>
+          <text x="995" y="437" class="font-sans" font-size="11.5" fill="var(--text-body)">• Fetches website URL, headcount &amp; business summary</text>
+          <text x="995" y="456" class="font-sans" font-size="11" fill="var(--text-muted)">Fallback website lookup via <tspan class="font-mono">financedatabase</tspan></text>
+        </g>
+
+        <!-- Step 8 Card -->
+        <g id="card-step-8">
+          <rect x="1445" y="365" width="415" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="1471" cy="389" r="12" fill="#c084fc"/>
+          <text x="1471" y="393" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">8</text>
+          <text x="1493" y="393" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">Cleaner &amp; Top 10 Ranker</text>
+
+          <text x="1465" y="418" class="font-sans" font-size="11.5" fill="var(--text-body)">• Filters out companies with invalid/unresolvable sites</text>
+          <text x="1465" y="437" class="font-sans" font-size="11.5" fill="var(--text-body)">• Sorts companies descending by Total Revenue (TTM)</text>
+          <text x="1465" y="456" class="font-sans" font-size="11" fill="var(--text-muted)">Selects Top 10 candidates for parallel verification</text>
+        </g>
+
+        <!-- Connectors inside Phase 2 Row -->
+        <path d="M 470 422 L 515 422" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-purple)"/>
+        <path d="M 935 422 L 975 422" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-purple)"/>
+        <path d="M 1405 422 L 1445 422" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-purple)"/>
+
+
+        <!-- Connector Pill: Phase 2 to Phase 3 -->
+        <path d="M 1650 480 L 1650 510 L 265 510 L 265 550" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#arrow-green)"/>
+        <rect x="870" y="499" width="180" height="22" rx="5" fill="var(--pill-bg)" stroke="var(--pill-border)" stroke-width="1"/>
+        <text x="960" y="514" text-anchor="middle" class="font-mono" font-size="10.5" font-weight="600" fill="var(--pill-text)">Top 10 Shortlist Payload</text>
+
+
+        <!-- ========================================================================= -->
+        <!-- PHASE 3: DUAL-TRACK LINKEDIN VERIFICATION & SUBGRAPH DISPATCH             -->
+        <!-- ========================================================================= -->
+        <g id="phase-3-banner">
+          <rect x="40" y="555" width="1840" height="44" rx="8" fill="var(--banner-bg-3)" stroke="var(--banner-stroke-3)" stroke-width="1.2"/>
+          <text x="60" y="582" class="font-mono" font-size="12.5" font-weight="700" fill="var(--banner-text-3)" letter-spacing="1.5">PHASE 03 / DUAL-TRACK LINKEDIN VERIFICATION &amp; SUBGRAPH DISPATCH</text>
+        </g>
+
+        <!-- Phase 3 Boundary Box -->
+        <rect x="40" y="610" width="1840" height="280" rx="10" fill="none" stroke="var(--banner-stroke-3)" stroke-width="1.2" stroke-dasharray="6,4"/>
+        <text x="58" y="630" class="font-mono" font-size="10.5" font-weight="700" fill="var(--banner-text-3)">Shortlister Agent Graph (Step 5: Parallel Verification Subgraph &amp; LinkedIn Finder Subgraph)</text>
+
+        <!-- Step 9A Card: Selenium -->
+        <g id="card-step-9a">
+          <rect x="60" y="645" width="410" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="86" cy="669" r="12" fill="#10b981"/>
+          <text x="86" y="673" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">9A</text>
+          <text x="108" y="673" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">Selenium Homepage Crawler</text>
+
+          <text x="80" y="698" class="font-sans" font-size="11.5" fill="var(--text-body)">• Headless Selenium scrapes official website footer</text>
+          <text x="80" y="717" class="font-sans" font-size="11.5" fill="var(--text-body)">• Deterministic extraction of verified LinkedIn URL</text>
+          <text x="80" y="736" class="font-sans" font-size="11" fill="var(--banner-text-3)">Deterministic LinkedIn Match ✅</text>
+        </g>
+
+        <!-- Step 9B Card: LLM Search Subagent -->
+        <g id="card-step-9b">
+          <rect x="515" y="645" width="420" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="541" cy="669" r="12" fill="#10b981"/>
+          <text x="541" y="673" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">9B</text>
+          <text x="563" y="673" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">LLM Search Sub-Agent</text>
+
+          <text x="535" y="698" class="font-sans" font-size="11.5" fill="var(--text-body)">• Fallback search subagent (<tspan class="font-mono">researcher_subgraph</tspan>)</text>
+          <text x="535" y="717" class="font-sans" font-size="11.5" fill="var(--text-body)">• Structured query: <tspan class="font-mono">"Company" "domain" site:linkedin</tspan></text>
+          <text x="535" y="736" class="font-sans" font-size="11" fill="var(--text-muted)">Executes if homepage crawler returns NOT FOUND</text>
+        </g>
+
+        <!-- Step 9C Card: Native Subgraph Invocation -->
+        <g id="card-step-9c">
+          <rect x="975" y="645" width="430" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="1001" cy="669" r="12" fill="#10b981"/>
+          <text x="1001" y="673" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">9C</text>
+          <text x="1023" y="673" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">LinkedIn Finder Subgraph Call</text>
+
+          <text x="995" y="698" class="font-sans" font-size="11.5" fill="var(--text-body)">• Direct in-process subgraph execution (<tspan class="font-mono">ainvoke</tspan>)</text>
+          <text x="995" y="717" class="font-sans" font-size="11.5" fill="var(--text-body)">• Passes <tspan class="font-mono">company_name</tspan>, <tspan class="font-mono">website</tspan> &amp; <tspan class="font-mono">location</tspan> dict</text>
+          <text x="995" y="736" class="font-sans" font-size="11" fill="var(--text-accent)">Executes Phase 4 Contact Finder Subgraph ➔</text>
+        </g>
+
+        <!-- Step 10 Card: Shortlister Report Exporter -->
+        <g id="card-step-10">
+          <rect x="1445" y="645" width="415" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="1471" cy="669" r="12" fill="#10b981"/>
+          <text x="1471" y="673" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">10</text>
+          <text x="1493" y="673" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">Shortlister Report Exporter</text>
+
+          <text x="1465" y="698" class="font-sans" font-size="11.5" fill="var(--text-body)">• Compiles verified company records into styled Excel</text>
+          <text x="1465" y="717" class="font-sans" font-size="11.5" fill="var(--text-body)">• Saves state snapshot to <tspan class="font-mono">output/shortlister/*.json</tspan></text>
+          <text x="1465" y="736" class="font-sans" font-size="11" fill="var(--banner-text-3)">Shortlister Pipeline Complete 🎉</text>
+        </g>
+
+        <!-- Connectors inside Phase 3 -->
+        <path d="M 470 702 L 515 702" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+        <path d="M 935 702 L 975 702" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+        <path d="M 1405 702 L 1445 702" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+
+
+        <!-- Connector Pill: Phase 3 to Phase 4 (Well Proportioned) -->
+        <path d="M 1190 760 L 1190 810" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
+        <rect x="1090" y="770" width="200" height="22" rx="5" fill="var(--pill-bg)" stroke="var(--pill-border)" stroke-width="1"/>
+        <text x="1190" y="785" text-anchor="middle" class="font-mono" font-size="10.5" font-weight="600" fill="var(--pill-text)">In-Process Subgraph (ainvoke x10)</text>
+
+
+        <!-- ========================================================================= -->
+        <!-- PHASE 4: LINKEDIN FINDER AGENT (NATIVE LANGGRAPH SUBGRAPH)                -->
+        <!-- ========================================================================= -->
+        <g id="phase-4-banner">
+          <rect x="40" y="815" width="1840" height="44" rx="8" fill="var(--banner-bg-4)" stroke="var(--banner-stroke-4)" stroke-width="1.2"/>
+          <text x="60" y="842" class="font-mono" font-size="12.5" font-weight="700" fill="var(--banner-text-4)" letter-spacing="1.5">PHASE 04 / LINKEDIN FINDER AGENT (NATIVE IN-PROCESS LANGGRAPH SUBGRAPH)</text>
+          <use href="#logo-linkedin" x="1840" y="827" width="20" height="20"/>
+        </g>
+
+        <!-- Phase 4 Boundary Box -->
+        <rect x="40" y="870" width="1840" height="170" rx="10" fill="none" stroke="var(--banner-stroke-4)" stroke-width="1.2" stroke-dasharray="6,4"/>
+        <text x="58" y="890" class="font-mono" font-size="10.5" font-weight="700" fill="var(--banner-text-4)">LinkedIn Finder Subgraph (Native StateGraph compiled &amp; invoked via ainvoke)</text>
+
+        <!-- Step 11 Card -->
+        <g id="card-step-11">
+          <rect x="60" y="905" width="345" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="86" cy="929" r="12" fill="#f59e0b"/>
+          <text x="86" y="933" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">11</text>
+          <text x="108" y="933" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">LLM Query Generator</text>
+
+          <text x="80" y="958" class="font-sans" font-size="11.5" fill="var(--text-body)">• Azure OpenAI formulates targeted search</text>
+          <text x="80" y="977" class="font-sans" font-size="11.5" fill="var(--text-body)">• Targets C-Suite, VP, Founders &amp; Directors</text>
+          <text x="80" y="996" class="font-sans" font-size="11" fill="var(--text-muted)">Outputs structured <tspan class="font-mono" fill="var(--banner-text-4)">GeneratedQuery</tspan></text>
+        </g>
+
+        <!-- Step 12 Card -->
+        <g id="card-step-12">
+          <rect x="435" y="905" width="345" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="461" cy="929" r="12" fill="#f59e0b"/>
+          <text x="461" y="933" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">12</text>
+          <text x="483" y="933" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">SerpAPI Google Search</text>
+
+          <text x="455" y="958" class="font-sans" font-size="11.5" fill="var(--text-body)">• Queries Google Engine via SerpAPI</text>
+          <text x="455" y="977" class="font-sans" font-size="11.5" fill="var(--text-body)">• Extracts Google AI Overview &amp; snippets</text>
+          <text x="455" y="996" class="font-sans" font-size="11" fill="var(--text-muted)">Initial organic profile URL harvesting</text>
+        </g>
+
+        <!-- Step 13 Card -->
+        <g id="card-step-13">
+          <rect x="810" y="905" width="355" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="836" cy="929" r="12" fill="#f59e0b"/>
+          <text x="836" y="933" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">13</text>
+          <text x="858" y="933" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">Dynamic Research Loop</text>
+
+          <text x="830" y="958" class="font-sans" font-size="11.5" fill="var(--text-body)">• Multi-turn tool calling (<tspan class="font-mono">research_loop</tspan>)</text>
+          <text x="830" y="977" class="font-sans" font-size="11.5" fill="var(--text-body)">• Bright Data MCP: <tspan class="font-mono">web_search</tspan> &amp; <tspan class="font-mono">fetch_page</tspan></text>
+          <text x="830" y="996" class="font-sans" font-size="11" fill="var(--text-muted)">Deep-dives into profile details &amp; credentials</text>
+        </g>
+
+        <!-- Step 14 Card -->
+        <g id="card-step-14">
+          <rect x="1195" y="905" width="340" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="1221" cy="929" r="12" fill="#f59e0b"/>
+          <text x="1221" y="933" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">14</text>
+          <text x="1243" y="933" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">Decision Maker Extractor</text>
+
+          <text x="1215" y="958" class="font-sans" font-size="11.5" fill="var(--text-body)">• LLM structured schema parsing</text>
+          <text x="1215" y="977" class="font-sans" font-size="11.5" fill="var(--text-body)">• Extracts Name, Title, URL &amp; Score</text>
+          <text x="1215" y="996" class="font-sans" font-size="11" fill="var(--text-muted)">Filters out low confidence candidates</text>
+        </g>
+
+        <!-- Step 15 Card -->
+        <g id="card-step-15">
+          <rect x="1565" y="905" width="295" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="1591" cy="929" r="12" fill="#f59e0b"/>
+          <text x="1591" y="933" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">15</text>
+          <text x="1613" y="933" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">Contact Excel Exporter</text>
+
+          <text x="1585" y="958" class="font-sans" font-size="11.5" fill="var(--text-body)">• Exports contact workbook</text>
+          <text x="1585" y="977" class="font-sans" font-size="11.5" fill="var(--text-body)">• Writes <tspan class="font-mono">agent_state_{id}.json</tspan></text>
+          <text x="1585" y="996" class="font-sans" font-size="11" fill="var(--banner-text-4)">Sub-graph Returns Result ✅</text>
+        </g>
+
+        <!-- Connectors inside Phase 4 -->
+        <path d="M 405 962 L 435 962" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
+        <path d="M 780 962 L 810 962" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
+        <path d="M 1165 962 L 1195 962" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
+        <path d="M 1535 962 L 1565 962" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
+
+
+        <!-- Connector: Phase 4 to Phase 5 -->
+        <path d="M 960 1040 L 960 1090" fill="none" stroke="var(--arrow-line)" stroke-width="1.8" marker-end="url(#arrow-gray)"/>
+
+
+        <!-- ========================================================================= -->
+        <!-- PHASE 5: INTEGRATED EXTERNAL SERVICES & DATA STORES                       -->
+        <!-- ========================================================================= -->
+        <g id="phase-5-banner">
+          <rect x="40" y="1090" width="1840" height="44" rx="8" fill="var(--banner-bg-5)" stroke="var(--banner-stroke-5)" stroke-width="1.2"/>
+          <text x="60" y="1117" class="font-mono" font-size="12.5" font-weight="700" fill="var(--banner-text-5)" letter-spacing="1.5">PHASE 05 / INTEGRATED EXTERNAL SERVICES, TOOLS &amp; PERSISTENCE LAYER</text>
+        </g>
+
+        <!-- Phase 5 Cards Row (y = 1145, h = 115) -->
+
+        <!-- Service 1: Azure OpenAI -->
+        <g id="card-service-1">
+          <rect x="40" y="1145" width="350" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <use href="#logo-azure" x="60" y="1162" width="22" height="22"/>
+          <text x="90" y="1178" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">Azure OpenAI Service</text>
+
+          <text x="60" y="1203" class="font-sans" font-size="11.5" fill="var(--text-body)">• Deployments: <tspan font-weight="600" fill="var(--text-heading)">gpt-5-mini-2 / gpt-4o</tspan></text>
+          <text x="60" y="1222" class="font-sans" font-size="11.5" fill="var(--text-body)">• Structured JSON outputs &amp; research decisions</text>
+          <text x="60" y="1241" class="font-sans" font-size="11" fill="var(--banner-text-5)">Rate-limit retry &amp; token cost logging</text>
+        </g>
+
+        <!-- Service 2: TradingView & yfinance -->
+        <g id="card-service-2">
+          <rect x="415" y="1145" width="350" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <use href="#logo-tradingview" x="435" y="1162" width="22" height="22"/>
+          <text x="465" y="1178" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">TradingView &amp; yfinance APIs</text>
+
+          <text x="435" y="1203" class="font-sans" font-size="11.5" fill="var(--text-body)">• Financial stock scanner &amp; sector screening</text>
+          <text x="435" y="1222" class="font-sans" font-size="11.5" fill="var(--text-body)">• TTM revenue, net income &amp; employee counts</text>
+          <text x="435" y="1241" class="font-sans" font-size="11" fill="var(--banner-text-5)">FinanceDatabase domain fallback lookup</text>
+        </g>
+
+        <!-- Service 3: Bright Data MCP & Selenium -->
+        <g id="card-service-3">
+          <rect x="790" y="1145" width="350" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <use href="#logo-brightdata" x="810" y="1162" width="22" height="22"/>
+          <text x="840" y="1178" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">Bright Data MCP &amp; Selenium</text>
+
+          <text x="810" y="1203" class="font-sans" font-size="11.5" fill="var(--text-body)">• Headless Selenium browser link scraper</text>
+          <text x="810" y="1222" class="font-sans" font-size="11.5" fill="var(--text-body)">• Bright Data MCP <tspan class="font-mono">web_search</tspan> &amp; <tspan class="font-mono">fetch_page</tspan></text>
+          <text x="810" y="1241" class="font-sans" font-size="11" fill="var(--banner-text-5)">Proxy network for accurate live research</text>
+        </g>
+
+        <!-- Service 4: SerpAPI Google Engine -->
+        <g id="card-service-4">
+          <rect x="1165" y="1145" width="340" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <circle cx="1187" cy="1173" r="11" fill="#ea4335"/>
+          <text x="1187" y="1177" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff">G</text>
+          <text x="1208" y="1178" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">SerpAPI Google Search</text>
+
+          <text x="1175" y="1203" class="font-sans" font-size="11.5" fill="var(--text-body)">• Programmatic Google Search API engine</text>
+          <text x="1175" y="1222" class="font-sans" font-size="11.5" fill="var(--text-body)">• Google AI Overview &amp; organic answer boxes</text>
+          <text x="1175" y="1241" class="font-sans" font-size="11" fill="var(--banner-text-5)">SerpAPI JSON response extraction</text>
+        </g>
+
+        <!-- Service 5: SQLite & Excel Storage -->
+        <g id="card-service-5">
+          <rect x="1530" y="1145" width="350" height="115" rx="8" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1"/>
+          <use href="#logo-sqlite" x="1550" y="1162" width="22" height="22"/>
+          <text x="1580" y="1178" class="font-sans" font-size="13.5" font-weight="700" fill="var(--text-heading)">SQLite &amp; Excel Persistence</text>
+
+          <text x="1550" y="1203" class="font-sans" font-size="11.5" fill="var(--text-body)">• LangGraph checkpointer (<tspan class="font-mono">memory.db</tspan>)</text>
+          <text x="1550" y="1222" class="font-sans" font-size="11.5" fill="var(--text-body)">• Styled <tspan class="font-mono">.xlsx</tspan> workbooks &amp; JSON state files</text>
+          <text x="1550" y="1241" class="font-sans" font-size="11" fill="var(--banner-text-5)">Full session replayability &amp; audit log</text>
+        </g>
+
+        <!-- Legend Bar at Bottom (Well Proportioned) -->
+        <g id="diagram-legend" transform="translate(40, 1310)">
+          <rect x="0" y="0" width="1840" height="44" rx="8" fill="var(--bg-header)" stroke="var(--border-main)" stroke-width="1"/>
+          <text x="20" y="26" class="font-mono" font-size="11" font-weight="700" fill="var(--text-heading)">DIAGRAM LEGEND:</text>
+
+          <rect x="150" y="15" width="14" height="14" rx="3" fill="#38bdf8"/>
+          <text x="172" y="26" class="font-sans" font-size="11" fill="var(--text-body)">Phase 1: User &amp; API Ingestion</text>
+
+          <rect x="360" y="15" width="14" height="14" rx="3" fill="#c084fc"/>
+          <text x="382" y="26" class="font-sans" font-size="11" fill="var(--text-body)">Phase 2: Shortlister Stock Scanner</text>
+
+          <rect x="600" y="15" width="14" height="14" rx="3" fill="#10b981"/>
+          <text x="622" y="26" class="font-sans" font-size="11" fill="var(--text-body)">Phase 3: Dual-Track LinkedIn Verification</text>
+
+          <rect x="870" y="15" width="14" height="14" rx="3" fill="#f59e0b"/>
+          <text x="892" y="26" class="font-sans" font-size="11" fill="var(--text-body)">Phase 4: Contact Finder Subgraph</text>
+
+          <path d="M 1130 22 L 1160 22" fill="none" stroke="var(--arrow-line)" stroke-width="2" marker-end="url(#arrow-blue)"/>
+          <text x="1170" y="26" class="font-sans" font-size="11" fill="var(--text-body)">Sequential Node Transition</text>
+
+          <path d="M 1360 22 L 1390 22" fill="none" stroke="var(--arrow-line)" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrow-amber)"/>
+          <text x="1400" y="26" class="font-sans" font-size="11" fill="var(--text-body)">Native Subgraph Invocation (ainvoke x10)</text>
+        </g>
+
+      </svg>
+    </div>
+
+    <!-- Summary Architecture Cards -->
+    <div class="summary-footer">
+      <div class="summary-card">
+        <h3>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          Native In-Process Subgraph Architecture
+        </h3>
+        <p>LinkedIn Finder Agent executes as a native compiled LangGraph Subgraph (<code class="font-mono">contact_finder_graph</code>). Shortlister Agent invokes it directly in-process via <code class="font-mono">await run_linkedin_finder_subgraph(...)</code>, eliminating subprocess launching overhead.</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          Concurrent Dual-Task Agent Loop
+        </h3>
+        <p>For each candidate company, Shortlister Agent launches two concurrent in-process tasks: Task 1 verifies company LinkedIn URLs via Selenium/LLM search, while Task 2 executes the LinkedIn Finder Subgraph in parallel.</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+          </svg>
+          Multi-Turn MCP Tool Loop &amp; Persistence
+        </h3>
+        <p>The Subgraph executes deep profile searches using Bright Data MCP and SerpAPI. Multi-agent state is check-pointed in SQLite (<code class="font-mono">memory.db</code>), generating styled Excel workbooks &amp; JSON logs.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast">Notification</div>
+
+  <!-- JavaScript Export & Theme Logic -->
+  <script>
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const themeLabel = document.getElementById('themeLabel');
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      html.setAttribute('data-theme', newTheme);
+      themeLabel.textContent = newTheme === 'dark' ? 'Light' : 'Dark';
+      showToast(`Switched to ${newTheme.toUpperCase()} mode`);
+    }
+
+    async function copyPNG() {
+      try {
+        showToast('Generating high-resolution PNG image...');
+        const element = document.getElementById('report-container');
+        const canvas = await html2canvas(element, {
+          scale: 2,
+          backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--bg-page').trim(),
+          useCORS: true,
+          logging: false
+        });
+        
+        canvas.toBlob(async (blob) => {
+          if (navigator.clipboard && window.ClipboardItem) {
+            await navigator.clipboard.write([
+              new ClipboardItem({ 'image/png': blob })
+            ]);
+            showToast('Diagram PNG copied to clipboard!');
+          } else {
+            showToast('Clipboard API not supported in browser');
+          }
+        });
+      } catch (err) {
+        console.error(err);
+        showToast('Failed to copy image to clipboard');
+      }
+    }
+
+    async function downloadPNG() {
+      try {
+        showToast('Preparing PNG download...');
+        const element = document.getElementById('report-container');
+        const canvas = await html2canvas(element, {
+          scale: 2,
+          backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--bg-page').trim(),
+          useCORS: true,
+          logging: false
+        });
+        
+        const link = document.createElement('a');
+        link.download = 'subgraph_solution_architecture_flow.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        showToast('PNG downloaded successfully!');
+      } catch (err) {
+        console.error(err);
+        showToast('Failed to download PNG image');
+      }
+    }
+
+    async function downloadPDF() {
+      try {
+        showToast('Generating document PDF...');
+        const element = document.getElementById('report-container');
+        const canvas = await html2canvas(element, {
+          scale: 2,
+          backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--bg-page').trim(),
+          useCORS: true,
+          logging: false
+        });
+        
+        const imgData = canvas.toDataURL('image/png');
+        const { jsPDF } = window.jspdf;
+        
+        const pdf = new jsPDF({
+          orientation: 'landscape',
+          unit: 'px',
+          format: [canvas.width / 2, canvas.height / 2]
+        });
+        
+        pdf.addImage(imgData, 'PNG', 0, 0, canvas.width / 2, canvas.height / 2);
+        pdf.save('subgraph_solution_architecture_flow.pdf');
+        showToast('PDF downloaded successfully!');
+      } catch (err) {
+        console.error(err);
+        showToast('Failed to download PDF document');
+      }
+    }
+  </script>
+</body>
+</html>

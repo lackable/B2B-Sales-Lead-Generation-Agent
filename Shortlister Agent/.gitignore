@@ -1,0 +1,10 @@
+# Subfolder Environment Files
+.env
+.env.*
+!.env.example
+
+# Caches & Logs
+__pycache__/
+.pytest_cache/
+logs/
+*.log

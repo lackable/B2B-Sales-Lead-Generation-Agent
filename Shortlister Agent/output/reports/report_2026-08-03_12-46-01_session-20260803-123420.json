@@ -1,0 +1,159 @@
+{
+  "session_id": "session-20260803-123420",
+  "timestamp": "2026-08-03_12-46-01",
+  "screener_query": {
+    "sector": "Energy Minerals",
+    "industry": null,
+    "revenue_min": 10000000000.0,
+    "revenue_max": 80000000000.0,
+    "profit_min": 1000000000.0,
+    "profit_max": 8000000000.0,
+    "market": "india",
+    "location": "India",
+    "limit": 60
+  },
+  "total_companies": 3,
+  "companies": [
+    {
+      "ticker": "NSE:GULFOILLUB",
+      "name": "GULFOILLUB",
+      "industry": "Oil Refining/Marketing",
+      "revenue_ttm": 40560406000,
+      "net_income_ttm": 3476342000,
+      "employee_count": null,
+      "business_summary": "Gulf Oil Lubricants India Limited manufactures, markets, and trades lubricating oils, greases, and other derivatives for use in the automobile and industrial sectors in India. The company offers automotive lubricants, such as engine oils, driveline fluids, brake fluids and radiator coolants, gear oils, transmission oils, and greases, as well as specialties for cars, commercial vehicles, motorcycles and scooters, and tractor farm equipment. It also provides industrial lubricants, including hydraulic, turbine, air compressor, refrigeration compressor, heat transfer, bearing and circulating, slideway lubrication, rock drill, neat cutting, rust preventive, quenching, transformer, knitting oils, gulf water miscible metalworking fluids; and AdBlue, a diesel exhaust fluid used in automotive sector. In addition, the company offers two-wheeler batteries; and marine lubricants. It also exports its products to approximately 25 countries. The company was formerly known as Hinduja Infrastructure Limited and changed its name to Gulf Oil Lubricants India Limited in September 2013. Gulf Oil Lubricants India Limited was founded in 1901 and is based in Mumbai, India. Gulf Oil Lubricants India Limited is a subsidiary of Gulf Oil International (Mauritius) Inc.",
+      "website": "https://india.gulfoilltd.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/gulf-oil-lubricants-india-ltd",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Ravi Chawla",
+          "position": "Managing Director & Chief Executive Officer",
+          "linkedin_url": "https://in.linkedin.com/in/ravi-chawla-77550215"
+        },
+        {
+          "name": "Manish Gangwal",
+          "position": "Whole Time Director & Chief Financial Officer (CFO)",
+          "linkedin_url": "https://in.linkedin.com/in/manish-gangwal-a03ab28"
+        },
+        {
+          "name": "Girish Jange",
+          "position": "Vice President - Global Technology",
+          "linkedin_url": "https://in.linkedin.com/in/girish-jange-9a789028"
+        },
+        {
+          "name": "Aarthy Sridhar",
+          "position": "Chief Marketing Officer",
+          "linkedin_url": "https://in.linkedin.com/in/aarthy-sridhar-85a95420"
+        },
+        {
+          "name": "CH. Praveen Kumar",
+          "position": "Head - Trade Marketing",
+          "linkedin_url": "https://in.linkedin.com/in/ch-praveen-kumar-a3a045213"
+        },
+        {
+          "name": "Uday Buche",
+          "position": "Head - Production Department",
+          "linkedin_url": "https://in.linkedin.com/in/udaybuche"
+        },
+        {
+          "name": "Umesh Chandra Dwivedi",
+          "position": "General Manager - Global Technology",
+          "linkedin_url": "https://in.linkedin.com/in/umesh-chandra-dwivedi-bbb5341b"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:REFEX",
+      "name": "REFEX",
+      "industry": "Coal",
+      "revenue_ttm": 28533368000,
+      "net_income_ttm": 2459782000,
+      "employee_count": 522,
+      "business_summary": "Refex Industries Limited engages in handling and disposal of fly ash in India. It provides refills hydrofluorocarbons, which is used in air conditioners, refrigerators, and refrigeration systems. The company engages in solar power generation and related activities; coal trading; and providing coal yard management services and power trading solutions. It also owns and operates electric vehicles. The company was formerly known as Refex Refrigerants Limited and changed its name to Refex Industries Limited in November 2013. The company was incorporated in 2002 and is based in Chennai, India.",
+      "website": "https://refex.co.in",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/refex-group",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Dinesh Agarwal",
+          "position": "Chief Executive Officer, Refex Group",
+          "linkedin_url": "https://in.linkedin.com/in/-dinesh-agarwal-"
+        },
+        {
+          "name": "Francis P",
+          "position": "Regional Head, Refex Group",
+          "linkedin_url": "https://in.linkedin.com/in/francis-p-650b3b32"
+        },
+        {
+          "name": "Sahil Singla",
+          "position": "Group President, Refex Group",
+          "linkedin_url": "https://in.linkedin.com/in/sahil-singla-1523064"
+        },
+        {
+          "name": "Purvesh Kapadia",
+          "position": "Group CHRO, Refex Group",
+          "linkedin_url": "https://in.linkedin.com/in/purveshkapadia"
+        },
+        {
+          "name": "Shubhendu Parhi",
+          "position": "General Manager – Project & Corporate Finance",
+          "linkedin_url": "https://in.linkedin.com/in/shubhendu-parhi-46648612"
+        },
+        {
+          "name": "Anil Jain",
+          "position": "Founder & Managing Director (Chairman & MD), Refex Group",
+          "linkedin_url": "https://in.linkedin.com/in/anil-jain-57864343"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:VEEDOL",
+      "name": "VEEDOL",
+      "industry": "Oil Refining/Marketing",
+      "revenue_ttm": 20935600000,
+      "net_income_ttm": 1938600000,
+      "employee_count": null,
+      "business_summary": "Veedol Corporation Limited, together with its subsidiaries, engages in the manufacturing and marketing of lubricants under the Veedol brand in India. It offers automotive lubricants, including two-wheeler, passenger car motor, commercial vehicle, tractor, off-highway, and gear and transmission oils, as well as greases, EV fluids, and OEM oils. The company also offers industrial lubricants comprising hydraulic and circulation, spindle, turbine, heavy-duty hydraulic, compressor, refrigeration compressor, steam cylinder, industrial gear, slideway, mill roll, pneumatic tool, and transmission oils; thermic and automotive fluids; lithium soap and complex greases, graphite, calcium complex, and high-temperature greases; and cardium compounds, industrial-speciality range, and coolants. In addition, it provides vehicle care products, such as additives range, appearance enhancers, cleaners and degreasers, lubricants, and rust penetrants. Further, it engages in the wind energy business. The company's distribution network consists of distributors, retail outlets, and workshops. It operates in Europe, the Americas, the Middle East, Africa, the Asia Pacific, and South Asia. The company was formerly known as Tide Water Oil Co. (India) Limited and changed its name to Veedol Corporation Limited in September 2024. Veedol Corporation Limited was incorporated in 1921 and is based in Kolkata, India.",
+      "website": "https://www.veedolindia.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/myveedol",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Ramamurthy Venugopal",
+          "position": "Vice President · General Manager, Veedol Engine Oils",
+          "linkedin_url": "https://in.linkedin.com/in/ramamurthy-venugopal-04aa3279"
+        },
+        {
+          "name": "Upendra Gadre",
+          "position": "Group Chief Financial Officer (Group CFO), Veedol Corporation",
+          "linkedin_url": "https://in.linkedin.com/in/upendra-gadre-95653a15"
+        },
+        {
+          "name": "Ranganathan N",
+          "position": "General Manager – OEM Business Development, Veedol Corporation Limited",
+          "linkedin_url": "https://in.linkedin.com/in/ranganathan-n-9a9b85311"
+        },
+        {
+          "name": "Murli Vasudevan",
+          "position": "Vice President – Sales (Automotive Aftermarket), Veedol Corporation Limited",
+          "linkedin_url": "https://in.linkedin.com/in/murli-vasudevan-33139410"
+        },
+        {
+          "name": "J S Tiwari",
+          "position": "Territory Sales Incharge, Veedol Corporation Ltd",
+          "linkedin_url": "https://in.linkedin.com/in/j-s-tiwari-304307b5"
+        }
+      ],
+      "location": "India"
+    }
+  ]
+}

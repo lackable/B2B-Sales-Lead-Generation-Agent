@@ -1,0 +1,477 @@
+{
+  "session_id": "session-20260802-114248",
+  "timestamp": "2026-08-02_11-46-44",
+  "screener_query": {
+    "sector": "Process Industries",
+    "industry": null,
+    "revenue_min": 5000000000.0,
+    "revenue_max": 60000000000.0,
+    "profit_min": 400000000.0,
+    "profit_max": 5000000000.0,
+    "market": "india",
+    "location": "India",
+    "limit": 60
+  },
+  "total_companies": 10,
+  "companies": [
+    {
+      "ticker": "NSE:SPLPETRO",
+      "name": "SPLPETRO",
+      "industry": "Industrial Specialties",
+      "revenue_ttm": 57188765000,
+      "net_income_ttm": 4847289000.0,
+      "employee_count": 444,
+      "business_summary": "Supreme Petrochem Limited engages in the manufacture and sale of polystyrene, expandable polystyrene, masterbatches and compounds of styrenics and other polymers, and extruded polystyrene insulation board in India and internationally. Supreme Petrochem Limited was incorporated in 1989 and is based in Mumbai, India.",
+      "website": "https://www.supremepetrochem.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/supreme-petrochem-ltd",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Rakesh Nayyar",
+          "position": "Executive Director - Supreme Petrochem Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/rakesh-nayyar-91b05222"
+        },
+        {
+          "name": "Gopal Nageswaran",
+          "position": "Executive Director - Supreme Petrochem Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/gopal-nageswaran-177a9b23"
+        },
+        {
+          "name": "VT Nandakumar Nair",
+          "position": "Chief Executive Officer - Supreme Petrochem Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/vt-nandakumar-nair-59229133"
+        },
+        {
+          "name": "Mahesh Marwaha",
+          "position": "Asst. Vice President - Marketing - Supreme Petrochem Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/mahesh-marwaha-b02b69201"
+        },
+        {
+          "name": "R Rangarajan",
+          "position": "Senior Vice President - Supreme Petrochem Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/r-rangarajan-38a56710"
+        },
+        {
+          "name": "Desai Arvind",
+          "position": "Deputy Chief Executive (Accounts & Taxation) - Supreme Petrochem Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/desai-arvind-1002b91b"
+        },
+        {
+          "name": "Sunil Kumar Rastogi",
+          "position": "Deputy Chief Executive - Supreme Petrochem Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/sunil-kumar-rastogi-rastogi-14600b14"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:BAJAJHIND",
+      "name": "BAJAJHIND",
+      "industry": "Agricultural Commodities/Milling",
+      "revenue_ttm": 54547600000,
+      "net_income_ttm": 1266300000.0,
+      "employee_count": null,
+      "business_summary": "Bajaj Hindusthan Sugar Limited, together with its subsidiaries, engages in the manufacture and sale of sugar and alcohol in India. It operates through Sugar, Distillery, and Power segments. The company offers sugar by-products, such as molasses, bagasse, fly ash, and press mud; and bio-compost/bio-manure. It also generates and sells power to the Uttar Pradesh state grid. In addition, the company produces and sells industrial alcohol to alcohol-based chemical plants; and ethanol to oil companies. The company was formerly known as Bajaj Hindusthan Limited and changed its name to Bajaj Hindusthan Sugar Limited in January 2015. The company was incorporated in 1931 and is based in Noida, India.",
+      "website": "https://www.bajajhindusthan.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/bajaj-hindusthan-limited",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Ajay Sharma",
+          "position": "Managing Director at Bajaj Hindusthan Sugar Limited",
+          "linkedin_url": "https://in.linkedin.com/in/ajay-sharma-b19a40320"
+        },
+        {
+          "name": "Gyanendra Vir Singh",
+          "position": "Vice President - Unit Head at Bajaj Hindusthan Sugar Ltd",
+          "linkedin_url": "https://in.linkedin.com/in/gyanendra-vir-singh-95238b1b9"
+        },
+        {
+          "name": "Rajesh Kumar Sinha",
+          "position": "Assistant Vice President at Bajaj Hindusthan Sugar Ltd",
+          "linkedin_url": "https://in.linkedin.com/in/rajesh-kumar-sinha-89a004ba"
+        },
+        {
+          "name": "Sandeep Katiyar",
+          "position": "Sr DGM - IT at Bajaj Hindusthan Sugar Limited",
+          "linkedin_url": "https://in.linkedin.com/in/sandeep-katiyar-6a369779"
+        },
+        {
+          "name": "Hem Chandra Joshi",
+          "position": "Vice President - Unit Head at Bajaj Hindusthan Sugar Ltd",
+          "linkedin_url": "https://in.linkedin.com/in/hem-chandra-joshi-997489188"
+        },
+        {
+          "name": "Raj Singh Chaudhary",
+          "position": "Vice President at Bajaj Hindusthan Sugar Ltd",
+          "linkedin_url": "https://in.linkedin.com/in/raj-singh-chaudhary-0516a2197"
+        },
+        {
+          "name": "Pravin Kumar Srivastava",
+          "position": "Assistant Vice President at Bajaj Hindusthan Sugar Limited",
+          "linkedin_url": "https://in.linkedin.com/in/pravin-kumar-srivastava-b5ba1138"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:CARBORUNIV",
+      "name": "CARBORUNIV",
+      "industry": "Industrial Specialties",
+      "revenue_ttm": 52063100000,
+      "net_income_ttm": 1947300000.0,
+      "employee_count": 2340,
+      "business_summary": "Carborundum Universal Limited, together with its subsidiaries, manufactures and sells abrasives, ceramics, and electrominerals in India and internationally. It operates through three segments: Surface Engineering, Technical Ceramics and Super Refractory Solutions, and Electrominerals. The company offers super, bonded and coated abrasives, cutting and grinding, metal working fluids, and power tools; and electro minerals, such as alumina, carbides, zirconia; and thermal spray and ceramic powders. It also provides industrial ceramics for applications in mining and mineral processing, power and energy systems, mobility, semiconductors and electronics, and aerospace and defense; and dense refractories, including bricks and engineered shapes, insulating, and range of monolithic refractories, pre-cast pre-fired components, acid-resistant liners comprising carbon bricks, advanced composites, specialty screeding and coatings, polymer concrete cells, and structural composites, including piping for abrasion resistance; and graphene, phase change materials, high-purity silicon carbide, and specialty polymers. In addition, the company offers IT infrastructure facility management, software application development, remote infrastructure management, and IT security management services; and operates gas-based power generation facility. Carborundum Universal Limited was incorporated in 1954 and is based in Chennai, India.",
+      "website": "https://www.cumi-murugappa.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/cumi-carborborundum-universal-limited",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "M M Murugappan",
+          "position": "Chairman",
+          "linkedin_url": "https://in.linkedin.com/in/murugappan-cumi-1a2a34106"
+        },
+        {
+          "name": "Shyam C Raman",
+          "position": "President & CHRO (Chief Human Resources Officer)",
+          "linkedin_url": "https://in.linkedin.com/in/shyam-c-raman-72b9b98"
+        },
+        {
+          "name": "Prathap Kumar",
+          "position": "Business Head - Industrial Ceramics",
+          "linkedin_url": "https://in.linkedin.com/in/prathap-kumar-02636948"
+        },
+        {
+          "name": "Rajagopalan R",
+          "position": "Sr. Vice President (Refractories) / SBU Head",
+          "linkedin_url": "https://in.linkedin.com/in/rajagopalan-r-b911298"
+        },
+        {
+          "name": "Rajesh Kumar PB",
+          "position": "Sr. General Manager - Application Technology",
+          "linkedin_url": "https://in.linkedin.com/in/rajesh-kumar-pb-9231925"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:GANDHAR",
+      "name": "GANDHAR",
+      "industry": "Industrial Specialties",
+      "revenue_ttm": 50522730000,
+      "net_income_ttm": 3014250000.0,
+      "employee_count": null,
+      "business_summary": "Gandhar Oil Refinery (India) Limited manufactures and sells white oils with focus on the consumer and healthcare sectors in India. It offers waxes, and jellies for consumer, healthcare, plastics, chemical, textiles, and fragrance industries; lubricants, including automotive oils and industrial oils for automobile, and industrial machines and equipment; and process and insulating oils comprising transformer oils and rubber processing oils for transformer manufacturers, power generation and distribution, and tyre and rubber product manufacturers. The company also involved in trading non-coking coal; and the provision of logistics services, including cargo handling and transportation. Further, it operates consignment and del-credere agency; and sells polymer products. The company sells its products under Divyol brand. It exports its products to the Americas, Europe, Africa, and the Asia-Pacific. Gandhar Oil Refinery (India) Limited was incorporated in 1992 and is headquartered in Mumbai, India.",
+      "website": "https://www.gandharoil.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/gandhar-oil-refinery-india-ltd",
+      "linkedin_confirmed": true,
+      "decision_makers": [],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:INDORAMA",
+      "name": "INDORAMA",
+      "industry": "Textiles",
+      "revenue_ttm": 49068700000,
+      "net_income_ttm": 1371500000.0,
+      "employee_count": 1336,
+      "business_summary": "Indo Rama Synthetics (India) Limited manufactures and trades polyester products in India, Turkey, Nepal, and internationally. It provides various polyester products, including polyester staple fiber, partially oriented yarn, polyester filament yarn, draw texturized yarn, fully drawn yarn, and polyester chips. It involved in the trading of spun yarn and operations of converting flakes into chips. The company's products are used in a range of product applications, such as apparel and sportswear, home furnishings and textiles, hygiene and non-woven, automotive, and bottle for water, beverages, etc. Indo Rama Synthetics (India) Limited was incorporated in 1986 and is based in Gurugram, India.",
+      "website": "https://www.indoramaindia.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/indo-rama-synthetics-i-ltd",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "S.N. Mohta",
+          "position": "President, Indorama Ventures (Oxide & Glycols)",
+          "linkedin_url": "https://www.linkedin.com/in/s-n-mohta-ab80827a"
+        },
+        {
+          "name": "Harish Nair",
+          "position": "Executive Director - Indorama",
+          "linkedin_url": "https://in.linkedin.com/in/harish-nair-00b40453"
+        },
+        {
+          "name": "Chandra Prasad",
+          "position": "Chief Operating Officer, Indorama India Private Limited",
+          "linkedin_url": "https://in.linkedin.com/in/chandra-prasad-a36b74257"
+        },
+        {
+          "name": "Chandra Shekhar Prasad",
+          "position": "Chief Operating Officer, INDORAMA",
+          "linkedin_url": "https://in.linkedin.com/in/chandra-shekhar-prasad-830ab49"
+        },
+        {
+          "name": "Dr. Saumitra Pandey",
+          "position": "Head Agronomy, Indorama India Pvt. Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/dr-saumitra-pandey-87520726"
+        },
+        {
+          "name": "Mohan Andhavaram",
+          "position": "Chief Financial Officer, Indorama Ventures PCL",
+          "linkedin_url": "https://ng.linkedin.com/in/mohan-andhavaram-b50180201"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:ELITECON",
+      "name": "ELITECON",
+      "industry": "Textiles",
+      "revenue_ttm": 47713858000,
+      "net_income_ttm": 3092043000.0,
+      "employee_count": 33,
+      "business_summary": "Elitecon International Limited manufactures and trades in tobacco and other related products in India, the United Arab Emirates, Singapore, Hong Kong, Europe, and the United Kingdom. The company operates in two segments, Tobacco Products and Agro Commodities. It offers smoking mixtures, cigarettes, sheesha, and other tobacco products. The company sells its products under the INHALE and Al Noor brands. It also exports its products. The company was formerly known as Kashiram Jain and Company Limited and changed its name to Elitecon International Limited in November 2019. Elitecon International Limited was incorporated in 1987 and is headquartered in New Delhi, India.",
+      "website": "https://www.eliteconinternational.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/elitecon-international-limited",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Kiran Patel",
+          "position": "VP International Sales",
+          "linkedin_url": "https://in.linkedin.com/in/kiran-patel-90a98b1b1"
+        },
+        {
+          "name": "Neha Anuj",
+          "position": "Company Secretary at Elitecon International Limited",
+          "linkedin_url": "https://in.linkedin.com/in/neha-anuj-221a2220b"
+        },
+        {
+          "name": "Subhash Kataria",
+          "position": "HOD Accounts / Finance (CFO Group) at Elitecon International Limited",
+          "linkedin_url": "https://in.linkedin.com/in/subhash-kataria-032672284"
+        },
+        {
+          "name": "Abid Ali Khan",
+          "position": "Production Manager, Elitecon International Limited",
+          "linkedin_url": "https://in.linkedin.com/in/abid-ali-khan-4a380719"
+        },
+        {
+          "name": "Gaurav Tyagi",
+          "position": "Promoter (associated with Elitecon International Ltd)",
+          "linkedin_url": "https://in.linkedin.com/in/gaurav-tyagi-003125107"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:EPL",
+      "name": "EPL",
+      "industry": "Containers/Packaging",
+      "revenue_ttm": 47631000000,
+      "net_income_ttm": 3889000000.0,
+      "employee_count": null,
+      "business_summary": "EPL Limited, together with its subsidiaries, manufactures and sells plastic packaging materials in the form of multilayer collapsible tubes, corrugated boxes, and laminates in the Americas, Europe, Africa, the Middle East, South Asia, and the East Asia Pacific. The company provides dispensing systems, caps and closures, laminated tubes, laminates, and extruded tubes. It also offers sustainable laminated tubes, including Platina, Platina Pro, Platina Me, Platina Vision, Etain, Organic Green Maple Leaf, Green Maple Leaf, Super Titanium, and Clarion. In addition, the company provides printing technologies, such as NEOSeam, glitters, glow in the dark, 3D foil, screen braille effect, and lens foil effect. It serves the beauty and cosmetics, health and pharmaceuticals, food, home, and oral care industries. The company was formerly known as Essel Propack Limited and changed its name to EPL Limited in October 2020. EPL Limited was incorporated in 1982 and is based in Mumbai, India.",
+      "website": "https://www.eplglobal.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/epl-limited",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Bhavik Shah",
+          "position": "Vice President at EPL Limited",
+          "linkedin_url": "https://in.linkedin.com/in/bhavik-shah-35a318209"
+        },
+        {
+          "name": "Hariharan K",
+          "position": "President - Creativity & Innovation (EPL Limited)",
+          "linkedin_url": "https://in.linkedin.com/in/hariharan-k-17394736"
+        },
+        {
+          "name": "Eugene Paul",
+          "position": "Director at EPL",
+          "linkedin_url": "https://in.linkedin.com/in/eugene-paul-b657606b"
+        },
+        {
+          "name": "Shrihari K Rao",
+          "position": "President - Global Centre of Excellence (Beauty & Cosmetics) at EPL Limited",
+          "linkedin_url": "https://in.linkedin.com/in/shrihari-k-rao-31640b115"
+        },
+        {
+          "name": "Hemant Bakshi",
+          "position": "Managing Director & Global CEO (designate) at EPL Limited",
+          "linkedin_url": "https://www.linkedin.com/in/hemantbakshi"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:JUBLINGREA",
+      "name": "JUBLINGREA",
+      "industry": "Chemicals: Major Diversified",
+      "revenue_ttm": 46506400000,
+      "net_income_ttm": 3086300000.0,
+      "employee_count": null,
+      "business_summary": "Jubilant Ingrevia Limited engages in life science products and solutions in India, the United States, Europe, China and internationally. The company operates in three segments: Specialty Chemicals, Nutrition & Health Solutions, and Chemical Intermediates. The Specialty Chemicals segment offers bio-pyridine and -picolines, fine chemicals, agro chemicals, custom development and manufacturing services, and microbial control solutions. The Nutrition & Health Solutions segment provides nutrition and health ingredients; and animal and human nutrition health solutions. The Chemical intermediates segment offers acetyls and specialty ethanol. In addition, it provides vitamins, mineral premixes, stress regulator, amino acid, herbal choline, herbal non-antibiotic growth promoter and egg quality enhancer, toxin binder, acidifiers, and enzymes and emulsifiers. The company serves pharmaceutical, nutrition, agrochemical, consumer, and industrial sectors. The company was formerly known as Jubilant LSI Limited and changed its name to Jubilant Ingrevia Limited in October 2020. Jubilant Ingrevia Limited was incorporated in 2019 and is headquartered in Noida, India.",
+      "website": "https://jubilantingrevia.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/jubilantingrevia",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Deepak Jain",
+          "position": "CEO & MD, Jubilant Ingrevia Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/deepakjain93"
+        },
+        {
+          "name": "Sarvjeet Prasad",
+          "position": "Associate Director, Jubilant Ingrevia Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/sarvjeet-prasad-a6a5541b"
+        },
+        {
+          "name": "Pavleen Taneja",
+          "position": "Head of Investor Relations / Senior Director – Investor Relations, Jubilant Ingrevia Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/pavleen-taneja-2219a918"
+        },
+        {
+          "name": "Sabina Jain",
+          "position": "Director - Sales, Jubilant Ingrevia Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/sabina-jain-9a8a88a"
+        },
+        {
+          "name": "SS Hariharasubramanian",
+          "position": "Sr. Director - Accounts & MIS, Jubilant Ingrevia Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/ss-hariharasubramanian-565832153"
+        },
+        {
+          "name": "Braj Kishor Singh",
+          "position": "Senior Director & Site Head, Jubilant Ingrevia Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/braj-kishor-singh-950aa52"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:TNPL",
+      "name": "TNPL",
+      "industry": "Pulp & Paper",
+      "revenue_ttm": 46448900000,
+      "net_income_ttm": 2477600000.0,
+      "employee_count": null,
+      "business_summary": "Tamil Nadu Newsprint and Papers Limited manufactures and markets paper and paperboards in India and internationally. It operates in Paper & Paper Board and Energy segments. The company provides printing and writing paper, as well as packaging boards; and generates power through turbo generators and windmills. It also manufactures and sells cement. The company was incorporated in 1979 and is based in Chennai, India.",
+      "website": "https://www.tnpl.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/tnplofficial",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Ramachandran T K",
+          "position": "Managing Director and CEO, Tamil Nadu Newsprint and Papers Ltd",
+          "linkedin_url": "https://in.linkedin.com/in/tkramachandran"
+        },
+        {
+          "name": "Yogendra Varshney",
+          "position": "Executive Director - Operations & Chief Risk Officer, Tamil Nadu Newsprint and Papers Limited",
+          "linkedin_url": "https://in.linkedin.com/in/yogendra-varshney-b70a16234"
+        },
+        {
+          "name": "SVR Krishnan",
+          "position": "Executive Director at TNPL",
+          "linkedin_url": "https://in.linkedin.com/in/svr-krishnan-48b698214"
+        },
+        {
+          "name": "Thangaraju Kulandaipaian",
+          "position": "Independent Director (former Chief General Manager - Production, TNPL)",
+          "linkedin_url": "https://in.linkedin.com/in/thangaraju-kulandaipaian-7870bb265"
+        },
+        {
+          "name": "Arunachalam Velliangiri",
+          "position": "Deputy Managing Director, Tamilnadu Newsprint and Papers Limited",
+          "linkedin_url": "https://in.linkedin.com/in/arunachalam-velliangiri-31b450136"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:RSWM",
+      "name": "RSWM",
+      "industry": "Textiles",
+      "revenue_ttm": 45541300000,
+      "net_income_ttm": 520200000.00000006,
+      "employee_count": 16867,
+      "business_summary": "RSWM Limited operates as a textile manufacturer in India, Europe, the Middle East, Africa, South East and Far East Asia, and the United States. The company operates through Yarn and Fabric segments. It provides greige yarn for weaving, knitting, sewing, and industrial applications under the ULTIMA and Kapaas brand name; and melange yarn that is used for undergarments, shirts, business suits, socks, and sportswear, as well as bed linen, towels, and other home fabric products. The company offers dyed yarns used for curtains, carpets, bed covers, upholstery, and other products; denim fabrics; knitted fabrics, such as single jersey, interlock, rib, fleece, flat back rib, terry, foma, honey comb, pique, waffle, etc; and various functional yarns under the RSWM EDGE brand name. It also exports synthetic, blended, melange, cotton, and specialty value-added yarns. The company was formerly known as Rajasthan Spinning & Weaving Mills Ltd. RSWM Limited was incorporated in 1960 and is headquartered in Noida, India.",
+      "website": "https://www.rswm.in",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/rswmofficial",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Rajeev Gupta",
+          "position": "Joint Managing Director",
+          "linkedin_url": "https://in.linkedin.com/in/leadwithrajeevgupta"
+        },
+        {
+          "name": "Riju Jhunjhunwala",
+          "position": "Chairman & Managing Director",
+          "linkedin_url": "https://in.linkedin.com/in/riju-jhunjhunwala"
+        },
+        {
+          "name": "Gaurav Verma",
+          "position": "Chief Operating Officer",
+          "linkedin_url": "https://in.linkedin.com/in/gaurav-verma-60054468"
+        },
+        {
+          "name": "Vivek Sahal",
+          "position": "Chief Marketing Officer (CMO)",
+          "linkedin_url": "https://in.linkedin.com/in/vivek-sahal-58614418a"
+        },
+        {
+          "name": "Deepak Bhala",
+          "position": "Chief Marketing Officer",
+          "linkedin_url": "https://in.linkedin.com/in/deepak-bhala-979101193"
+        },
+        {
+          "name": "Pritam Gurjar",
+          "position": "HR Head",
+          "linkedin_url": "https://in.linkedin.com/in/pritam-gurjar-0946188"
+        },
+        {
+          "name": "Mahesh Kumawat",
+          "position": "Head of Supply Chain Management (PPC)",
+          "linkedin_url": "https://in.linkedin.com/in/mahesh-kumawat-9944671b1"
+        },
+        {
+          "name": "Dhirendra Dube",
+          "position": "Head of Engineering",
+          "linkedin_url": "https://in.linkedin.com/in/dhirendra-dube-67b68923"
+        },
+        {
+          "name": "Shambhukant Jha",
+          "position": "Head of Marketing",
+          "linkedin_url": "https://in.linkedin.com/in/shambhukant-jha-6ba4392a8"
+        },
+        {
+          "name": "Kul Bhushan",
+          "position": "Head - Exports (AVP)",
+          "linkedin_url": "https://in.linkedin.com/in/kul-bhushan-445b78121"
+        },
+        {
+          "name": "Naresh Bahedia",
+          "position": "Chief Executive & Business Head (Synthetic Yarn Business)",
+          "linkedin_url": "https://in.linkedin.com/in/naresh-bahedia-091b908a"
+        },
+        {
+          "name": "Sanjai Sharma",
+          "position": "Senior General Manager - New Projects, Business Transformation & Strategic Sourcing",
+          "linkedin_url": "https://in.linkedin.com/in/sanjai-sharma-4a8837b5"
+        }
+      ],
+      "location": "India"
+    }
+  ]
+}

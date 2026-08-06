@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Finder Agent - Solution Flow & System Architecture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    :root {
+      /* Dark Theme Tokens (Default) */
+      --bg-page: #080c14;
+      --bg-header: #0f172a;
+      --bg-canvas: #0b1120;
+      --border-color: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      /* Phase Banner Colors */
+      --phase-bg-1: rgba(59, 130, 246, 0.12);
+      --phase-stroke-1: #3b82f6;
+      --phase-text-1: #60a5fa;
+
+      --phase-bg-2: rgba(168, 85, 247, 0.12);
+      --phase-stroke-2: #a855f7;
+      --phase-text-2: #c084fc;
+
+      --phase-bg-3: rgba(245, 158, 11, 0.12);
+      --phase-stroke-3: #f59e0b;
+      --phase-text-3: #fbbf24;
+
+      --phase-bg-4: rgba(16, 185, 129, 0.12);
+      --phase-stroke-4: #10b981;
+      --phase-text-4: #34d399;
+
+      /* Card Family Colors */
+      --card-bg: #111827;
+      --card-stroke: #1f2937;
+      --card-hover: #1f2937;
+      
+      --pill-bg: #1e293b;
+      --pill-text: #e2e8f0;
+      
+      --arrow-color: #64748b;
+      --arrow-label-bg: #0f172a;
+      --arrow-label-text: #cbd5e1;
+
+      --accent-blue: #3b82f6;
+      --accent-purple: #a855f7;
+      --accent-amber: #f59e0b;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+    }
+
+    [data-theme="light"] {
+      --bg-page: #f8fafc;
+      --bg-header: #ffffff;
+      --bg-canvas: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #64748b;
+
+      --phase-bg-1: #eff6ff;
+      --phase-stroke-1: #bfdbfe;
+      --phase-text-1: #1d4ed8;
+
+      --phase-bg-2: #faf5ff;
+      --phase-stroke-2: #e9d5ff;
+      --phase-text-2: #6b21a8;
+
+      --phase-bg-3: #fffbeb;
+      --phase-stroke-3: #fde68a;
+      --phase-text-3: #b45309;
+
+      --phase-bg-4: #ecfdf5;
+      --phase-stroke-4: #a7f3d0;
+      --phase-text-4: #047857;
+
+      --card-bg: #ffffff;
+      --card-stroke: #cbd5e1;
+      --card-hover: #f1f5f9;
+
+      --pill-bg: #f1f5f9;
+      --pill-text: #334155;
+
+      --arrow-color: #64748b;
+      --arrow-label-bg: #ffffff;
+      --arrow-label-text: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      padding: 24px;
+      line-height: 1.5;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-header);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-title-group h1 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-title-group p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--card-hover);
+      border-color: var(--accent-blue);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      border-color: #3b82f6;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+    }
+
+    #report-container {
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 20px;
+      overflow-x: auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-width: 1850px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .summary-card {
+      background: var(--bg-header);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .summary-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .summary-card p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Node hover effects inside SVG */
+    .svg-node {
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .svg-node:hover {
+      filter: drop-shadow(0 6px 12px rgba(59, 130, 246, 0.25));
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Bar -->
+  <div class="header-bar">
+    <div class="header-title-group">
+      <h1>LinkedIn Contact Finder Agent — Solution Flow Architecture</h1>
+      <p>Autonomous State-Graph Pipeline · SerpAPI Google AI Overviews · BrightData MCP Web Scraper · Azure OpenAI Structured Outputs</p>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn" id="theme-toggle-btn" onclick="toggleTheme()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+        Toggle Light/Dark
+      </button>
+      <button class="btn" onclick="exportPNG()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        Export PNG
+      </button>
+      <button class="btn btn-primary" onclick="exportPDF()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        Export PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- SVG Diagram Container -->
+  <div id="report-container">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Arrowhead Markers -->
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748b" />
+        </marker>
+        <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#3b82f6" />
+        </marker>
+        <marker id="arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#a855f7" />
+        </marker>
+        <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b" />
+        </marker>
+        <marker id="arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981" />
+        </marker>
+
+        <!-- Drop Shadows -->
+        <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+          <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.25"/>
+        </filter>
+
+        <!-- Brand Icon Definitions -->
+        <!-- Microsoft 4-Square -->
+        <g id="icon-ms">
+          <rect x="0" y="0" width="7" height="7" fill="#F25022"/>
+          <rect x="8" y="0" width="7" height="7" fill="#7FBA00"/>
+          <rect x="0" y="8" width="7" height="7" fill="#00A4EF"/>
+          <rect x="8" y="8" width="7" height="7" fill="#FFB900"/>
+        </g>
+        
+        <!-- Google 'G' -->
+        <g id="icon-google">
+          <path d="M 14 7.5 C 14 6.8 13.9 6.2 13.8 5.6 L 7.2 5.6 L 7.2 8.3 L 11 8.3 C 10.8 9.3 10.2 10.2 9.3 10.8 L 9.3 12.9 L 12.1 12.9 C 13.7 11.4 14.6 9.2 14 7.5 Z" fill="#4285F4"/>
+          <path d="M 7.2 14.4 C 9.1 14.4 10.8 13.7 12.1 12.6 L 9.3 10.5 C 8.5 11 7.5 11.3 6.4 11.3 C 4.5 11.3 2.9 10 2.3 8.3 L -0.5 8.3 L -0.5 10.5 C 1.2 12.8 4 14.4 7.2 14.4 Z" fill="#34A853" transform="translate(0.8, -0.4)"/>
+          <path d="M 2.3 8.3 C 2.1 7.7 2 7.1 2 6.5 C 2 5.9 2.1 5.3 2.3 4.7 L 2.3 2.5 L -0.5 2.5 C -1.1 3.7 -1.4 5 -1.4 6.5 C -1.4 8 -1.1 9.3 -0.5 10.5 L 2.3 8.3 Z" fill="#FBBC05" transform="translate(0.8, 0)"/>
+          <path d="M 7.2 1.6 C 8.3 1.6 9.3 2 10 2.7 L 12.1 0.6 C 10.8 -0.6 9.1 -1.4 7.2 -1.4 C 4 -1.4 1.2 0.2 -0.5 2.5 L 2.3 4.7 C 2.9 3 4.5 1.6 7.2 1.6 Z" fill="#EA4335" transform="translate(0.8, 0.4)"/>
+        </g>
+      </defs>
+
+      <!-- Canvas Background -->
+      <rect width="1920" height="1080" fill="var(--bg-canvas)" rx="16"/>
+
+      <!-- ================= PHASE BANNERS (TOP HEADER) ================= -->
+      <g id="phase-banners">
+        <!-- Phase 1 -->
+        <rect x="50" y="40" width="420" height="42" rx="8" fill="var(--phase-bg-1)" stroke="var(--phase-stroke-1)" stroke-width="1.5"/>
+        <text x="260" y="66" text-anchor="middle" font-weight="700" font-size="12.5" letter-spacing="1.5" fill="var(--phase-text-1)">PHASE 1: INPUT &amp; STATE ORCHESTRATION</text>
+
+        <!-- Phase 2 -->
+        <rect x="500" y="40" width="420" height="42" rx="8" fill="var(--phase-bg-2)" stroke="var(--phase-stroke-2)" stroke-width="1.5"/>
+        <text x="710" y="66" text-anchor="middle" font-weight="700" font-size="12.5" letter-spacing="1.5" fill="var(--phase-text-2)">PHASE 2: SERP DISCOVERY &amp; AI OVERVIEW</text>
+
+        <!-- Phase 3 -->
+        <rect x="950" y="40" width="470" height="42" rx="8" fill="var(--phase-bg-3)" stroke="var(--phase-stroke-3)" stroke-width="1.5"/>
+        <text x="1185" y="66" text-anchor="middle" font-weight="700" font-size="12.5" letter-spacing="1.5" fill="var(--phase-text-3)">PHASE 3: AUTONOMOUS RESEARCH &amp; MCP LOOP</text>
+
+        <!-- Phase 4 -->
+        <rect x="1450" y="40" width="420" height="42" rx="8" fill="var(--phase-bg-4)" stroke="var(--phase-stroke-4)" stroke-width="1.5"/>
+        <text x="1660" y="66" text-anchor="middle" font-weight="700" font-size="12.5" letter-spacing="1.5" fill="var(--phase-text-4)">PHASE 4: OUTPUT, PERSISTENCE &amp; ANALYTICS</text>
+      </g>
+
+      <!-- ================= CONNECTING ARROWS & LABELS ================= -->
+      <!-- Draw arrows FIRST so cards mask them cleanly -->
+      <g id="connecting-arrows">
+        <!-- 1. CLI -> Node 1 Query Generator -->
+        <path d="M 450 210 H 520" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+        <rect x="460" y="198" width="50" height="24" rx="4" fill="var(--arrow-label-bg)" stroke="#3b82f6" stroke-width="1"/>
+        <text x="485" y="214" text-anchor="middle" font-size="10" font-weight="700" fill="#3b82f6">1. INIT</text>
+
+        <!-- 2. Node 1 Query Generator -> Node 2 SerpAPI Search -->
+        <path d="M 710 330 V 370" stroke="#a855f7" stroke-width="2" marker-end="url(#arrow-purple)"/>
+        <rect x="635" y="338" width="150" height="24" rx="4" fill="var(--arrow-label-bg)" stroke="#a855f7" stroke-width="1"/>
+        <text x="710" y="354" text-anchor="middle" font-size="10" font-weight="700" fill="#c084fc">2. Pass Generated Query</text>
+
+        <!-- 3. Node 2 SerpAPI -> Node 3 Evaluator -->
+        <path d="M 900 485 H 970" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+        <rect x="910" y="473" width="50" height="24" rx="4" fill="var(--arrow-label-bg)" stroke="#f59e0b" stroke-width="1"/>
+        <text x="935" y="489" text-anchor="middle" font-size="10" font-weight="700" fill="#fbbf24">3. DATA</text>
+
+        <!-- 4. Node 3 Action Engine -> Extractor / Evaluator -->
+        <path d="M 1185 330 V 370" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+        <rect x="1115" y="338" width="140" height="24" rx="4" fill="var(--arrow-label-bg)" stroke="#f59e0b" stroke-width="1"/>
+        <text x="1185" y="354" text-anchor="middle" font-size="10" font-weight="700" fill="#fbbf24">4. Scraped Content Payload</text>
+
+        <!-- 5. Research Loop Self-Loop (Loop Back Channel at X=1435) -->
+        <path d="M 1400 485 H 1435 V 210 H 1400" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+        <rect x="1380" y="338" width="110" height="26" rx="4" fill="#7f1d1d" stroke="#f87171" stroke-width="1"/>
+        <text x="1435" y="355" text-anchor="middle" font-size="9.5" font-weight="800" fill="#fecaca">5. Loop: NEEDED</text>
+
+        <!-- 6. Loop Exit -> Node 4 Output Exporter -->
+        <path d="M 1400 170 H 1470" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow-emerald)"/>
+        <rect x="1410" y="158" width="50" height="24" rx="4" fill="var(--arrow-label-bg)" stroke="#10b981" stroke-width="1"/>
+        <text x="1435" y="174" text-anchor="middle" font-size="10" font-weight="800" fill="#34d399">6. EXIT</text>
+
+        <!-- 7. Node 4 Exporter -> Telemetry & Cost -->
+        <path d="M 1660 330 V 370" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+        <rect x="1590" y="338" width="140" height="24" rx="4" fill="var(--arrow-label-bg)" stroke="#10b981" stroke-width="1"/>
+        <text x="1660" y="354" text-anchor="middle" font-size="10" font-weight="700" fill="#34d399">7. Telemetry &amp; Token Audit</text>
+
+        <!-- 8. SQLite Checkpointer -> State Schema (Upward Persistence) -->
+        <path d="M 260 640 V 600" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-blue)"/>
+        <rect x="180" y="610" width="160" height="22" rx="4" fill="var(--arrow-label-bg)" stroke="#38bdf8" stroke-width="1"/>
+        <text x="260" y="625" text-anchor="middle" font-size="9.5" font-weight="700" fill="#38bdf8">8. Thread State Sync</text>
+
+        <!-- 9a. Azure OpenAI -> Node 1 Query Generator -->
+        <path d="M 650 640 V 600" stroke="#a855f7" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-purple)"/>
+        <rect x="580" y="610" width="140" height="22" rx="4" fill="var(--arrow-label-bg)" stroke="#a855f7" stroke-width="1"/>
+        <text x="650" y="625" text-anchor="middle" font-size="9.5" font-weight="700" fill="#c084fc">9a. LLM Structured Call</text>
+
+        <!-- 9b. Azure OpenAI -> Node 3 Evaluator -->
+        <path d="M 850 640 V 620 H 940 V 585 H 970" stroke="#a855f7" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-purple)"/>
+        <rect x="880" y="610" width="120" height="22" rx="4" fill="var(--arrow-label-bg)" stroke="#a855f7" stroke-width="1"/>
+        <text x="940" y="625" text-anchor="middle" font-size="9.5" font-weight="700" fill="#c084fc">9b. Schema Evaluation</text>
+
+        <!-- 10. BrightData MCP Infrastructure -> Research Loop -->
+        <path d="M 1185 640 V 600" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-amber)"/>
+        <rect x="1105" y="610" width="160" height="22" rx="4" fill="var(--arrow-label-bg)" stroke="#f59e0b" stroke-width="1"/>
+        <text x="1185" y="625" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fbbf24">10. SSE Scrape Stream</text>
+
+        <!-- 11. Node 4 Telemetry -> File Storage Store -->
+        <path d="M 1660 600 V 640" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+        <rect x="1590" y="610" width="140" height="22" rx="4" fill="var(--arrow-label-bg)" stroke="#10b981" stroke-width="1"/>
+        <text x="1660" y="625" text-anchor="middle" font-size="9.5" font-weight="700" fill="#34d399">11. Write Excel &amp; JSON</text>
+      </g>
+
+
+      <!-- ================= CARDS LAYER (ROW 1: PROCESS ENTRY) ================= -->
+      <g id="row-1-cards">
+        <!-- CARD 1.1: Main Entry & CLI Orchestrator -->
+        <g class="svg-node" transform="translate(70, 110)">
+          <rect width="380" height="220" rx="12" fill="var(--card-bg)" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+          <rect width="380" height="42" rx="12" fill="rgba(59, 130, 246, 0.15)"/>
+          <!-- Number Badge -->
+          <circle cx="28" cy="21" r="11" fill="#3b82f6"/>
+          <text x="28" y="25" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">1</text>
+          <!-- Title -->
+          <text x="48" y="26" font-size="13" font-weight="700" fill="var(--text-main)">Main Entry &amp; CLI Orchestrator</text>
+          <text x="350" y="25" text-anchor="end" font-size="10" font-family="JetBrains Mono" fill="#60a5fa">main.py</text>
+          <!-- Divider -->
+          <line x1="0" y1="42" x2="380" y2="42" stroke="var(--border-color)" stroke-width="1"/>
+          <!-- Content Bullets -->
+          <text x="16" y="65" font-size="11.5" font-weight="600" fill="#60a5fa">Runtime Entry Point &amp; Config Init</text>
+          <text x="16" y="88" font-size="11" fill="var(--text-muted)">• Prompts user for Company Name, LinkedIn &amp; Web URL</text>
+          <text x="16" y="108" font-size="11" fill="var(--text-muted)">• Generates session ID: <tspan font-family="JetBrains Mono" font-size="10" fill="#93c5fd">session-YYYYMMDD-HHMMSS</tspan></text>
+          <text x="16" y="128" font-size="11" fill="var(--text-muted)">• Instantiates <tspan font-weight="700" fill="var(--text-main)">PipelineLogger</tspan> &amp; token cost tracker</text>
+          <text x="16" y="148" font-size="11" fill="var(--text-muted)">• Binds <tspan font-weight="700" fill="var(--text-main)">AsyncSqliteSaver</tspan> checkpointer (<tspan font-family="JetBrains Mono" fill="#93c5fd">memory.db</tspan>)</text>
+          <!-- Footer Badge -->
+          <line x1="16" y1="175" x2="364" y2="175" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="196" font-size="10" font-family="JetBrains Mono" fill="var(--text-dim)">Tech: Python 3.13 · asyncio · LangGraph Checkpoint</text>
+        </g>
+
+        <!-- CARD 2.1: Node 1 Query Generator -->
+        <g class="svg-node" transform="translate(520, 110)">
+          <rect width="380" height="220" rx="12" fill="var(--card-bg)" stroke="#a855f7" stroke-width="2" filter="url(#shadow)"/>
+          <rect width="380" height="42" rx="12" fill="rgba(168, 85, 247, 0.15)"/>
+          <!-- Number Badge -->
+          <circle cx="28" cy="21" r="11" fill="#a855f7"/>
+          <text x="28" y="25" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">2</text>
+          <!-- Title -->
+          <text x="48" y="26" font-size="13" font-weight="700" fill="var(--text-main)">Node 1: LLM Query Generator</text>
+
+          <!-- Divider -->
+          <line x1="0" y1="42" x2="380" y2="42" stroke="var(--border-color)" stroke-width="1"/>
+          <!-- Content Bullets -->
+          <text x="16" y="65" font-size="11.5" font-weight="600" fill="#c084fc">SerpAPI Search Query Synthesis</text>
+          <text x="16" y="88" font-size="11" fill="var(--text-muted)">• Reads Target Info: <tspan fill="#e9d5ff">Name, LinkedIn, Website</tspan></text>
+          <text x="16" y="108" font-size="11" fill="var(--text-muted)">• Invokes Azure OpenAI model (<tspan font-family="JetBrains Mono" fill="#c084fc">gpt-5-mini-2</tspan>)</text>
+          <text x="16" y="128" font-size="11" fill="var(--text-muted)">• Enforces structured Pydantic schema: <tspan font-weight="700" fill="var(--text-main)">GeneratedQuery</tspan></text>
+          <text x="16" y="148" font-size="11" fill="var(--text-muted)">• Automatic rate-limit retry (<tspan font-family="JetBrains Mono" fill="#c084fc">with_retry</tspan> &amp; backoff)</text>
+          <!-- Footer Badge -->
+          <line x1="16" y1="175" x2="364" y2="175" stroke="var(--border-color)" stroke-width="1"/>
+          <use href="#icon-ms" x="16" y="188"/>
+          <text x="36" y="196" font-size="10" font-family="JetBrains Mono" fill="var(--text-dim)">Azure OpenAI · Structured Pydantic Output</text>
+        </g>
+
+        <!-- CARD 3.1: Node 3 Research Loop Action Engine -->
+        <g class="svg-node" transform="translate(970, 110)">
+          <rect width="430" height="220" rx="12" fill="var(--card-bg)" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+          <rect width="430" height="42" rx="12" fill="rgba(245, 158, 11, 0.15)"/>
+          <!-- Number Badge -->
+          <circle cx="28" cy="21" r="11" fill="#f59e0b"/>
+          <text x="28" y="25" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">3</text>
+          <!-- Title -->
+          <text x="48" y="26" font-size="13" font-weight="700" fill="var(--text-main)">Node 3: Research Loop Action Engine</text>
+
+          <!-- Divider -->
+          <line x1="0" y1="42" x2="430" y2="42" stroke="var(--border-color)" stroke-width="1"/>
+          <!-- Content Bullets -->
+          <text x="16" y="65" font-size="11.5" font-weight="600" fill="#fbbf24">Autonomous MCP Web Scraping Selection</text>
+          <text x="16" y="88" font-size="11" fill="var(--text-muted)">• Pre-Check Exit Guard: <tspan font-weight="700" fill="#fca5a5">scrape_calls &lt; 10</tspan> &amp; <tspan font-weight="700" fill="#86efac">DMs &lt; 5</tspan></text>
+          <text x="16" y="108" font-size="11" fill="var(--text-muted)">• Binds BrightData MCP tools via LangChain <tspan font-family="JetBrains Mono" fill="#fde047">bind_tools()</tspan></text>
+          <text x="16" y="128" font-size="11" fill="var(--text-muted)">• Policy Enforcement: <tspan font-weight="700" fill="#f87171">Blocks scraping personal LinkedIn URLs</tspan></text>
+          <text x="16" y="148" font-size="11" fill="var(--text-muted)">• Invokes BrightData web scraper &amp; appends to <tspan font-family="JetBrains Mono" fill="#fde047">loop_memory</tspan></text>
+          <!-- Footer Badge -->
+          <line x1="16" y1="175" x2="414" y2="175" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="196" font-size="10" font-family="JetBrains Mono" fill="var(--text-dim)">BrightData MCP · LangGraph Command(goto="...")</text>
+        </g>
+
+        <!-- CARD 4.1: Node 4 Output & Excel Exporter -->
+        <g class="svg-node" transform="translate(1470, 110)">
+          <rect width="380" height="220" rx="12" fill="var(--card-bg)" stroke="#10b981" stroke-width="2" filter="url(#shadow)"/>
+          <rect width="380" height="42" rx="12" fill="rgba(16, 185, 129, 0.15)"/>
+          <!-- Number Badge -->
+          <circle cx="28" cy="21" r="11" fill="#10b981"/>
+          <text x="28" y="25" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">4</text>
+          <!-- Title -->
+          <text x="48" y="26" font-size="13" font-weight="700" fill="var(--text-main)">Node 4: Output &amp; Excel Exporter</text>
+
+          <!-- Divider -->
+          <line x1="0" y1="42" x2="380" y2="42" stroke="var(--border-color)" stroke-width="1"/>
+          <!-- Content Bullets -->
+          <text x="16" y="65" font-size="11.5" font-weight="600" fill="#34d399">Final Deduplication &amp; Export Generation</text>
+          <text x="16" y="88" font-size="11" fill="var(--text-muted)">• Deduplicates Decision Makers by verified LinkedIn URL</text>
+          <text x="16" y="108" font-size="11" fill="var(--text-muted)">• Exports workbook: <tspan font-family="JetBrains Mono" fill="#6ee7b7">output/contacts_{session_id}.xlsx</tspan></text>
+          <text x="16" y="128" font-size="11" fill="var(--text-muted)">• Saves JSON state dump: <tspan font-family="JetBrains Mono" fill="#6ee7b7">agent_state_{session_id}.json</tspan></text>
+          <text x="16" y="148" font-size="11" fill="var(--text-muted)">• Prints extracted decision makers to CLI console</text>
+          <!-- Footer Badge -->
+          <line x1="16" y1="175" x2="364" y2="175" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="196" font-size="10" font-family="JetBrains Mono" fill="var(--text-dim)">OpenPyXL · JSON Serialization · Filesystem</text>
+        </g>
+      </g>
+
+
+      <!-- ================= CARDS LAYER (ROW 2: DEEP LOGIC & DECISION ENGINE) ================= -->
+      <g id="row-2-cards">
+        <!-- CARD 1.2: State Schema & Graph Builder -->
+        <g class="svg-node" transform="translate(70, 370)">
+          <rect width="380" height="230" rx="12" fill="var(--card-bg)" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+          <rect width="380" height="38" rx="12" fill="rgba(59, 130, 246, 0.1)"/>
+          <text x="16" y="24" font-size="12.5" font-weight="700" fill="#60a5fa">State Schema &amp; Graph Builder</text>
+          <line x1="0" y1="38" x2="380" y2="38" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="60" font-size="11" font-weight="600" fill="var(--text-main)">LangGraph State Machine Definition</text>
+          <text x="16" y="80" font-size="10.5" fill="var(--text-muted)">• <tspan font-weight="700" fill="#93c5fd">AgentInputState</tspan>: name, linkedin, website</text>
+          <text x="16" y="98" font-size="10.5" fill="var(--text-muted)">• <tspan font-weight="700" fill="#93c5fd">AgentState</tspan>: query, serp_raw_response, ai_overview</text>
+          <text x="16" y="116" font-size="10.5" fill="var(--text-muted)">• <tspan font-weight="700" fill="#93c5fd">decision_makers</tspan>: Annotated[list, operator.add]</text>
+          <text x="16" y="134" font-size="10.5" fill="var(--text-muted)">• <tspan font-weight="700" fill="#93c5fd">loop_memory</tspan>: Annotated[list, operator.add]</text>
+          <text x="16" y="152" font-size="10.5" fill="var(--text-muted)">• <tspan font-weight="700" fill="#93c5fd">scrape_calls_used</tspan>: integer loop counter</text>
+          <line x1="16" y1="180" x2="364" y2="180" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="202" font-size="10" font-family="JetBrains Mono" fill="var(--text-dim)">graph/state.py · Append-Only State Reducers</text>
+        </g>
+
+        <!-- CARD 2.2: Node 2 SerpAPI Search & Overview -->
+        <g class="svg-node" transform="translate(520, 370)">
+          <rect width="380" height="230" rx="12" fill="var(--card-bg)" stroke="#a855f7" stroke-width="1.5" filter="url(#shadow)"/>
+          <rect width="380" height="38" rx="12" fill="rgba(168, 85, 247, 0.1)"/>
+          <use href="#icon-google" x="16" y="11"/>
+          <text x="38" y="24" font-size="12.5" font-weight="700" fill="#c084fc">Node 2: SerpAPI Google Search</text>
+          <line x1="0" y1="38" x2="380" y2="38" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="60" font-size="11" font-weight="600" fill="var(--text-main)">Google AI Overview &amp; Organic Scrape</text>
+          <text x="16" y="80" font-size="10.5" fill="var(--text-muted)">• Async HTTP GET to <tspan font-family="JetBrains Mono" fill="#e9d5ff">serpapi.com/search</tspan></text>
+          <text x="16" y="98" font-size="10.5" fill="var(--text-muted)">• Engine: Google Search (<tspan font-family="JetBrains Mono" fill="#e9d5ff">num=10</tspan>)</text>
+          <text x="16" y="116" font-size="10.5" fill="var(--text-muted)">• Extracts <tspan font-weight="700" fill="#c084fc">Google AI Overview</tspan> or Answer Box</text>
+          <text x="16" y="134" font-size="10.5" fill="var(--text-muted)">• Organic Fallback: Combines top 5 search snippets</text>
+          <text x="16" y="152" font-size="10.5" fill="var(--text-muted)">• Updates State: <tspan font-family="JetBrains Mono" fill="#e9d5ff">serp_raw_response</tspan> &amp; <tspan font-family="JetBrains Mono" fill="#e9d5ff">ai_overview</tspan></text>
+          <line x1="16" y1="180" x2="364" y2="180" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="202" font-size="10" font-family="JetBrains Mono" fill="var(--text-dim)">SerpAPI · httpx.AsyncClient · Timeout 30.0s</text>
+        </g>
+
+        <!-- CARD 3.2: Structured Extractor & Self-Loop Evaluator -->
+        <g class="svg-node" transform="translate(970, 370)">
+          <rect width="430" height="230" rx="12" fill="var(--card-bg)" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+          <rect width="430" height="38" rx="12" fill="rgba(245, 158, 11, 0.1)"/>
+          <text x="16" y="24" font-size="12.5" font-weight="700" fill="#fbbf24">Extractor &amp; Loop Evaluator Engine</text>
+          <line x1="0" y1="38" x2="430" y2="38" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="60" font-size="11" font-weight="600" fill="var(--text-main)">Structured Candidate Extraction &amp; Routing</text>
+          <text x="16" y="80" font-size="10.5" fill="var(--text-muted)">• Structured Model: <tspan font-weight="700" fill="#fde047">DecisionMakerList</tspan> (Name, Position, URL)</text>
+          <text x="16" y="98" font-size="10.5" fill="var(--text-muted)">• Deduplicates against current state: <tspan font-family="JetBrains Mono" fill="#fde047">existing_urls/names</tspan></text>
+          <text x="16" y="116" font-size="10.5" fill="var(--text-muted)">• Evaluates Loop Decision: <tspan font-weight="700" fill="#fde047">ResearchLoopDecision</tspan></text>
+          <text x="16" y="134" font-size="10.5" fill="var(--text-muted)">• Verdict: <tspan fill="#86efac">"NOT_NEEDED"</tspan> → <tspan font-weight="700" fill="#34d399">goto="output_node"</tspan></text>
+          <text x="16" y="152" font-size="10.5" fill="var(--text-muted)">• Verdict: <tspan fill="#fca5a5">"NEEDED"</tspan> → <tspan font-weight="700" fill="#f87171">goto="research_loop"</tspan> (Self-Loop)</text>
+          <line x1="16" y1="180" x2="414" y2="180" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="202" font-size="10" font-family="JetBrains Mono" fill="var(--text-dim)">LangGraph Command Dynamic State Transition</text>
+        </g>
+
+        <!-- CARD 4.2: Telemetry & Cost Accounting -->
+        <g class="svg-node" transform="translate(1470, 370)">
+          <rect width="380" height="230" rx="12" fill="var(--card-bg)" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+          <rect width="380" height="38" rx="12" fill="rgba(16, 185, 129, 0.1)"/>
+          <text x="16" y="24" font-size="12.5" font-weight="700" fill="#34d399">Telemetry &amp; Token Cost Accounting</text>
+          <line x1="0" y1="38" x2="380" y2="38" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="60" font-size="11" font-weight="600" fill="var(--text-main)">Pipeline Logger &amp; Financial Analytics</text>
+          <text x="16" y="80" font-size="10.5" fill="var(--text-muted)">• Intercepts LLM calls via <tspan fill="#6ee7b7">PipelineLogger</tspan> callback</text>
+          <text x="16" y="98" font-size="10.5" fill="var(--text-muted)">• Input Token Cost: <tspan font-family="JetBrains Mono" fill="#6ee7b7">$0.250 / 1M tokens</tspan></text>
+          <text x="16" y="116" font-size="10.5" fill="var(--text-muted)">• Output Token Cost: <tspan font-family="JetBrains Mono" fill="#6ee7b7">$2.000 / 1M tokens</tspan></text>
+          <text x="16" y="134" font-size="10.5" fill="var(--text-muted)">• Logs event telemetry to: <tspan font-family="JetBrains Mono" fill="#6ee7b7">logs/pipeline_{session}.log</tspan></text>
+          <text x="16" y="152" font-size="10.5" fill="var(--text-muted)">• Real-time financial summary printed to CLI output</text>
+          <line x1="16" y1="180" x2="364" y2="180" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="202" font-size="10" font-family="JetBrains Mono" fill="var(--text-dim)">logging_/callbacks.py · Financial Telemetry</text>
+        </g>
+      </g>
+
+
+      <!-- ================= CARDS LAYER (ROW 3: INFRASTRUCTURE & PLATFORM TIER) ================= -->
+      <g id="row-3-cards">
+        <!-- CARD 1.3: SQLite Persistence Checkpointer -->
+        <g class="svg-node" transform="translate(70, 640)">
+          <rect width="380" height="210" rx="12" fill="var(--card-bg)" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="6,4" filter="url(#shadow)"/>
+          <rect width="380" height="36" rx="12" fill="rgba(56, 189, 248, 0.1)"/>
+          <text x="16" y="23" font-size="12" font-weight="700" fill="#38bdf8">SQLite Persistence Store</text>
+          <line x1="0" y1="36" x2="380" y2="36" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="58" font-size="11" fill="var(--text-muted)">• <tspan font-weight="700" fill="var(--text-main)">AsyncSqliteSaver</tspan> pointing to <tspan font-family="JetBrains Mono" fill="#7dd3fc">memory.db</tspan></text>
+          <text x="16" y="78" font-size="11" fill="var(--text-muted)">• Thread-level checkpointing for fault-tolerant state</text>
+          <text x="16" y="98" font-size="11" fill="var(--text-muted)">• Saves graph state snapshot after every node execution</text>
+          <text x="16" y="118" font-size="11" fill="var(--text-muted)">• Enables session resumption &amp; state auditability</text>
+          <line x1="16" y1="160" x2="364" y2="160" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="182" font-size="10" font-family="JetBrains Mono" fill="var(--text-dim)">Infrastructure Tier · memory.db</text>
+        </g>
+
+        <!-- CARD 2.3: Azure OpenAI Model Platform -->
+        <g class="svg-node" transform="translate(520, 640)">
+          <rect width="400" height="210" rx="12" fill="var(--card-bg)" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="6,4" filter="url(#shadow)"/>
+          <rect width="400" height="36" rx="12" fill="rgba(168, 85, 247, 0.1)"/>
+          <use href="#icon-ms" x="16" y="10"/>
+          <text x="38" y="23" font-size="12" font-weight="700" fill="#c084fc">Azure OpenAI LLM Platform</text>
+          <line x1="0" y1="36" x2="400" y2="36" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="58" font-size="11" fill="var(--text-muted)">• Deployment: <tspan font-family="JetBrains Mono" fill="#e9d5ff">gpt-5-mini-2</tspan> | Fallback: <tspan font-family="JetBrains Mono" fill="#e9d5ff">gpt-5.4-mini</tspan></text>
+          <text x="16" y="78" font-size="11" fill="var(--text-muted)">• Handles 429 rate limits via 65s cycle backoff wait</text>
+          <text x="16" y="98" font-size="11" fill="var(--text-muted)">• Binds tools via LangChain <tspan font-family="JetBrains Mono" fill="#e9d5ff">bind_tools()</tspan></text>
+          <text x="16" y="118" font-size="11" fill="var(--text-muted)">• Structured JSON response generation via Pydantic</text>
+          <line x1="16" y1="160" x2="384" y2="160" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="182" font-size="10" font-family="JetBrains Mono" fill="var(--text-dim)">Azure Cloud Infrastructure · OpenAI API</text>
+        </g>
+
+        <!-- CARD 3.3: BrightData MCP Web Scraping Server -->
+        <g class="svg-node" transform="translate(970, 640)">
+          <rect width="430" height="210" rx="12" fill="var(--card-bg)" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6,4" filter="url(#shadow)"/>
+          <rect width="430" height="36" rx="12" fill="rgba(245, 158, 11, 0.1)"/>
+          <text x="16" y="23" font-size="12" font-weight="700" fill="#fbbf24">BrightData MCP Scraping Infrastructure</text>
+          <line x1="0" y1="36" x2="430" y2="36" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="58" font-size="11" fill="var(--text-muted)">• Connected via <tspan font-family="JetBrains Mono" fill="#fde047">mcp_client/bright_data_client.py</tspan></text>
+          <text x="16" y="78" font-size="11" fill="var(--text-muted)">• SSE/HTTP Model Context Protocol client transport</text>
+          <text x="16" y="98" font-size="11" fill="var(--text-muted)">• Web search, company profile &amp; structure scraping</text>
+          <text x="16" y="118" font-size="11" fill="var(--text-muted)">• Real-time anti-bot proxy rotation &amp; DOM rendering</text>
+          <line x1="16" y1="160" x2="414" y2="160" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="182" font-size="10" font-family="JetBrains Mono" fill="var(--text-dim)">MCP Web Scraping Infrastructure · Remote Server</text>
+        </g>
+
+        <!-- CARD 4.3: Storage & Artifact Repository -->
+        <g class="svg-node" transform="translate(1470, 640)">
+          <rect width="380" height="210" rx="12" fill="var(--card-bg)" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6,4" filter="url(#shadow)"/>
+          <rect width="380" height="36" rx="12" fill="rgba(16, 185, 129, 0.1)"/>
+          <text x="16" y="23" font-size="12" font-weight="700" fill="#34d399">Storage &amp; Artifact Repository</text>
+          <line x1="0" y1="36" x2="380" y2="36" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="58" font-size="11" fill="var(--text-muted)">• Directory: <tspan font-family="JetBrains Mono" fill="#6ee7b7">output/</tspan> &amp; <tspan font-family="JetBrains Mono" fill="#6ee7b7">logs/</tspan></text>
+          <text x="16" y="78" font-size="11" fill="var(--text-muted)">• Excel Contacts Workbook (<tspan fill="#6ee7b7">.xlsx</tspan>)</text>
+          <text x="16" y="98" font-size="11" fill="var(--text-muted)">• Agent State Snapshot (<tspan fill="#6ee7b7">agent_state_*.json</tspan>)</text>
+          <text x="16" y="118" font-size="11" fill="var(--text-muted)">• Structured execution audit log (<tspan fill="#6ee7b7">pipeline_*.log</tspan>)</text>
+          <line x1="16" y1="160" x2="364" y2="160" stroke="var(--border-color)" stroke-width="1"/>
+          <text x="16" y="182" font-size="10" font-family="JetBrains Mono" fill="var(--text-dim)">Persistent File Storage Tier</text>
+        </g>
+      </g>
+
+
+      <!-- ================= BOTTOM ARCHITECTURAL SUMMARY BAR ================= -->
+      <g id="summary-highlights" transform="translate(50, 890)">
+        <rect width="1820" height="150" rx="12" fill="var(--bg-header)" stroke="var(--border-color)" stroke-width="1.5" filter="url(#shadow)"/>
+        <text x="24" y="30" font-size="14" font-weight="800" fill="var(--accent-blue)">Key System Architectural Principles &amp; Safety Guardrails</text>
+        <line x1="24" y1="42" x2="1796" y2="42" stroke="var(--border-color)" stroke-width="1"/>
+
+        <!-- Box 1 -->
+        <g transform="translate(24, 54)">
+          <rect width="420" height="80" rx="8" fill="var(--card-bg)" stroke="#3b82f6" stroke-width="1"/>
+          <text x="14" y="24" font-size="12" font-weight="700" fill="#60a5fa">🛡️ Strict Scraping Guardrails</text>
+          <text x="14" y="44" font-size="11" fill="var(--text-muted)">• Scrape budget capped at <tspan font-weight="700" fill="var(--text-main)">MAX_SCRAPE_CALLS = 10</tspan></text>
+          <text x="14" y="62" font-size="11" fill="var(--text-muted)">• <tspan font-weight="700" fill="#f87171">Strict Block:</tspan> Rejects scraping personal LinkedIn profiles</text>
+        </g>
+
+        <!-- Box 2 -->
+        <g transform="translate(474, 54)">
+          <rect width="420" height="80" rx="8" fill="var(--card-bg)" stroke="#a855f7" stroke-width="1"/>
+          <text x="14" y="24" font-size="12" font-weight="700" fill="#c084fc">⚡ LangGraph State Machine Control</text>
+          <text x="14" y="44" font-size="11" fill="var(--text-muted)">• Dynamic state routing via <tspan font-family="JetBrains Mono" fill="#c084fc">Command(goto=...)</tspan></text>
+          <text x="14" y="62" font-size="11" fill="var(--text-muted)">• Append-only state updates with <tspan font-family="JetBrains Mono" fill="#c084fc">operator.add</tspan> reducers</text>
+        </g>
+
+        <!-- Box 3 -->
+        <g transform="translate(924, 54)">
+          <rect width="420" height="80" rx="8" fill="var(--card-bg)" stroke="#f59e0b" stroke-width="1"/>
+          <text x="14" y="24" font-size="12" font-weight="700" fill="#fbbf24">🌐 Multi-Channel Data Discovery</text>
+          <text x="14" y="44" font-size="11" fill="var(--text-muted)">• Dual discovery: Google AI Overview + BrightData MCP</text>
+          <text x="14" y="62" font-size="11" fill="var(--text-muted)">• Targets max <tspan font-weight="700" fill="var(--text-main)">5 verified Decision Makers</tspan> per session</text>
+        </g>
+
+        <!-- Box 4 -->
+        <g transform="translate(1374, 54)">
+          <rect width="420" height="80" rx="8" fill="var(--card-bg)" stroke="#10b981" stroke-width="1"/>
+          <text x="14" y="24" font-size="12" font-weight="700" fill="#34d399">💰 Telemetry &amp; Financial Cost Audit</text>
+          <text x="14" y="44" font-size="11" fill="var(--text-muted)">• Real-time token usage tracking on all LLM nodes</text>
+          <text x="14" y="62" font-size="11" fill="var(--text-muted)">• Precise USD cost calculation ($0.25 in / $2.00 out)</text>
+        </g>
+      </g>
+
+    </svg>
+  </div>
+
+  <!-- Summary Cards below SVG -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <h3>
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        Solution Flow Overview
+      </h3>
+      <p>The <strong>Contact Finder Agent</strong> uses a sequential, state-machine pipeline constructed with LangGraph. It initializes state with target company metadata, generates an optimal Google search query via Azure OpenAI, extracts initial AI Overviews from SerpAPI, and enters an autonomous MCP research loop to discover decision makers.</p>
+    </div>
+
+    <div class="summary-card">
+      <h3>
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        Guardrails &amp; Compliance
+      </h3>
+      <p>To prevent infinite loops and guarantee policy compliance, the research loop enforces strict exit criteria: a maximum budget of <strong>10 web scraping calls</strong>, a cap of <strong>5 decision makers</strong>, and an explicit rule blocking the scraping of personal LinkedIn profile URLs.</p>
+    </div>
+
+    <div class="summary-card">
+      <h3>
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+        Persistence &amp; Export Formats
+      </h3>
+      <p>All state transitions are persisted in real-time to SQLite (<code>memory.db</code>) via <code>AsyncSqliteSaver</code>. Upon completion, verified decision makers are written to an Excel sheet (<code>contacts_{session}.xlsx</code>) and full state history is saved to JSON (<code>agent_state_{session}.json</code>).</p>
+    </div>
+  </div>
+
+  <!-- JavaScript for Theme & Export -->
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      if (current === 'light') {
+        body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Set default theme from localStorage if available
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.setAttribute('data-theme', 'light');
+    }
+
+    function exportPNG() {
+      const container = document.getElementById('report-container');
+      html2canvas(container, {
+        scale: 2,
+        backgroundColor: null,
+        useCORS: true
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'linkedin_contact_finder_solution_flow.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }).catch(err => {
+        alert('PNG Export failed: ' + err.message);
+      });
+    }
+
+    function exportPDF() {
+      const container = document.getElementById('report-container');
+      html2canvas(container, {
+        scale: 2,
+        useCORS: true
+      }).then(canvas => {
+        const { jsPDF } = window.jspdf;
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF({
+          orientation: 'landscape',
+          unit: 'px',
+          format: [canvas.width, canvas.height]
+        });
+        pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+        pdf.save('linkedin_contact_finder_solution_flow.pdf');
+      }).catch(err => {
+        alert('PDF Export failed: ' + err.message);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+{
+  "session_id": "session-20260802-112557",
+  "timestamp": "2026-08-02_11-29-49",
+  "screener_query": {
+    "sector": "Health Services",
+    "industry": null,
+    "revenue_min": 3000000000.0,
+    "revenue_max": 30000000000.0,
+    "profit_min": 200000000.0,
+    "profit_max": 3000000000.0,
+    "market": "india",
+    "location": "India",
+    "limit": 60
+  },
+  "total_companies": 10,
+  "companies": [
+    {
+      "ticker": "NSE:AGARWALEYE",
+      "name": "AGARWALEYE",
+      "industry": "Medical/Nursing Services",
+      "revenue_ttm": 20800800000.0,
+      "net_income_ttm": 1331900000,
+      "employee_count": null,
+      "business_summary": "Dr. Agarwal's Health Care Limited engages in running, owning, and managing eye care hospitals, opticals, pharmacies, etc. and related services in India and internationally. It offers femto cataracts, lenticular procedure, retinal surgeries, anterior segment reconstruction, and corneal transplants, as well as refractive and other surgeries. The company also develops, designs, manufactures, imports, and exports healthcare devices, which include ophthalmic diagnostic devices, such as auto perimeter, optical biometers, and ophthalmoscopes. In addition, the company offers consultations, diagnoses, and non-surgical treatments; and sells opticals, contact lenses and accessories, and eye care related pharmaceutical products. Dr. Agarwal's Health Care Limited was incorporated in 2010 and is based in Chennai, India.",
+      "website": "https://www.dragarwals.co.in",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/dr-agarwal",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Adil Agarwal",
+          "position": "CEO - Dr Agarwal's Eye Hospitals Group",
+          "linkedin_url": "https://in.linkedin.com/in/adil-agarwal-51a99845"
+        },
+        {
+          "name": "Ashar Agarwal",
+          "position": "Chief Business Officer",
+          "linkedin_url": "https://in.linkedin.com/in/asharagarwal"
+        },
+        {
+          "name": "Ayushman Chiranewala",
+          "position": "Chief Marketing Officer",
+          "linkedin_url": "https://in.linkedin.com/in/ayushman-chiranewala-063b1a7"
+        },
+        {
+          "name": "Dr. Ashvin Agarwal",
+          "position": "Chief Clinical Officer",
+          "linkedin_url": "https://in.linkedin.com/in/ashvinagarwal"
+        },
+        {
+          "name": "Abeer Kumar",
+          "position": "Head of Legal",
+          "linkedin_url": "https://in.linkedin.com/in/abeer-kumar-62139b122"
+        },
+        {
+          "name": "Rahul Agarwal",
+          "position": "Key leader / Senior leader",
+          "linkedin_url": "https://in.linkedin.com/in/rahulagarwala"
+        },
+        {
+          "name": "Anosh Agarwal",
+          "position": "Director",
+          "linkedin_url": "https://in.linkedin.com/in/anosh-agarwal-7676b638"
+        },
+        {
+          "name": "L Harish",
+          "position": "General Manager",
+          "linkedin_url": "https://in.linkedin.com/in/l-harish-a4037723"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:RAINBOW",
+      "name": "RAINBOW",
+      "industry": "Hospital/Nursing Management",
+      "revenue_ttm": 18201330000.0,
+      "net_income_ttm": 2853960000,
+      "employee_count": null,
+      "business_summary": "Rainbow Children's Medicare Limited operates a multi-specialty paediatric, obstetrics, and gynaecology hospital chain in India. The company offers medical and healthcare services to children and women. It also provides pediatric services under brand Rainbow Children's Hospital which include newborn and pediatric intensive care; pediatric multi-specialty services; and pediatric quaternary care, such as multi-organ transplantation. In addition, the company offers women care services under Birthright brand that comprise perinatal care services, such as routine and complex obstetric care, multi-disciplinary fetal care, perinatal genetic and fertility support, and a range of gynecology treatments, as well as operates private pediatric DNB (Diplomate of National Board) training program offering postgraduate and fellowship opportunities to train future healthcare professionals. Rainbow Children's Medicare Limited was incorporated in 1998 and is based in Hyderabad, India.",
+      "website": "https://www.rainbowhospitals.in",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/rainbow-hospitals",
+      "linkedin_confirmed": true,
+      "decision_makers": [],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:METROPOLIS",
+      "name": "METROPOLIS",
+      "industry": "Medical/Nursing Services",
+      "revenue_ttm": 16458458999.999998,
+      "net_income_ttm": 1900174000,
+      "employee_count": 4484,
+      "business_summary": "Metropolis Healthcare Limited, together with its subsidiaries, provides pathology and related healthcare services in India and internationally. The company offers routine and specialised pathology tests; advanced diagnostics, including genetic, molecular, and cytogenetic testing; preventive healthcare packages and corporate wellness screening; clinical trial research, hospital lab management, and home collection services; radiology services, including X-ray, sonography and ECG; and next-generation sequencing services. It also provides diagnostic services for oncology, chronic and infectious diseases, gastroenterology, neurology, nephrology, and women and child health, as well as various health checkup and laboratory services. The company serves a range of customers, including direct-to-consumer diagnostics through patient service centers, mobile app, website, and home collection; partnerships with standalone labs, hospital chains, and diagnostic networks; and institutional clients, such as corporates, government bodies, and hospital lab management services. Metropolis Healthcare Limited was founded in 1980 and is headquartered in Mumbai, India.",
+      "website": "https://www.metropolisindia.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/metropolislab",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Ameera Shah",
+          "position": "Promoter & Executive Chairperson, Metropolis Healthcare Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/ameerashah"
+        },
+        {
+          "name": "Bhoopendra Singh Rajawat",
+          "position": "Chief Business Officer, Metropolis Healthcare Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/bhoopendra-singh-rajawat-12910315"
+        },
+        {
+          "name": "Dr Geeta Chopra",
+          "position": "VP - Chief Lab Operations (North SBU), Metropolis Healthcare Limited",
+          "linkedin_url": "https://in.linkedin.com/in/dr-geeta-chopra-1128ba252"
+        },
+        {
+          "name": "Jeyasingh Balakrishnan",
+          "position": "Group Head - Corporate Communications and CSR, Metropolis Healthcare",
+          "linkedin_url": "https://in.linkedin.com/in/jeyasinghbalakrishnan031283"
+        },
+        {
+          "name": "Sameer Patel",
+          "position": "Chief Financial Officer, Metropolis Healthcare Limited",
+          "linkedin_url": "https://in.linkedin.com/in/sameer-patel-9ab20b19"
+        },
+        {
+          "name": "Aditya Shinde",
+          "position": "Group Business Controller & Commercial Head, Metropolis Healthcare",
+          "linkedin_url": "https://in.linkedin.com/in/aditya-shinde-81571736"
+        },
+        {
+          "name": "Dr. Nilesh Shah",
+          "position": "President and Chief of Science, Metropolis Healthcare",
+          "linkedin_url": "https://in.linkedin.com/in/drnileshshah"
+        },
+        {
+          "name": "Pinakin Shah",
+          "position": "CIO, Metropolis Healthcare",
+          "linkedin_url": "https://in.linkedin.com/in/pinakinshah"
+        },
+        {
+          "name": "Samarth Kapoor",
+          "position": "Head - B2C Marketing, Metropolis Healthcare Limited",
+          "linkedin_url": "https://in.linkedin.com/in/samarth-kapoor-a9b613159"
+        },
+        {
+          "name": "Tushar Karnik",
+          "position": "Chief Financial Officer (listed in search results for Metropolis)",
+          "linkedin_url": "https://in.linkedin.com/in/tushar-karnik-43165218"
+        },
+        {
+          "name": "Ashish Singhal",
+          "position": "CFO & Company Secretary, CORE Diagnostics (now part of Metropolis)",
+          "linkedin_url": "https://in.linkedin.com/in/ashish-singhal-53601921"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:KOVAI",
+      "name": "KOVAI",
+      "industry": "Hospital/Nursing Management",
+      "revenue_ttm": 15865368000.0,
+      "net_income_ttm": 2407931000,
+      "employee_count": 6885,
+      "business_summary": "Kovai Medical Center and Hospital Limited operates a multispecialty hospital and its satellite centers in India. It operates through two segments, Healthcare Services and Education Services. The company offers outpatient and inpatient medical services in the fields of cardiology, cardiac anesthesiology, cardiovascular and thoracic surgery, comprehensive cancer center, critical care medicine, dentistry/faciomaxillary surgery, dermatology and cosmetic dermatology, electrophysiology, emergency services, endocrinology and diabetology, ENT/head and neck, fertility and reproductive medicine, gastroenterology and hepatology, general/laparoscopic surgery, hematology, internal medicine, interventional radiology, liver institute, laboratory medicine, neonatology, nephrology/urology, neurosciences, nuclear medicine and PET CT, obstetrics and gynecology, organ transplant program, orthopedics and joint replacement, pediatrics, pediatric surgery, pediatric intensive care unit, physical medicine and rehabilitation, psychological medicine, pulmonology, and rheumatology. It also provides preventive health check-ups. In addition, the company operates a medical college that provides postgraduate programs in neurology, pediatrics, psychiatry, orthopedics, and cardiopulmonary care. It serves out-patients, in-patients, and the common public. Kovai Medical Center and Hospital Limited was incorporated in 1985 and is based in Coimbatore, India.",
+      "website": "https://www.kmchhospitals.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/kovai-medical-center-and-hospital",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Saravana Kumar",
+          "position": "Founder & CEO",
+          "linkedin_url": "https://www.linkedin.com/in/saravanamv"
+        },
+        {
+          "name": "Suprej Venkat",
+          "position": "Vice President, Growth",
+          "linkedin_url": "https://www.linkedin.com/in/suprej"
+        },
+        {
+          "name": "Mohammad Faruk",
+          "position": "Head - IT Infrastructure",
+          "linkedin_url": "https://www.linkedin.com/in/mohammad-faruk-902777349"
+        },
+        {
+          "name": "Pradeep Jumani",
+          "position": "Chief People Officer",
+          "linkedin_url": "https://www.linkedin.com/in/pradeep-jumani-6391414"
+        },
+        {
+          "name": "Saravanan Balakrishnan",
+          "position": "Chief of Staff",
+          "linkedin_url": "https://www.linkedin.com/in/saravananbalakrishnan"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:JLHL",
+      "name": "JLHL",
+      "industry": "Hospital/Nursing Management",
+      "revenue_ttm": 15578170000.0,
+      "net_income_ttm": 1876600000,
+      "employee_count": 3002,
+      "business_summary": "Jupiter Life Line Hospitals Limited, a multi-specialty hospital, provides health care services under the Jupiter brand in India. The company offers treatments in the areas of bariatric surgery, breast care center, cardiac surgery, cardiology, chest medicine, dental care, dermatology, endocrinology and diabetes, ENT, gastroenterology, general surgery and minimal access surgery, hematology and BMT, HPB and surgical gastroenterology, infectious diseases, internal medicine, interventional radiology, mental health, nephrology, neurology, neurosurgery, nutrition and dietetics, Obs and gynecology, oncology, ophthalmology, organ transplant, orthopedics, pediatrics, pain clinic, plastic and cosmetic surgery, rehabilitation, rheumatology, robotic knee replacement, robotic surgery, TAVI/TAVR, and urology. It also operates hotel under the Fortune Park Lake City Hotel brand in Thane. The company was incorporated in 2002 and is based in Mumbai, India.",
+      "website": "https://www.jupiterhospital.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/jupiterhospitalofficial",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Ankit Thakker",
+          "position": "Managing Director and CEO",
+          "linkedin_url": "https://in.linkedin.com/in/ankit-thakker-jupiter"
+        },
+        {
+          "name": "Harshad Purani",
+          "position": "President at Jupiter Hospital",
+          "linkedin_url": "https://in.linkedin.com/in/harshad-purani-b9873b38"
+        },
+        {
+          "name": "Rajendra P. Patankar",
+          "position": "Chief Executive Officer @ Jupiter Hospital",
+          "linkedin_url": "https://in.linkedin.com/in/rajendra-p-patankar-b9a74015"
+        },
+        {
+          "name": "Shom Mazumdar",
+          "position": "Brand Marketing & Communications Advisor",
+          "linkedin_url": "https://in.linkedin.com/in/shom-mazumdar-a68b02a"
+        },
+        {
+          "name": "Manish Chandra",
+          "position": "Administrator and Head at Jupiter Hospital",
+          "linkedin_url": "https://in.linkedin.com/in/manish-chandra-44055137"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:INDRAMEDCO",
+      "name": "INDRAMEDCO",
+      "industry": "Hospital/Nursing Management",
+      "revenue_ttm": 14825100000.0,
+      "net_income_ttm": 1836200000,
+      "employee_count": null,
+      "business_summary": "Indraprastha Medical Corporation Limited provides hospital services in India. The company offers services primarily in the areas of sugar, genomic medicine, elder care, anesthesiology, bariatric and metabolic surgery, bone marrow transplant, dental and cosmetic clinic, dermatology, dietetics and clinical nutrition, vascular and endovascular surgery, endocrinology, ENT, fetal medicine, general and laparoscopic surgery, gynecology and obstetrics, hyperbaric oxygen therapy, IVF, neonatology, nephrology, nuclear medicine, ophthalmology, pediatric sciences, urology, and plastic surgery, as well as pediatric urology and surgery, physiotherapy and rehabilitation, psychiatry and clinical psychology, radiology and radio diagnosis, respiratory, rheumatology, spine surgery, urology and andrology, cardiology, oncology, emergency, gastroenterology, neuroscience, critical care, orthopedics, robotic surgery, and organ transplant, as well as laboratory services, interventional medicine, preventive medicine, and sleep medicine. Indraprastha Medical Corporation Limited was founded in 1983 and is based in New Delhi, India.",
+      "website": "https://www.apollohospitals.com/delhi/",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/indraprastha-apollo-hospitals-new-delhi",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Shivakumar Pattabhiraman",
+          "position": "Managing Director (MD & Additional Director)",
+          "linkedin_url": "https://in.linkedin.com/in/shivakumar-pattabhiraman-322501a7"
+        },
+        {
+          "name": "Rajesh Mathur",
+          "position": "HR at Indraprastha Medical Corporation",
+          "linkedin_url": "https://in.linkedin.com/in/rajesh-mathur-34205b20"
+        },
+        {
+          "name": "Chandrasekhar Mahamkali",
+          "position": "Director of Operations (Healthcare)",
+          "linkedin_url": "https://in.linkedin.com/in/chandrasekhar-mahamkali-b0688875"
+        },
+        {
+          "name": "Menaka Ramprasad",
+          "position": "Director, Global Medical Affairs",
+          "linkedin_url": "https://in.linkedin.com/in/menakaramprasad"
+        },
+        {
+          "name": "Pankaj Aggarwal",
+          "position": "General Manager - Finance (Indraprastha Medical Corporation Ltd.)",
+          "linkedin_url": "https://in.linkedin.com/in/pankaj-aggarwal-aa1457171"
+        },
+        {
+          "name": "Priya Ranjan",
+          "position": "AVP - Corporate Affairs & Legal",
+          "linkedin_url": "https://in.linkedin.com/in/priya-ranjan-8706a216"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:YATHARTH",
+      "name": "YATHARTH",
+      "industry": "Hospital/Nursing Management",
+      "revenue_ttm": 11992260000.0,
+      "net_income_ttm": 1761500000,
+      "employee_count": null,
+      "business_summary": "Yatharth Hospital & Trauma Care Services Limited, together with its subsidiaries, owns and operates super-specialty hospitals in India. The company offers services in the areas of medicine, cardiology, neurosciences, general surgery, nephrology and urology, pediatrics, gastroenterology, pulmonology, gynecology, orthopedics, spine and rheumatology, plastic and cosmetic surgery, ear, nose, throat, endocrinology, critical care, dermatology, nuclear medicine, and cancer and bone marrow transplant. It also provides services in the areas of GI surgery and liver transplant, robotic surgery, kidney transplant, IVF and fertility, emergency medicine, ophthalmology, dentistry, psychology and psychiatry, physiotherapy and rehabilitation, anesthesiology, radiology, pathology and laboratory medicine, nutrition and health, interventional spine and pain medicine, neurology, neurosurgery, and cardiovascular and thoracic surgery. In addition, the company sells medicines and canteen food. The company was incorporated in 2008 and is based in Noida, India.",
+      "website": "https://www.yatharthhospitals.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/yatharthhealthcare",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Yatharth Tyagi",
+          "position": "Director, Yatharth Group of Hospitals",
+          "linkedin_url": "https://in.linkedin.com/in/yatharth-tyagi-51618b170"
+        },
+        {
+          "name": "Ashutosh Kumar Jha",
+          "position": "Group Chief – Strategy, M&A and Investor Relations, Yatharth Hospitals",
+          "linkedin_url": "https://in.linkedin.com/in/ashutoshkrjha"
+        },
+        {
+          "name": "Amit Singh",
+          "position": "Group Chief Executive Officer (CEO), Yatharth Group of Hospitals",
+          "linkedin_url": "https://in.linkedin.com/in/amitsingh3"
+        },
+        {
+          "name": "Nitin Gupta",
+          "position": "Group Chief Operating Officer and President (Finance), Yatharth Hospitals",
+          "linkedin_url": "https://in.linkedin.com/in/nitin-gupta-groupcfo"
+        },
+        {
+          "name": "Kapil Tyagi",
+          "position": "Managing Director, Yatharth Wellness / Yatharth Super Speciality Hospitals",
+          "linkedin_url": "https://in.linkedin.com/in/kapil-tyagi-b5a281b6"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:SHALBY",
+      "name": "SHALBY",
+      "industry": "Hospital/Nursing Management",
+      "revenue_ttm": 11414290000.0,
+      "net_income_ttm": 373900000,
+      "employee_count": null,
+      "business_summary": "Shalby Limited operates a chain of multi-specialty hospitals in India and internationally. The company operates through Healthcare Services and Manufacturing segments. It offers rheumatology, knee and hip joint replacement, spine surgery, orthopedic and trauma, arthroscopy, and arthroplasty; cardiothoracic and vascular surgery, coronary angiography, angioplasty and stenting, and cardiology services; root canal treatment, dental implants, crowns bridges, dentures, orthodontic treatment, dental cosmetic, teeth whitening, pediatric dentistry, dental veneers, gum treatment, and laser dentistry; dermatology; emergency and general medicine; cochlear implants and balloon sinuplasty; gastroenterology, obesity surgery, and endoscopy and laparoscopy; intensive and critical care; nephrology, urology, kidney transplant, dialysis, and interventional nephrology; and general surgery comprising varicose, hernia, and piles surgery. The company also provides liver transplant; maxillofacial surgery; neurology, ideal stroke treatment, epilepsy, endovascular/interventional neurosurgery, and trans cranial doppler; obstetrics and gynaecology; surgical oncology, medical oncology, radiation oncology, bone marrow transplant, onco-psychology, onco-dietetics, onco-physiotherapy, and home care; ophthalmology; paediatrics; pathology and microbiology; psychiatry; pulmonology and chest; and interventional and diagnostic radiology. The company was formerly known as Shalby Hospitals Limited and changed its name to Shalby Limited in February 2008. Shalby Limited was founded in 1994 and is based in Ahmedabad, India.",
+      "website": "https://www.shalby.org",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/shalby-hospitals",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "BALAJI REGURAMAN",
+          "position": "Vice President - Sales & Marketing, Shalby MedTech",
+          "linkedin_url": "https://in.linkedin.com/in/balaji-reguraman-3b9ab118"
+        },
+        {
+          "name": "Rohitash Dev",
+          "position": "Vice President, Shalby Hospitals",
+          "linkedin_url": "https://in.linkedin.com/in/rohitash-dev-629164136"
+        },
+        {
+          "name": "Rooturaj Vyas",
+          "position": "DGM - Corporate Development, Shalby Hospital Naroda (Shalby Limited)",
+          "linkedin_url": "https://in.linkedin.com/in/rooturaj-vyas-899140286"
+        },
+        {
+          "name": "Rajeshkumar P J",
+          "position": "Associate Vice President, Consensus Ortho (A Shalby company)",
+          "linkedin_url": "https://in.linkedin.com/in/rajeshkumar-p-j-5706705"
+        },
+        {
+          "name": "Ajay Singh Ranote",
+          "position": "Head of Human Resources at Shalby Limited",
+          "linkedin_url": "https://in.linkedin.com/in/ajay-singh-ranote-a75955169"
+        },
+        {
+          "name": "Shanay Shah, CFA",
+          "position": "President at Shalby Limited",
+          "linkedin_url": "https://in.linkedin.com/in/shanay-shah-cfa-95141758"
+        },
+        {
+          "name": "Amit Pathak",
+          "position": "Group Chief Financial Officer (Group CFO) at Shalby Limited",
+          "linkedin_url": "https://in.linkedin.com/in/amit-pathak-0923539"
+        },
+        {
+          "name": "Parimal Patel",
+          "position": "Cluster Head, Shalby Limited",
+          "linkedin_url": "https://in.linkedin.com/in/parimal-patel-11998023"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:ARTEMISMED",
+      "name": "ARTEMISMED",
+      "industry": "Hospital/Nursing Management",
+      "revenue_ttm": 10812424000.0,
+      "net_income_ttm": 1036191000,
+      "employee_count": null,
+      "business_summary": null,
+      "website": "http://www.artemishospitals.com",
+      "enrichment_source": "financedatabase fallback",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/artemishospital",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Dr. Saurabh Patle",
+          "position": "General Manager - Operations (Artemis Hospitals)",
+          "linkedin_url": "https://www.linkedin.com/in/drsaurabhpatle"
+        },
+        {
+          "name": "Pradeep Saha",
+          "position": "Group Chief Information Officer (Artemis)",
+          "linkedin_url": "https://www.linkedin.com/in/pradeep-saha-60b36715"
+        },
+        {
+          "name": "Rashmi Sinha",
+          "position": "Head IT (Artemis Hospitals)",
+          "linkedin_url": "https://www.linkedin.com/in/rashmi-sinha-pmp-salesforce-certified-administrator-71a88121"
+        },
+        {
+          "name": "Sanjiv Kothari",
+          "position": "Chief Financial Officer (Artemis Hospitals)",
+          "linkedin_url": "https://www.linkedin.com/in/sanjiv-kothari-58b00a40"
+        },
+        {
+          "name": "Dr. Devlina Chakravarty",
+          "position": "Managing Director (MD) & CEO, Artemis Hospitals",
+          "linkedin_url": "https://in.linkedin.com/in/dr-devlina-chakravarty-81a58514b"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:THYROCARE",
+      "name": "THYROCARE",
+      "industry": "Medical/Nursing Services",
+      "revenue_ttm": 8760300000.0,
+      "net_income_ttm": 1763000000,
+      "employee_count": 1906,
+      "business_summary": "Thyrocare Technologies Limited provides diagnostic testing services to patients, laboratories, and hospitals in India. It operates through three segments: Diagnostic Testing Services, Imaging Services, and Others. The Diagnostic Testing Services segment engages in the selling of consumables used for collection, and promotion of pathology. The Imaging Services segment sells radio-pharmaceutical and consumables for reporting. The Others segment engages in the sale of glucometer and glucostrips under the brand name sugarscan. The company offers diagnostic and pathological services. The company was founded in 1996 and is based in Navi Mumbai, India. Thyrocare Technologies Limited is a subsidiary of Docon Technologies Private Limited.",
+      "website": "https://www.thyrocare.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/thyrocare-technologies-ltd",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Rahul Guha",
+          "position": "Managing Director & CEO",
+          "linkedin_url": "https://in.linkedin.com/in/rahul-guha-6a299819"
+        },
+        {
+          "name": "Dr. A. Velumani",
+          "position": "Founder & Director",
+          "linkedin_url": "https://in.linkedin.com/in/dr-a-velumani-phd-7655437"
+        },
+        {
+          "name": "Piyush Singh",
+          "position": "Vice President - Franchise Business",
+          "linkedin_url": "https://in.linkedin.com/in/piyushsingh16"
+        },
+        {
+          "name": "Geetanjali Pundhir",
+          "position": "Director, Founder and CEO",
+          "linkedin_url": "https://in.linkedin.com/in/geetanjali-pundhir-a46080225"
+        },
+        {
+          "name": "Nikhil Bodhankar",
+          "position": "Head of Lab Operations & Engineering",
+          "linkedin_url": "https://in.linkedin.com/in/nikhil-bodhankar-563a5728"
+        }
+      ],
+      "location": "India"
+    }
+  ]
+}

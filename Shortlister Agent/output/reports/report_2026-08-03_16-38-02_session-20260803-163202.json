@@ -1,0 +1,483 @@
+{
+  "session_id": "session-20260803-163202",
+  "timestamp": "2026-08-03_16-38-02",
+  "screener_query": {
+    "sector": "Health Technology",
+    "industry": null,
+    "revenue_min": 5000000000.0,
+    "revenue_max": 50000000000.0,
+    "profit_min": 500000000.0,
+    "profit_max": 5000000000.0,
+    "market": "india",
+    "location": "India",
+    "limit": 60
+  },
+  "total_companies": 10,
+  "companies": [
+    {
+      "ticker": "NSE:AKUMS",
+      "name": "AKUMS",
+      "industry": "Biotechnology",
+      "revenue_ttm": 43590170000,
+      "net_income_ttm": 2551880000.0,
+      "employee_count": 7337,
+      "business_summary": "Akums Drugs and Pharmaceuticals Limited manufactures and sells pharmaceutical products and active pharmaceutical ingredients India and internationally. The company provides drugs, ayurvedic, nutraceuticals, food and dietary supplements, derma and cosmetics, healthcare and hospital products, over-the-counter (OTC) products, active pharmaceutical ingredients, excipients, and compounds. It also offers branded formulations on various dosage forms, including tablets, hard and soft gelatin capsules, liquid orals, sachets, vials, ampoules, form-fill-seal products, topical preparations, eye drops, dry powder injections, and gummies for therapeutic areas, such as antiinfectives, pain management, gastroenterology, orthopaedics, cardio-diabetic care, critical care, respiratory, and gynaecology. In addition, the company operates as pharmaceutical contract development and manufacturing company. Akums Drugs and Pharmaceuticals Limited was incorporated in 2004 and is based in Delhi, India.",
+      "website": "https://www.akums.in",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/akums",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Sandeep Jain",
+          "position": "Founder and Managing Director",
+          "linkedin_url": "https://in.linkedin.com/in/sandeep-jain-akums"
+        },
+        {
+          "name": "Sahil Maheshwari",
+          "position": "Vice President - Strategy",
+          "linkedin_url": "https://in.linkedin.com/in/sahil-maheshwari-a218a3aa"
+        },
+        {
+          "name": "Sanjay Sinha",
+          "position": "President - Operations",
+          "linkedin_url": "https://in.linkedin.com/in/sanjay-sinha-b4291a22"
+        },
+        {
+          "name": "Mahesh Malhotra",
+          "position": "VP Business / General Manager - Business Development",
+          "linkedin_url": "https://in.linkedin.com/in/mahesh-malhotra-94a1b948"
+        },
+        {
+          "name": "Roomy Kochhar",
+          "position": "PA to Managing Director",
+          "linkedin_url": "https://in.linkedin.com/in/roomy-kochhar-220260a8"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:INDGN",
+      "name": "INDGN",
+      "industry": "Pharmaceuticals: Major",
+      "revenue_ttm": 38128000000,
+      "net_income_ttm": 4009000000.0,
+      "employee_count": 4687,
+      "business_summary": "Indegene Limited operates as a digital-first life sciences commercialization company in India, the United States, Europe, and internationally. It operates through three segments: Enterprise Medical Solutions, Enterprise Commercial Solutions, Omnichannel Activation & Others. The company develops biotech and medical device for biopharmaceutical, emerging biotech, and medical device companies. It also offers enterprise commercial, medical, and clinical solutions; and omnichannel activation solutions. In addition, the company operates NEXT technology platforms. Further, it provides analytics, technology, commercial, medical, regulatory, and safety services to life science and healthcare organizations. Indegene Limited was incorporated in 1998 and is based in Bengaluru, India.",
+      "website": "https://www.indegene.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/indegene",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Manish Gupta",
+          "position": "Co-founder & Chief Executive Officer",
+          "linkedin_url": "https://in.linkedin.com/in/manish-gupta-4b85b2"
+        },
+        {
+          "name": "Saurabh Jain",
+          "position": "Vice President; India Region Head & Head Global Delivery/Capability Centers",
+          "linkedin_url": "https://in.linkedin.com/in/globalcme"
+        },
+        {
+          "name": "Mary Prasad",
+          "position": "Director - Finance",
+          "linkedin_url": "https://in.linkedin.com/in/mary-prasad-4303b1149"
+        },
+        {
+          "name": "Manjula Sudhakar",
+          "position": "Director - People Excellence & Regional HR (EU & LATAM)",
+          "linkedin_url": "https://in.linkedin.com/in/manjula-sudhakar-7aa99715"
+        },
+        {
+          "name": "Dr. Rajesh Nair",
+          "position": "President, Indegene",
+          "linkedin_url": "https://www.linkedin.com/in/dr-rajesh-nair-84455a"
+        },
+        {
+          "name": "Gaurav Kapoor",
+          "position": "Executive Vice President, Indegene",
+          "linkedin_url": "https://www.linkedin.com/in/gaurav-kapoor-18ba33237"
+        },
+        {
+          "name": "Jhanvi Dhawan",
+          "position": "Director - GenAI Transformation, Indegene",
+          "linkedin_url": "https://in.linkedin.com/in/jhanvidhawan"
+        },
+        {
+          "name": "Nishanth Rao",
+          "position": "Head - Enterprise Technology Office (Associate Vice President), Indegene",
+          "linkedin_url": "https://in.linkedin.com/in/nishantharao"
+        },
+        {
+          "name": "Jamie Peck",
+          "position": "Vice President, Commercial, Indegene",
+          "linkedin_url": "https://www.linkedin.com/in/jamie-peck-8923b88"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:WOCKPHARMA",
+      "name": "WOCKPHARMA",
+      "industry": "Pharmaceuticals: Major",
+      "revenue_ttm": 33730000000,
+      "net_income_ttm": 2130000000.0,
+      "employee_count": 2564,
+      "business_summary": "Wockhardt Limited, together with its subsidiaries, operates as a pharmaceutical and biotech company, in India, the United States, Europe, and internationally. It manufactures and trades pharmaceuticals, medicinal chemical, and botanical products, as well as chemicals and chemical products. The company also develops its flagship antibiotic, ZAYNICH zidebactam/cefepime, a novel beta lactam enhancer mechanism for the treatment of sepsis and hospital/ventilator associated pneumonia; FOVISCU, an antibiotic for gram-negative infections; MIQNAF nafithromycin, which targets azithromycin-resistant community respiratory pathogens; and ODRATE, a once-daily combination of ertapenem and zidebactam for resistant gram-negative infections through outpatient parenteral antimicrobial therapy. In addition, it develops and commercializes insulin analogs, glucagon-like peptide-1 agonists, and novel combination drug products; Biovac-B, a recombinant hepatitis-B vaccine; Wepox, a recombinant human erythropoietin; Wosulin, a recombinant human insulin; and Glaritus, a recombinant insulin glargine, as well as offers insulin aspart regular and biphasic drug products. Further, the company offers delivery devices for insulin, including DispoPen disposable pen and Mypen reusable pen. Wockhardt Limited was founded in 1967 and is headquartered in Mumbai, India.",
+      "website": "https://www.wockhardt.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/wockhardt",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Prakash Gupta",
+          "position": "President (Global Supply Chain and Generics Business) at Wockhardt Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/p6gupta"
+        },
+        {
+          "name": "MPS SAGGU",
+          "position": "Head of Sales at Wockhardt Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/mps-saggu-6b9a6a98"
+        },
+        {
+          "name": "Prakash Bharat",
+          "position": "General Manager, Head Analytical Facility",
+          "linkedin_url": "https://in.linkedin.com/in/prakash-bharat-428a36b"
+        },
+        {
+          "name": "Gopalakrishnan Venkatesan",
+          "position": "President, US Business, Wockhardt",
+          "linkedin_url": "https://www.linkedin.com/in/gopalakrishnan-venkatesan-a165466"
+        },
+        {
+          "name": "Dr Murtaza Khorakiwala",
+          "position": "Managing Director at Wockhardt Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/murtazakhorakiwala"
+        },
+        {
+          "name": "Prthwijit Kundu",
+          "position": "Chief Medical Officer NCE NDD at Wockhardt Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/prthwijit-kundu-17132419"
+        },
+        {
+          "name": "SARATH KUMAR VEDANTHAM",
+          "position": "Associate Vice President, Sales & Marketing at Wockhardt Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/sarath-kumar-vedantham-37102573"
+        },
+        {
+          "name": "Dr Habil Khorakiwala",
+          "position": "Chairman at Wockhardt Group",
+          "linkedin_url": "https://in.linkedin.com/in/dr-habil-khorakiwala"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:MARKSANS",
+      "name": "MARKSANS",
+      "industry": "Pharmaceuticals: Major",
+      "revenue_ttm": 29509390000,
+      "net_income_ttm": 4178979999.9999995,
+      "employee_count": 1840,
+      "business_summary": "Marksans Pharma Limited, together with its subsidiaries, engages in the research, manufacturing, marketing, and sale of pharmaceutical formulations in the United States, North America, Europe, the United Kingdom, Australia, New Zealand, and internationally. The company offers products in the pain management, cardiovascular, central nervous system, anti-diabetic, gastrointestinal, analgesics, upper respiratory, ear care, skincare, anticancer, anti-ulcerative, anti-allergy, antiviral, dietary, cardiac, dermatology, antihistamines, anti-fungal, anti-viral, laxatives, and cold and cough therapeutic areas. Its product portfolio includes plain, enteric-coated, and film coated tablets; soft gelatin and hard capsules; oral liquids; and ointments, as well as creams and liquids. The company provides its products to supermarkets, high street retailers, pharmacy chains, and wholesalers. Marksans Pharma Limited was incorporated in 1992 and is headquartered in Mumbai, India.",
+      "website": "https://marksanspharma.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/marksans-pharma-ltd---india",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Sopan Pisal",
+          "position": "Director Of Quality Assurance",
+          "linkedin_url": "https://in.linkedin.com/in/sopan-pisal-324b1214"
+        },
+        {
+          "name": "Vikas Bhargava",
+          "position": "Site Director",
+          "linkedin_url": "https://in.linkedin.com/in/vikas-bhargava-8393705"
+        },
+        {
+          "name": "Anjani Kumar",
+          "position": "Chief Operating Officer (COO) - Global Operations",
+          "linkedin_url": "https://www.linkedin.com/in/anjani-kumar-04908b11b"
+        },
+        {
+          "name": "Durgaprasad Vaingankar",
+          "position": "Senior Director – Pharma Operations",
+          "linkedin_url": "https://in.linkedin.com/in/durgaprasadvaingankar"
+        },
+        {
+          "name": "Abhinna Sundar Mohanty",
+          "position": "Independent Director",
+          "linkedin_url": "https://in.linkedin.com/in/abhinna-sundar-mohanty-1276aa18"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:DCAL",
+      "name": "DCAL",
+      "industry": "Pharmaceuticals: Major",
+      "revenue_ttm": 29319000000,
+      "net_income_ttm": 974500000.0,
+      "employee_count": null,
+      "business_summary": "Dishman Carbogen Amcis Limited provides contract research and manufacturing services for the pharmaceutical and healthcare industries worldwide. The company operates through Contract Research and Manufacturing Services and Marketable Molecules segments. It offers cholesterol and vitamin D analogs; generic active pharmaceutical ingredients for diagnostics, ophthalmic treatments, laxatives, organophosphate antidotes; ammonium, phosphonium; quats, phosphoranes, and wittig reagents; cholesterol and lanolin-related products; sterile injectables; and softgel formulations, as well as hand and body wash, sanitisers, and antiseptics. The company was founded in 1983 and is headquartered in Ahmedabad, India. Dishman Carbogen Amcis Limited is a subsidiary of Adimans Technologies LLP.",
+      "website": "https://imdcal.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/dishman",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Dinesh Kumar",
+          "position": "Professor, IIM Bangalore; Chairperson, Data Centre and Analytics Lab (DCAL)",
+          "linkedin_url": "https://in.linkedin.com/in/dinesh-kumar-17224414"
+        },
+        {
+          "name": "Pathikrit Mukherjee",
+          "position": "ASI President, DCAL (Data Centre and Analytics Lab)",
+          "linkedin_url": "https://in.linkedin.com/in/pathikrit-mukherjee-0bba8b1b8"
+        },
+        {
+          "name": "Shailaja Grover",
+          "position": "Program Manager, Data Centre and Analytics Lab (DCAL), IIM Bangalore",
+          "linkedin_url": "https://in.linkedin.com/in/shailaja-grover-402a576a"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:AARTIDRUGS",
+      "name": "AARTIDRUGS",
+      "industry": "Pharmaceuticals: Major",
+      "revenue_ttm": 26775800000,
+      "net_income_ttm": 1911820000.0,
+      "employee_count": null,
+      "business_summary": "Aarti Drugs Limited, through its subsidiaries, manufactures and markets active pharmaceutical ingredients (APIs), pharmaceutical intermediates, specialty chemicals, and formulations in India and internationally. The company offers aceclofenac, celecoxib, diclofenac sodium, diclodenac potassium, diclofenac diethylamine, diclofenac resinate, diclofenac epolamine, nimesulide, ciprofloxacin HCL, enrofloxacin base, gatifloxacin sesquihydrate, levofloxacin base, norfloxacin, ofloxacin, metronidazole, metronidazole benzoate, ornidazole, secnidazole, tinidazole, clopidogrel bisulphate, ticlopidine HCL, metformin HCL, pioglitazone HCL, teneligliptin, vildagliptin, fluconazole, ketoconazole, tolnaftate, zolpidem tartrate, niacin, raloxifene HCL, and acamprosate. It also provides benzene sulphonyl chloride, benzene sulphonic acid, methyl benzenesulfonate, sodium benzene sulfinate, para toluene sulphonyl chloride, methyl para toluenesulfonate, sodium para toluenesulfinate, para chlorobenzenesulfonyl chloride, formamide, calcium fluoride, potasium formate, benzenesulfonamide, ethyl p- toluenesulfonate, N,N',N'-tris-(4-toluene sulfonyl)-diethylenetriamine, ortho para toluene sulfonamides, ortho para toluene sulfonamides acid methyl ester, para chlorobenznesulfonamide, para toluenesulfonyl hydrazide, para toluenesulfonamide, and sodium benzenesulfonate. In addition, it offers pharma intermediate products, which includes Celecoxib, Ciprofloxacin, Clopidogrel, Diclofenac, Ketoconazole, Nimesulide, Raloxifene, Tinidazole, and Zolpidem. Further, the company develops drugs for antifungal, cardiovascular, and antidiabetic therapeutic areas, as well as non-steroidal anti-inflammatory drugs. The company was incorporated in 1984 and is headquartered in Mumbai, India.",
+      "website": "https://www.aartidrugs.co.in",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/aarti-drugs-limited",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Harshit M. Savla",
+          "position": "Joint Managing Director",
+          "linkedin_url": "https://in.linkedin.com/in/harshit-savla-b21659180"
+        },
+        {
+          "name": "Adhish P. Patil",
+          "position": "Chief Financial Officer & Chief Operating Officer",
+          "linkedin_url": "https://in.linkedin.com/in/adhishpatil"
+        },
+        {
+          "name": "Harit P. Shah",
+          "position": "Director",
+          "linkedin_url": "https://in.linkedin.com/in/harit-shah-003168156"
+        },
+        {
+          "name": "Rashesh C. Gogri",
+          "position": "Managing Director",
+          "linkedin_url": "https://in.linkedin.com/in/rashesh-gogri-8691152a"
+        },
+        {
+          "name": "Prithviraj Verma",
+          "position": "Vice President, Operations",
+          "linkedin_url": "https://in.linkedin.com/in/prithviraj-verma-18038043"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:VIYASH",
+      "name": "VIYASH",
+      "industry": "Pharmaceuticals: Major",
+      "revenue_ttm": 26437800000,
+      "net_income_ttm": 1196000000.0,
+      "employee_count": 2900,
+      "business_summary": "Viyash Scientific Limited operates as a veterinary pharmaceutical Company in India, the United States, Spain, and internationally. The company provides active pharmaceutical ingredients, finished dosage formulations, analytical services, and VET formulation services for cattle and poultry. The company was formerly known as Sequent Scientific Limited and changed its name to Viyash Scientific Limited in January 2026. The company was incorporated in 1985 and is headquartered in Hyderabad, India. Viyash Scientific Limited operates as a subsidiary of CA Harbor Investments.",
+      "website": "https://www.viyash.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/viyash-life-sciences-pvt-ltd",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Ramakant Singani",
+          "position": "CFO, Viyash Life Sciences",
+          "linkedin_url": "https://in.linkedin.com/in/ramakant-singani-3951ab6"
+        },
+        {
+          "name": "Jagannatha Reddy",
+          "position": "Senior Vice President - Head SCM, Viyash Life Sciences",
+          "linkedin_url": "https://in.linkedin.com/in/jagannatha-reddy-0907aa187"
+        },
+        {
+          "name": "Rajkamal Varshney",
+          "position": "Senior Vice President, Viyash Scientific Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/rajkamal-varshney-b24590175"
+        },
+        {
+          "name": "Dr. Pramod Kumar",
+          "position": "Head API R&D, Viyash Life Sciences",
+          "linkedin_url": "https://in.linkedin.com/in/dr-pramod-kumar-36a14015"
+        },
+        {
+          "name": "Dr. V.S.R. Prasad",
+          "position": "Head Tech.Transfer and Process Development, Viyash Life Sciences",
+          "linkedin_url": "https://in.linkedin.com/in/dr-v-s-r-prasad-089bb115"
+        },
+        {
+          "name": "Srinivas M",
+          "position": "Leading Human Resources (HR Lead), Viyash Life Sciences",
+          "linkedin_url": "https://in.linkedin.com/in/srinivas-m-973b4817"
+        },
+        {
+          "name": "SANDIP SHAH",
+          "position": "Site Head, Viyash Life Sciences Pvt Ltd",
+          "linkedin_url": "https://in.linkedin.com/in/sandip-shah-464663236"
+        },
+        {
+          "name": "Sarat Koneru",
+          "position": "Vice President, Viyash Scientific Limited",
+          "linkedin_url": "https://in.linkedin.com/in/sarat-koneru-4285b412a"
+        },
+        {
+          "name": "Srinivasarao Attanti",
+          "position": "Vice President, Viyash Life Sciences Pvt Ltd",
+          "linkedin_url": "https://in.linkedin.com/in/srinivasarao-attanti-b2190a286"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:ANURAS",
+      "name": "ANURAS",
+      "industry": "Pharmaceuticals: Major",
+      "revenue_ttm": 23654550000,
+      "net_income_ttm": 1701210000.0,
+      "employee_count": null,
+      "business_summary": "Anupam Rasayan India Ltd engages in the custom synthesis and manufacturing of specialty chemicals in India, Europe, Japan, Singapore, China, North America, and internationally. It operates through two segments: Life Science related Specialty Chemicals and Other Specialty Chemicals. The company offers life science related specialty chemicals, such as agro intermediates and agro active ingredients for the agrochemicals industry; anti-bacterial and ultraviolet protection intermediates and ingredients for the personal care industry; and intermediates and key starting materials for active pharmaceutical ingredients. It provides other specialty chemicals used in various end-user segments, including specialty pigments, specialty dyes, and polymer additives. The company was incorporated in 1984 and is headquartered in Surat, India.",
+      "website": "https://www.anupamrasayan.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/anupam-rasayan-india-ltd",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Gopal Agrawal",
+          "position": "Chief Executive Officer",
+          "linkedin_url": "https://in.linkedin.com/in/gopal-agrawal-ba870315"
+        },
+        {
+          "name": "Anand Desai",
+          "position": "Managing Director",
+          "linkedin_url": "https://in.linkedin.com/in/anand-desai-2b78b28"
+        },
+        {
+          "name": "Amit Khurana",
+          "position": "Chief Financial Officer",
+          "linkedin_url": "https://in.linkedin.com/in/amit-khurana-a4467394"
+        },
+        {
+          "name": "Himanshu Bhatt",
+          "position": "President - Projects",
+          "linkedin_url": "https://in.linkedin.com/in/himanshu-bhatt-839499287"
+        },
+        {
+          "name": "Ravi Desai",
+          "position": "Head Of Global Sales & Marketing",
+          "linkedin_url": "https://in.linkedin.com/in/ravi-desai-8bbb8740"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:ASTRAZEN",
+      "name": "ASTRAZEN",
+      "industry": "Pharmaceuticals: Major",
+      "revenue_ttm": 22755800000,
+      "net_income_ttm": 1875200000.0,
+      "employee_count": 760,
+      "business_summary": "AstraZeneca Pharma India Limited, a biopharmaceutical company, manufactures, markets, and trades in pharmaceutical products in India and internationally. It provides medicines for cardiovascular, renal, metabolic, and immunological conditions; oncology medicines under the TAGRISSO, Lynparza, ENHERTU, IMFINZI, and Zoladex brand names; rare diseases medicines under the Koselugo brand name; and respiratory medicines under the Symbicort and Fasenra brand names. The company also offers medicines for diabetes; and clinical trial services. The company has a strategic collaboration with Leica Biosystems and Daiichi Sankyo Company, Limited for the development of an immunohistochemistry assay and an image analysis algorithm for the TROP2 NMR biomarker in non-small cell lung cancer. The company was incorporated in 1979 and is based in Bengaluru, India. AstraZeneca Pharma India Limited is a subsidiary of AstraZeneca Pharmaceuticals AB.",
+      "website": "https://www.astrazeneca.in",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/astrazenecaindia",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Praveen Rao Akkinepally",
+          "position": "Country President & Managing Director, AstraZeneca India",
+          "linkedin_url": "https://in.linkedin.com/in/praveen-rao-akkinepally-90727245"
+        },
+        {
+          "name": "Siva Kumar Padmanabhan",
+          "position": "MD & Head of Global Innovation & Technology Center, AstraZeneca India Pvt. Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/siva-kumar-padmanabhan-0480991"
+        },
+        {
+          "name": "Tapankumar Shah",
+          "position": "Senior Director, Clinical Operations (Asia Area Cluster Head), AstraZeneca",
+          "linkedin_url": "https://in.linkedin.com/in/tapankumar-shah-1a5a1716"
+        },
+        {
+          "name": "Dr. Sanjeev Panchal",
+          "position": "Country President & Managing Director, AstraZeneca Pharma India Ltd",
+          "linkedin_url": "https://www.linkedin.com/in/dr-sanjeev-panchal-b282486"
+        },
+        {
+          "name": "Anuradha Kumar",
+          "position": "HR Leader, AstraZeneca India",
+          "linkedin_url": "https://in.linkedin.com/in/anuradha-kumar-44b49a9"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:COHANCE",
+      "name": "COHANCE",
+      "industry": "Pharmaceuticals: Major",
+      "revenue_ttm": 22685500000,
+      "net_income_ttm": 1792300000.0,
+      "employee_count": null,
+      "business_summary": "Cohance Lifesciences Limited engages in the contract research, development, and manufacturing of new chemical entity (NCE) based intermediates, active pharmaceutical ingredients (API), specialty chemicals, and formulated drugs in India, the United States, Europe, and internationally. The company offers small molecule APIs, advanced intermediates, and starting materials; antibody drug conjugates; high-purity oligonucleotide building blocks comprising phosphoramidites, nucleosides, pseudouridine, NTPs, CAP reagents, GalNAc conjugates, and fluorescent dyes; pellets and finished dosage forms; and specialty chemicals, including agrochemicals. It serves pharmaceutical, biotechnology, and chemical companies. The company was formerly known as Suven Pharmaceuticals Limited and changed its name to Cohance Lifesciences Limited in May 2025. The company was founded in 1989 and is headquartered in Hyderabad, India. Cohance Lifesciences Limited is a subsidiary of Berhyanda Limited.",
+      "website": "https://www.cohance.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/cohance-lifesciences",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Somesh Sharma, PhD, MBA",
+          "position": "Chief Operating Officer, Cohance Lifesciences",
+          "linkedin_url": "https://in.linkedin.com/in/sharmasomesh71"
+        },
+        {
+          "name": "Dr. V. Prasada Raju",
+          "position": "Managing Director & CEO, Cohance Lifesciences",
+          "linkedin_url": "https://in.linkedin.com/in/dr-prasada-raju-v-b5073bb8"
+        },
+        {
+          "name": "Pradeep Gupta",
+          "position": "Site Head, Cohance Lifesciences (Formulation)",
+          "linkedin_url": "https://in.linkedin.com/in/pradeep-gupta-976675269"
+        },
+        {
+          "name": "Umang Vohra",
+          "position": "Chairman & Group CEO, Cohance Lifesciences",
+          "linkedin_url": "https://in.linkedin.com/in/umangvohra"
+        },
+        {
+          "name": "Pavan Boddapati",
+          "position": "Deputy General Manager, Cohance Lifesciences",
+          "linkedin_url": "https://in.linkedin.com/in/pavan-boddapati-b90a30b1"
+        }
+      ],
+      "location": "India"
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "session_id": "session-20260803-130643",
+  "timestamp": "2026-08-03_13-14-18",
+  "screener_query": {
+    "sector": "Finance",
+    "industry": null,
+    "revenue_min": 5000000000.0,
+    "revenue_max": 50000000000.0,
+    "profit_min": 750000000.0,
+    "profit_max": 6000000000.0,
+    "market": "india",
+    "location": "India",
+    "limit": 60
+  },
+  "total_companies": 10,
+  "companies": [
+    {
+      "ticker": "BSE:EMBASSY",
+      "name": "EMBASSY",
+      "industry": "Real Estate Investment Trusts",
+      "revenue_ttm": 48550350000,
+      "net_income_ttm": 3785940000,
+      "employee_count": null,
+      "business_summary": "Embassy Office Parks REIT owns, operates, and invests in real estate and related assets in India. It operates through Commercial Offices, Hospitality, and Other segments. Its property portfolio comprises office parks and office buildings. The company also provides facility and room rental, maintenance, and financial leasing services; and development, rental and maintenance of serviced residence. It also engages in the sale of food and beverages; develops and leases office space and related interiors, and maintenance; and generates renewable energy, as well as trust service. Embassy Office Parks REIT was incorporated in 2014 and is based in Bengaluru, India.",
+      "website": "https://www.embassyofficeparks.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/embassy-office-parks",
+      "linkedin_confirmed": true,
+      "decision_makers": [],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:INDIGRID",
+      "name": "INDIGRID",
+      "industry": "Financial Conglomerates",
+      "revenue_ttm": 47683810000,
+      "net_income_ttm": 3942500000,
+      "employee_count": null,
+      "business_summary": "Indigrid Infrastructure Trust operates as an infrastructure investment trust that owns, operates, and manages power transmission, renewable generation, and energy storage assets in India. The company's asset portfolio consists of 41 power projects that includes 55 transmission lines with 9,698 circuit kilometers length, 18 substations with 32,550 MVA transformation capacity, 1.5 GWp (DC) of solar generation capacity, and 2.5 GWh of battery energy storage capacity. The company was formerly known as India Grid Trust and changed its name to Indigrid Infrastructure Trust in January 2025. Indigrid Infrastructure Trust was founded in 2016 and is based in Mumbai, India.",
+      "website": "https://www.indigrid.co.in",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/indigrid",
+      "linkedin_confirmed": true,
+      "decision_makers": [],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:KALPATARU",
+      "name": "KALPATARU",
+      "industry": "Real Estate Development",
+      "revenue_ttm": 35367100000,
+      "net_income_ttm": 937100000,
+      "employee_count": 1900,
+      "business_summary": "Kalpataru Limited, through its subsidiaries, operates as a real estate development company in India. It engages in the development of residential, commercial, and retail projects; and integrated townships, lifestyle gated communities, and redevelopments in the Mumbai metropolitan region and Pune. The company was formerly known as Kalpataru Homes Limited and changed its name to Kalpataru Limited in February 2008. Kalpataru Limited was founded in 1969 and is based in Mumbai, India.",
+      "website": "https://www.kalpataru.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/kalpataru-limited",
+      "linkedin_confirmed": true,
+      "decision_makers": [],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:SATIN",
+      "name": "SATIN",
+      "industry": "Finance/Rental/Leasing",
+      "revenue_ttm": 32327672000,
+      "net_income_ttm": 4097577000,
+      "employee_count": null,
+      "business_summary": "Satin Creditcare Network Limited, a non-banking finance company, provides micro finance services in India. The company offers microcredit to economically active women in rural, semi-urban, and urban regions; loans for income generating purposes, such as agriculture, transportation, trading, and production related business activities; water and sanitation loans; loans for clean energy and various business needs; and loans to corporate institutions and micro finance companies. It also provides financing solutions for solar energy, purchase of bicycles, home appliances, and mobile phones for small businesses and individuals; micro, small, and medium enterprise loans for merchants, retailers, wholesalers, manufacturers, service providers, salaried, self-employed professionals, and agri businesses; and housing loans. The company was formerly known as Satin Leasing & Finance Private Limited and changed its name to Satin Creditcare Network Limited in April 2000. Satin Creditcare Network Limited was incorporated in 1990 and is headquartered in Gurugram, India.",
+      "website": "https://satincreditcare.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/987977",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Aditi Singh",
+          "position": "Chief Strategy Officer, Satin Creditcare Network Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/adity-singh"
+        },
+        {
+          "name": "Pardeep Singh",
+          "position": "Chief Executive Officer, Satin Creditcare Network Limited",
+          "linkedin_url": "https://in.linkedin.com/in/pardeep-singh-30291227a"
+        },
+        {
+          "name": "Anil Kwatra",
+          "position": "Chief Business Officer, Satin Creditcare Network Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/anil-kwatra-4545727"
+        },
+        {
+          "name": "Amit K. Sharma",
+          "position": "Founder, Satin Housing Finance Limited",
+          "linkedin_url": "https://in.linkedin.com/in/amit-k-sharma-b5a51b22"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:BIRET",
+      "name": "BIRET",
+      "industry": "Real Estate Investment Trusts",
+      "revenue_ttm": 30424110000,
+      "net_income_ttm": 4812300000,
+      "employee_count": null,
+      "business_summary": "The Brookfield India Real Estate Trust is India's only institutionally managed public commercial real estate vehicle. Sponsored by an affiliate of Brookfield Asset Management, one of the world's largest alternative asset managers with approximately US$600 billion in assets under management, as of March 31, 2021, our goal is to be the leading owner of high quality income producing commercial real estate assets in key gateway Indian markets, which have significant barriers to entry.",
+      "website": "https://brookfieldindiareit.in",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "NOT FOUND",
+      "linkedin_confirmed": true,
+      "decision_makers": [],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:RAYMONDREL",
+      "name": "RAYMONDREL",
+      "industry": "Real Estate Development",
+      "revenue_ttm": 30404200000,
+      "net_income_ttm": 3045900000,
+      "employee_count": 529,
+      "business_summary": "Raymond Realty Limited, through its subsidiaries, engages in the development and sale of housing projects in India. Its projects include residential and commercial properties. The company was formerly known as Raymond Lifestyle Limited and changed its name to Raymond Realty Limited in January 2024. The company was founded in 1925 and is headquartered in Thane, India. Raymond Realty Limited operates as a subsidiary of Raymond Limited.",
+      "website": "https://raymondrealty.in",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/raymondrealtyindia",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Raviraj Salian",
+          "position": "Head of Sales - Raymond Realty",
+          "linkedin_url": "https://in.linkedin.com/in/raviraj-salian-79812a97"
+        },
+        {
+          "name": "Harmohan H Sahni",
+          "position": "MD & CEO - Raymond Realty Ltd.",
+          "linkedin_url": "https://in.linkedin.com/in/harmohan-h-sahni-363b37"
+        },
+        {
+          "name": "Vijay Deshpande",
+          "position": "Director - Operations at Raymond Realty",
+          "linkedin_url": "https://in.linkedin.com/in/vijay-deshpande-38ba1916"
+        },
+        {
+          "name": "Sujit Singh",
+          "position": "Cluster Sales Head | Strategy | EA to CEO - Raymond Realty",
+          "linkedin_url": "https://in.linkedin.com/in/sujit-singh-3741a717"
+        },
+        {
+          "name": "Mario Findley",
+          "position": "Head - Direct Sales | Pre-Sales (Raymond Realty)",
+          "linkedin_url": "https://in.linkedin.com/in/mario-findley-51128a16"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:NORTHARC",
+      "name": "NORTHARC",
+      "industry": "Finance/Rental/Leasing",
+      "revenue_ttm": 28693042000,
+      "net_income_ttm": 4392938000,
+      "employee_count": 3163,
+      "business_summary": "Northern Arc Capital Limited operates as a non-banking financial company in India. It operates through Financing Activity, Investment Advisory Services, and Investment Management Services segments. The company offers rural financing services; loans for personal, microfinance, vehicle finance, as well as buy now pay later solutions; education loans; insurance premium financing; MSME financing, MFI, consumer and vehicle finance, and housing and agriculture finance; rural financing; mid-market corporate lending, loans against property, and supply chain finance; and fund management services, including alternative investment funds and portfolio management services. It also provides debt products, such as term and working capital loans, non-convertible debentures, principal protected market linked debentures, commercial papers, external commercial borrowings, and sub-debt products; and credit-enhanced debt products, including guarantee-backed lending, single issuer partial credit enhanced, and pooled loan and bond issuance program. In addition, the company offers portfolio financing products comprising rated securitization, multi-originator microfinance securitization, persistent securitizations, and direct assignments. Further, it provides Altifi, an alternative retail debt investment platform; Nimbus, a curated debt platform that enables end-to-end processing of debt transactions; nPOS, a co-lending and co-origination technology solution; and NuScore, a customized machine learning based analytical module designed to assist in the loan underwriting process. It serves rural and retail customers; micro, small, and medium enterprises; originator partners; emerging corporates; and institutional investors. The company was formerly known as IFMR Capital Finance Limited and changed its name to Northern Arc Capital Limited in February 2018. Northern Arc Capital Limited was incorporated in 1989 and is based in Chennai, India.",
+      "website": "https://www.northernarc.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/northern-arc-capital",
+      "linkedin_confirmed": true,
+      "decision_makers": [],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:SURYODAY",
+      "name": "SURYODAY",
+      "industry": "Regional Banks",
+      "revenue_ttm": 26863600000,
+      "net_income_ttm": 1918700000,
+      "employee_count": 8574,
+      "business_summary": "Suryoday Small Finance Bank Limited provides financial products to micro-entrepreneurs and underserved communities and individuals in India. It operates through Treasury, Retail Banking, Corporate Banking, and Other Banking Operation segments. The company offers savings, salary, current, and special accounts; and term and fixed deposits, recurring, and double joy deposits. It also provides two-wheeler, commercial vehicle, and car loans; micro housing loans and micro LAP; home loan; secured business loan; personal loan; MSME loan; merchant loan for business; small business loan; and supply chain finance, as well as joint liability group and individual unsecured loans. In addition, the company offers debit and credit cards; life and general insurance services; social security schemes and mutual funds and broking services; inward and outward remittance services; and internet banking and mobile banking services. The company was incorporated in 2008 and is based in Navi Mumbai, India.",
+      "website": "https://suryoday.bank.in",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "NOT FOUND",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Baskar Babu Ramachandran",
+          "position": "Managing Director & Chief Executive Officer (MD & CEO)",
+          "linkedin_url": "https://in.linkedin.com/in/baskarbabu"
+        }
+      ],
+      "location": "India"
+    },
+    {
+      "ticker": "NSE:RUSTOMJEE",
+      "name": "RUSTOMJEE",
+      "industry": "Real Estate Development",
+      "revenue_ttm": 26345400000,
+      "net_income_ttm": 788600000,
+      "employee_count": null,
+      "business_summary": "Keystone Realtors Limited engages in the real estate construction, development, and other related activities in India. It develops residential buildings, integrated townships, gated communities, standalone landmarks, retail spaces, commercial projects, and social infrastructure, such as schools, clubhouses, and parks within townships. The company was incorporated in 1995 and is based in Mumbai, India.",
+      "website": "https://www.rustomjee.com",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/rustomjee",
+      "linkedin_confirmed": true,
+      "decision_makers": [],
+      "location": "India"
+    },
+    {
+      "ticker": "BSE:WEWORK",
+      "name": "WEWORK",
+      "industry": "Real Estate Development",
+      "revenue_ttm": 25887020000,
+      "net_income_ttm": 842310000,
+      "employee_count": 999,
+      "business_summary": "WeWork India Management Limited engages in management and leasing of office buildings to large enterprises, small and mid-size businesses, startups, and individuals In India. Its services include private custom-designed workspaces, standard private offices, coworking spaces offices, office suites, serviced floors, and managed offices; and conference room rental, printing, charges, parking, etc. The company was incorporated in 2016 and is based in Bengaluru, India.",
+      "website": "https://wework.co.in",
+      "enrichment_source": "yfinance",
+      "linkedin_guessed": null,
+      "linkedin_verified": "https://www.linkedin.com/company/wework-india",
+      "linkedin_confirmed": true,
+      "decision_makers": [
+        {
+          "name": "Karan Virwani",
+          "position": "Managing Director & CEO, WeWork India",
+          "linkedin_url": "https://in.linkedin.com/in/karanvirwani"
+        },
+        {
+          "name": "Vinayak Parameswaran",
+          "position": "Chief Investment Officer, WeWork India",
+          "linkedin_url": "https://in.linkedin.com/in/vinayak-parameswaran"
+        },
+        {
+          "name": "Rupesh Kumar",
+          "position": "Chief Product & Technology Officer, WeWork India",
+          "linkedin_url": "https://in.linkedin.com/in/rukumar"
+        },
+        {
+          "name": "Ashish Jain",
+          "position": "Country Head, Projects, WeWork India",
+          "linkedin_url": "https://in.linkedin.com/in/ashish-jain13"
+        },
+        {
+          "name": "Kreetika Thakur",
+          "position": "Associate Director | Chief of Staff, CEO Office, WeWork India",
+          "linkedin_url": "https://in.linkedin.com/in/kreetika-thakur-17850015b"
+        },
+        {
+          "name": "Mohini Kumar",
+          "position": "Operator / Lead, WeWork Labs (WeWork India)",
+          "linkedin_url": "https://in.linkedin.com/in/mohinikumar"
+        },
+        {
+          "name": "Purusothaman Satchithanandam",
+          "position": "Director of Technology Services, WeWork India",
+          "linkedin_url": "https://in.linkedin.com/in/purusoth"
+        }
+      ],
+      "location": "India"
+    }
+  ]
+}
