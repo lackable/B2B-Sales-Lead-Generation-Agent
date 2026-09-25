@@ -1,0 +1,37 @@
+# Consolidated dependencies for the whole repo (backend + both agents + tests).
+# Replaces backend/requirements.txt, Shortlister Agent/requirements.txt and
+# Linkedin Finder Agent/requirements.txt.
+
+# --- Backend (FastAPI orchestrator) ---
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+sse-starlette>=1.8.2
+
+# --- Shared ---
+pydantic>=2.0.0
+openpyxl>=3.1.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+httpx>=0.27.0
+
+# --- Agents (LangGraph / LangChain) ---
+langgraph>=0.2.0
+langgraph-checkpoint-sqlite
+langchain>=0.3.0
+langchain-openai>=0.2.0
+langchain-mcp-adapters>=0.1.0
+mcp>=1.0.0
+tiktoken>=0.7.0
+aiofiles>=23.0.0
+aiosqlite>=0.19.0
+
+# --- Shortlister data + automation ---
+tradingview-screener>=3.0.0rc1
+yfinance>=0.2.0
+financedatabase>=2.2.0
+streamlit>=1.30.0
+selenium>=4.10.0
+webdriver-manager>=4.0.0
+
+# --- Tests (Shortlister Agent/tests) ---
+pytest>=8.0

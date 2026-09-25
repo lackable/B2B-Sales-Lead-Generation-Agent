@@ -9,7 +9,7 @@ class Configuration(BaseModel):
     """Main configuration class for the Contact Finder agent."""
     
     max_structured_output_retries: int = Field(default=3)
-    research_model: str = Field(default=os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-5-mini-2"))
+    research_model: str = Field(default=os.getenv("OPENAI_MODEL", "gpt-4o-mini"))
     research_model_max_tokens: int = Field(default=8192)
 
     @classmethod

@@ -1,17 +1,15 @@
 import asyncio
-import os
 
-from dotenv import load_dotenv
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
-load_dotenv()
+import env_config
 
 
 async def main():
-    token = os.getenv("BRIGHT_DATA_API_KEY") or os.getenv("BRIGHTDATA_TOKEN")
+    token = env_config.BRIGHT_DATA_API_KEY
 
     if not token:
-        raise ValueError("BRIGHTDATA_TOKEN not found in .env")
+        raise ValueError("BRIGHT_DATA_API_KEY (or BRIGHTDATA_TOKEN) not found in the root .env")
 
     client = MultiServerMCPClient(
         {
