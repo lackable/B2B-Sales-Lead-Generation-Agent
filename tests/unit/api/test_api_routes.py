@@ -15,6 +15,8 @@ from leadgen import config
 from leadgen.api import runner as runner_module
 from leadgen.api import state as api_state
 from leadgen.api import app as app_module
+from leadgen.api.routers import admin as admin_router
+from leadgen.api.routers import auth as auth_router
 from leadgen.api.routers import exports as exports_router
 from leadgen.api.routers import health as health_router
 from leadgen.api.routers import hunter as hunter_router
@@ -28,10 +30,23 @@ from leadgen.api.schemas import (
     ShortlisterRequest,
     StoreEmailRequest,
 )
+from leadgen.auth.csrf import OriginCheckMiddleware
 
 HTTP_METHODS = {"get", "post", "put", "patch", "delete", "head", "options"}
 
 EXPECTED_HTTP_SURFACE = {
+    ("/auth/setup-status", "get"),
+    ("/auth/setup", "post"),
+    ("/auth/login", "post"),
+    ("/auth/logout", "post"),
+    ("/auth/me", "get"),
+    ("/auth/password/change", "post"),
+    ("/auth/password/reset", "post"),
+    ("/auth/recovery-code/regenerate", "post"),
+    ("/admin/users", "get"),
+    ("/admin/users", "post"),
+    ("/admin/users/{user_id}", "patch"),
+    ("/admin/users/{user_id}/revoke-sessions", "post"),
     ("/shortlister/run", "post"),
     ("/shortlister/stream", "get"),
     ("/shortlister/status", "get"),
@@ -115,13 +130,13 @@ def runtime_dirs(isolated_var):
 # HTTP surface
 # ──────────────────────────────────────────────────────────────────────────────
 class TestAppSurface:
-    def test_openapi_http_surface_is_exactly_the_expected_nineteen_pairs(self):
+    def test_openapi_http_surface_is_exactly_the_expected_pairs(self):
         paths = app_module.app.openapi()["paths"]
 
         surface = {(path, method) for path, operations in paths.items() for method in operations if method in HTTP_METHODS}
 
         assert surface == EXPECTED_HTTP_SURFACE
-        assert len(surface) == 19
+        assert len(surface) == 31
 
     def test_same_surface_is_derived_from_the_app_routes(self):
         surface = set()
@@ -134,6 +149,28 @@ class TestAppSurface:
         "router_module, expected",
         [
             (health_router, {("/health", "get")}),
+            (
+                auth_router,
+                {
+                    ("/auth/setup-status", "get"),
+                    ("/auth/setup", "post"),
+                    ("/auth/login", "post"),
+                    ("/auth/logout", "post"),
+                    ("/auth/me", "get"),
+                    ("/auth/password/change", "post"),
+                    ("/auth/password/reset", "post"),
+                    ("/auth/recovery-code/regenerate", "post"),
+                },
+            ),
+            (
+                admin_router,
+                {
+                    ("/admin/users", "get"),
+                    ("/admin/users", "post"),
+                    ("/admin/users/{user_id}", "patch"),
+                    ("/admin/users/{user_id}/revoke-sessions", "post"),
+                },
+            ),
             (
                 shortlister_router,
                 {
@@ -196,17 +233,18 @@ class TestAppSurface:
         cors = [middleware for middleware in fresh.user_middleware if middleware.cls is CORSMiddleware]
         assert len(cors) == 1
         assert cors[0].kwargs == {
-            "allow_origins": ["*"],
+            "allow_origins": config.CORS_ALLOWED_ORIGINS,
             "allow_credentials": True,
             "allow_methods": ["*"],
             "allow_headers": ["*"],
         }
 
-    def test_module_level_app_has_cors_configured_too(self):
+    def test_module_level_app_has_cors_and_csrf_configured_too(self):
         cors = [middleware for middleware in app_module.app.user_middleware if middleware.cls is CORSMiddleware]
 
         assert len(cors) == 1
-        assert cors[0].kwargs["allow_origins"] == ["*"]
+        assert cors[0].kwargs["allow_origins"] == config.CORS_ALLOWED_ORIGINS
+        assert any(middleware.cls is OriginCheckMiddleware for middleware in app_module.app.user_middleware)
 
     @pytest.mark.asyncio
     async def test_lifespan_creates_the_runtime_directories(self, isolated_var):

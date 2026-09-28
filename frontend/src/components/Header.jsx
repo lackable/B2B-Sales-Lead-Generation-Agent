@@ -1,7 +1,12 @@
+import { Link } from 'react-router-dom';
+import { useAuth } from '../auth/AuthContext';
+
 /**
- * Header — sticky top bar with branding and step progress indicator.
+ * Header — sticky top bar with branding, pipeline progress and the account menu.
  */
 export default function Header({ shortlisterStatus, linkedinStatus, onReset }) {
+  const { user, signOut } = useAuth();
+
   function stepClass(status) {
     if (status === 'done') return 'step--done';
     if (status === 'running') return 'step--active';
@@ -36,6 +41,19 @@ export default function Header({ shortlisterStatus, linkedinStatus, onReset }) {
         >
           Reset All
         </button>
+
+        {user && (
+          <div className="header-user">
+            <span className="header-username">{user.username}</span>
+            {user.role === 'admin' && (
+              <Link className="header-nav-link" to="/admin/users">Admin</Link>
+            )}
+            <Link className="header-nav-link" to="/account">Account</Link>
+            <button id="btn-logout" type="button" className="btn btn-ghost" onClick={signOut}>
+              Logout
+            </button>
+          </div>
+        )}
       </div>
     </header>
   );

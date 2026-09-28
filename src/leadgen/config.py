@@ -28,10 +28,21 @@ LOG_DIR                       JSONL telemetry directory (default: var/logs)
 CENTRAL_LOG_URL               optional Loki/Elastic HTTP sink
 CENTRAL_LOG_BATCH_SIZE        central log batch size (default 50)
 CENTRAL_LOG_FLUSH_INTERVAL_S  central log flush interval in seconds (default 5)
+APP_DB_URL                    SQLAlchemy URL for the auth database (default: <VAR_DIR>/data/app.db)
+DB_AUTO_MIGRATE               run ``alembic upgrade head`` on API startup (default true)
+SESSION_COOKIE_NAME           session cookie name (default leadgen_session)
+SESSION_TTL_HOURS             absolute session lifetime in hours (default 168)
+SESSION_IDLE_MINUTES          idle timeout in minutes (default 720)
+COOKIE_SECURE                 set the cookie's Secure flag (default false)
+CORS_ALLOWED_ORIGINS          comma-separated browser origins allowed to call the API
+AUTH_MAX_FAILED_LOGINS        failed logins before an account is locked (default 5)
+AUTH_LOCKOUT_MINUTES          lockout duration in minutes (default 15)
+PASSWORD_MIN_LENGTH           minimum password length (default 12)
 """
 
 import os
 from pathlib import Path
+from typing import List
 
 from dotenv import load_dotenv
 
@@ -99,6 +110,47 @@ HUNTER_API_KEY = (
     or os.getenv("HUNTER_KEY")
     or os.getenv("API_KEY")
 )
+
+
+# ── Auth database & sessions ───────────────────────────────────────────────────
+def _env_flag(name: str, default: bool) -> bool:
+    """Read a boolean env var; anything other than 1/true/yes/on is false."""
+    raw = os.getenv(name)
+    if raw is None or not raw.strip():
+        return default
+    return raw.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _env_list(name: str, default: List[str]) -> List[str]:
+    raw = os.getenv(name)
+    if raw is None or not raw.strip():
+        return list(default)
+    return [item.strip() for item in raw.split(",") if item.strip()]
+
+
+# None → <VAR_DIR>/data/app.db, resolved lazily by database_url() so the tests
+# can point the whole suite at a temp directory.
+APP_DB_URL = os.getenv("APP_DB_URL")
+DB_AUTO_MIGRATE = _env_flag("DB_AUTO_MIGRATE", True)
+
+SESSION_COOKIE_NAME = os.getenv("SESSION_COOKIE_NAME", "leadgen_session")
+SESSION_TTL_HOURS = int(os.getenv("SESSION_TTL_HOURS", "168"))
+SESSION_IDLE_MINUTES = int(os.getenv("SESSION_IDLE_MINUTES", "720"))
+COOKIE_SECURE = _env_flag("COOKIE_SECURE", False)
+
+# The dev frontend (5173) and API (8000) are different origins but the same site.
+CORS_ALLOWED_ORIGINS = _env_list("CORS_ALLOWED_ORIGINS", ["http://localhost:5173"])
+
+AUTH_MAX_FAILED_LOGINS = int(os.getenv("AUTH_MAX_FAILED_LOGINS", "5"))
+AUTH_LOCKOUT_MINUTES = int(os.getenv("AUTH_LOCKOUT_MINUTES", "15"))
+PASSWORD_MIN_LENGTH = int(os.getenv("PASSWORD_MIN_LENGTH", "12"))
+
+
+def database_url() -> str:
+    """The auth database URL: ``APP_DB_URL`` or ``<VAR_DIR>/data/app.db``."""
+    if APP_DB_URL:
+        return APP_DB_URL
+    return f"sqlite:///{(DATA_DIR / 'app.db').as_posix()}"
 
 
 def ensure_runtime_dirs() -> None:

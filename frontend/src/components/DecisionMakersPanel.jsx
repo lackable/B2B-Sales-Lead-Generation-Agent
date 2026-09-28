@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import API from '../api';
+import { apiFetch } from '../lib/http';
 import ExcelExportButton from './ExcelExportButton';
 
 /**
@@ -29,7 +29,7 @@ export default function DecisionMakersPanel({ linkedinStatus }) {
   const fetchDMs = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API}/linkedin/decision-makers`);
+      const res = await apiFetch('/linkedin/decision-makers');
       if (res.ok) {
         const data = await res.json();
         setDms(data.decision_makers ?? []);
@@ -50,10 +50,9 @@ export default function DecisionMakersPanel({ linkedinStatus }) {
   const storeEmail = useCallback(async (companyName, dmName, email) => {
     if (!email || !dmName || !companyName) return;
     try {
-      await fetch(`${API}/hunter/store-email`, {
+      await apiFetch('/hunter/store-email', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ company_name: companyName, dm_name: dmName, email }),
+        json: { company_name: companyName, dm_name: dmName, email },
       });
     } catch {
       // Silent — store-email is best-effort and must not disrupt the UI flow
@@ -69,15 +68,14 @@ export default function DecisionMakersPanel({ linkedinStatus }) {
     }));
 
     try {
-      const res = await fetch(`${API}/hunter/find-email`, {
+      const res = await apiFetch('/hunter/find-email', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        json: {
           linkedin_url: dm.linkedin_url,
           full_name: dm.name,
           company: dm.company_name,
           domain: extractDomain(dm.company_website),
-        }),
+        },
       });
 
       const data = await res.json();
@@ -129,10 +127,9 @@ export default function DecisionMakersPanel({ linkedinStatus }) {
     setSmartProgress('⚡ Checking email counts per company…');
 
     try {
-      const res = await fetch(`${API}/hunter/smart-enrich`, {
+      const res = await apiFetch('/hunter/smart-enrich', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        json: {
           decision_makers: dms.map(dm => ({
             id: dm.id,
             name: dm.name,
@@ -141,7 +138,7 @@ export default function DecisionMakersPanel({ linkedinStatus }) {
             company_website: dm.company_website || '',
             position: dm.position,
           })),
-        }),
+        },
       });
 
       const data = await res.json();

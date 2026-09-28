@@ -1,20 +1,27 @@
-"""WebSocket endpoints: /ws/logs (structured telemetry) and /ws/visualizer (state graph)."""
+"""WebSocket endpoints: /ws/logs (structured telemetry) and /ws/visualizer (state graph).
+
+Both handshakes require a valid session cookie and an allowed ``Origin``; a
+failure closes the socket with code 1008 (policy violation).
+"""
 
 import asyncio
 from datetime import datetime, timezone
 
-from fastapi import APIRouter, WebSocket, WebSocketDisconnect
+from fastapi import APIRouter, Depends, WebSocket, WebSocketDisconnect
 
 from leadgen.api.state import visualizer_broker, ws_log_clients
+from leadgen.auth.dependencies import authenticate_websocket, get_auth_service
+from leadgen.auth.service import AuthService
 from leadgen.core.telemetry.ws_broadcaster import ws_queue
 
 router = APIRouter(tags=["websocket"])
 
 
 @router.websocket("/ws/visualizer")
-async def ws_visualizer(websocket: WebSocket):
+async def ws_visualizer(websocket: WebSocket, service: AuthService = Depends(get_auth_service)):
     """Stream live Shortlister JSONL telemetry to every connected browser."""
-    await websocket.accept()
+    if await authenticate_websocket(websocket, service) is None:
+        return
     client_queue = visualizer_broker.subscribe()
     try:
         while True:
@@ -34,7 +41,7 @@ async def ws_visualizer(websocket: WebSocket):
 
 
 @router.websocket("/ws/logs")
-async def ws_logs(websocket: WebSocket):
+async def ws_logs(websocket: WebSocket, service: AuthService = Depends(get_auth_service)):
     """
     WebSocket endpoint that streams structured JSON log events emitted by
     the pipeline agents in real-time.
@@ -58,7 +65,8 @@ async def ws_logs(websocket: WebSocket):
         "data": { ... event-specific payload ... }
     }
     """
-    await websocket.accept()
+    if await authenticate_websocket(websocket, service) is None:
+        return
     ws_log_clients.append(websocket)
     try:
         # Drain the shared ws_queue and forward each JSON line to this client.
