@@ -1,0 +1,37 @@
+# API + frontend for local/self-hosted runs.
+#
+#   cp .env.example .env      # fill in the API keys
+#   docker compose up --build
+#
+# The api service mounts ./var so generated reports, exports and telemetry
+# survive container restarts; the frontend mounts ./frontend for hot reload.
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+    env_file:
+      - .env
+    environment:
+      LEADGEN_VAR_DIR: /app/var
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./var:/app/var
+    restart: unless-stopped
+
+  web:
+    image: node:22-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    environment:
+      VITE_API_BASE_URL: http://localhost:8000
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - api
+    restart: unless-stopped
