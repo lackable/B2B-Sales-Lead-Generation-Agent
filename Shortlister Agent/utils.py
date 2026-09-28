@@ -83,17 +83,19 @@ def fallback_financedatabase_website(ticker_str: str) -> Optional[str]:
     return None
 
 class DeploymentManager:
-    """Thread-safe manager for cycling through deployment fallback names."""
+    """Thread-safe manager for cycling through the configured model fallback names."""
     def __init__(self, deployments: List[str] = None):
-        self.deployments = deployments or getattr(env_config, "AZURE_DEPLOYMENTS", ["gpt-5-mini-2", "gpt-5.4-mini"])
+        self.deployments = deployments or env_config.OPENAI_MODELS
         self.current_index = 0
         self._lock = asyncio.Lock()
 
     def get_current_deployment(self) -> str:
-        return self.deployments[self.current_index]
+        return self.deployments[self.current_index] if self.deployments else ""
 
     async def switch_deployment(self) -> tuple[str, bool, str]:
         async with self._lock:
+            if not self.deployments:
+                return "", True, ""
             prev_deployment = self.deployments[self.current_index]
             self.current_index = (self.current_index + 1) % len(self.deployments)
             new_deployment = self.deployments[self.current_index]
@@ -104,12 +106,19 @@ class DeploymentManager:
 deployment_manager = DeploymentManager()
 
 def get_chat_model(deployment_name: str = None, max_retries: int = 3, timeout: float = 90.0):
-    """Helper to instantiate the ChatOpenAI model using Azure settings and target deployment."""
+    """Helper to instantiate ChatOpenAI against the configured OpenAI-compatible endpoint."""
+    base_url = env_config.OPENAI_BASE_URL
+    api_key = env_config.OPENAI_API_KEY
     target_deployment = deployment_name or deployment_manager.get_current_deployment()
+    if not (base_url and api_key and target_deployment):
+        raise RuntimeError(
+            "LLM not configured: set OPENAI_BASE_URL, OPENAI_API_KEY and "
+            "OPENAI_MODEL (or OPENAI_MODELS) in the repo-root .env"
+        )
     return ChatOpenAI(
         model=target_deployment,
-        api_key=env_config.AZURE_API_KEY,
-        base_url=env_config.AZURE_ENDPOINT or None,
+        api_key=api_key,
+        base_url=base_url,
         temperature=0.0,
         max_retries=max_retries,
         request_timeout=timeout,

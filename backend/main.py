@@ -27,6 +27,8 @@ from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel
 from sse_starlette.sse import EventSourceResponse
 
+import config
+
 # ── Directory Paths ────────────────────────────────────────────────────────────
 
 BASE_DIR: Path = Path(__file__).parent.parent.resolve()
@@ -131,18 +133,17 @@ async def _extract_location_from_query(query: str) -> str:
     if "germany" in q_lower or "german" in q_lower:
         return "Germany"
 
-    # LLM extraction fallback using Azure OpenAI if configured
+    # LLM extraction fallback using the configured OpenAI-compatible endpoint
     try:
-        from langchain_openai import AzureChatOpenAI
-        endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-        key = os.getenv("AZURE_OPENAI_API_KEY")
-        deployment = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-5-mini-2")
-        if endpoint and key:
-            llm = AzureChatOpenAI(
-                azure_endpoint=endpoint,
+        from langchain_openai import ChatOpenAI
+        base_url = config.OPENAI_BASE_URL
+        key = config.OPENAI_API_KEY
+        model = config.OPENAI_MODEL
+        if base_url and key and model:
+            llm = ChatOpenAI(
+                base_url=base_url,
                 api_key=key,
-                azure_deployment=deployment,
-                api_version=os.getenv("AZURE_OPENAI_API_VERSION", "v1"),
+                model=model,
                 temperature=0.0,
                 max_tokens=30,
             )

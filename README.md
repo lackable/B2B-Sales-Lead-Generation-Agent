@@ -7,7 +7,7 @@ An enterprise-grade, multi-agent AI system for automated B2B sales lead discover
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)
 ![LangGraph](https://img.shields.io/badge/LangGraph-StateGraph-orange)
-![Azure OpenAI](https://img.shields.io/badge/Azure_OpenAI-GPT--5-0089D6?logo=microsoftazure&logoColor=white)
+![OpenAI Compatible](https://img.shields.io/badge/OpenAI--Compatible-Endpoint-412991?logo=openai&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
@@ -49,7 +49,7 @@ The **B2B Sales Lead Generation Bot Suite** combines two autonomous **LangGraph 
 
 ### 🔍 1. LinkedIn Finder Agent (`Linkedin Finder Agent/`)
 - Built with **LangGraph StateGraph** architecture for resilient, stateful execution.
-- Integrates **Azure OpenAI** (`gpt-5-mini` / `gpt-5.4-mini`) for intelligent query expansion and contact evaluation.
+- Integrates any **OpenAI-compatible endpoint** (`OPENAI_BASE_URL` / `OPENAI_MODEL`) for intelligent query expansion and contact evaluation.
 - Leverages **Bright Data MCP** (`streamable_http`) and **SerpAPI** for stealthy LinkedIn profile discovery and data extraction.
 - Stores state checkpoints in SQLite (`memory.db`).
 
@@ -80,7 +80,9 @@ The **B2B Sales Lead Generation Bot Suite** combines two autonomous **LangGraph 
 
 ```
 B2B Sales Lead Generation Bot/
-├── .env.example                         # Root environment variable template
+├── .env.example                         # Root environment template (all components)
+├── env_config.py                        # Central .env loader for root scripts & backend
+├── requirements.txt                     # Consolidated Python dependencies (all components)
 ├── .gitignore                           # Git ignore rules (protects secret .env files)
 ├── start_backend.bat                    # Windows batch launcher for FastAPI backend
 ├── start_frontend.bat                   # Windows batch launcher for React frontend
@@ -90,7 +92,6 @@ B2B Sales Lead Generation Bot/
 ├── consolidated_solution_flow.html     # Interactive solution architecture flow diagram
 │
 ├── Linkedin Finder Agent/               # Autonomous LinkedIn Prospecting Agent
-│   ├── .env.example                     # Environment template for LinkedIn Agent
 │   ├── main.py                          # Entry point for LinkedIn Finder Agent
 │   ├── config.py / configuration.py     # Agent runtime configuration & models
 │   ├── memory.db                        # SQLite state checkpoint persistence database
@@ -99,7 +100,6 @@ B2B Sales Lead Generation Bot/
 │   └── schemas/                         # Pydantic schemas for structured outputs
 │
 ├── Shortlister Agent/                   # Autonomous Lead Qualification Agent
-│   ├── .env.example                     # Environment template for Shortlister Agent
 │   ├── main.py                          # Entry point for Shortlister Agent
 │   ├── selenium_extractor.py            # Headless browser extraction logic
 │   ├── memory.db                        # SQLite state persistence database
@@ -108,9 +108,9 @@ B2B Sales Lead Generation Bot/
 │
 ├── backend/                             # FastAPI Application & Export Engine
 │   ├── main.py                          # FastAPI server endpoints & WebSocket hub
+│   ├── config.py                        # Backend config (loads root .env via env_config)
 │   ├── export_builder.py                # Excel/CSV export generation module
-│   ├── visualizer_broker.py             # Telemetry & state graph event broker
-│   └── requirements.txt                 # Backend Python dependencies
+│   └── visualizer_broker.py             # Telemetry & state graph event broker
 │
 ├── frontend/                            # Vite + React Dashboard UI
 │   ├── package.json                     # React 19 dependencies & scripts
@@ -144,38 +144,37 @@ Ensure you have the following installed on your machine:
 
 ## 🔑 Environment Setup
 
-1. **Root `.env`**:
-   Copy `.env.example` to `.env` in the root directory:
+All components load **one** `.env` file from the repo root: `env_config.py`
+(root scripts), `backend/config.py`, and each agent's `config.py` load it via
+`load_dotenv`, and the Vite frontend reads `VITE_*` variables from the same file.
+
+1. Copy the template:
    ```bash
    cp .env.example .env
    ```
-   Edit `.env` and set your Hunter.io API Key:
-   ```env
-   HUNTER_API_KEY=your_hunter_api_key_here
-   ```
 
-2. **LinkedIn Finder Agent `.env`**:
-   Navigate to `Linkedin Finder Agent/` and copy `.env.example`:
-   ```bash
-   cp "Linkedin Finder Agent/.env.example" "Linkedin Finder Agent/.env"
-   ```
-   Configure your keys:
-   ```env
-   AZURE_OPENAI_ENDPOINT=https://your-azure-resource.services.ai.azure.com/openai/v1
-   AZURE_OPENAI_API_KEY=your_azure_openai_key
-   AZURE_OPENAI_DEPLOYMENT=gpt-5-mini-2
-   AZURE_OPENAI_DEPLOYMENT_FALLBACK=gpt-5.4-mini
-   BRIGHT_DATA_MCP_URL=https://mcp.brightdata.com/sse?token=your_token&groups=advanced_scraping
-   BRIGHT_DATA_API_KEY=your_bright_data_api_key
-   SERPAPI_API_KEY=your_serpapi_key
-   ```
+2. Fill in your credentials — variable → consumer map:
 
-3. **Shortlister Agent `.env`**:
-   Navigate to `Shortlister Agent/` and copy `.env.example`:
-   ```bash
-   cp "Shortlister Agent/.env.example" "Shortlister Agent/.env"
-   ```
-   Configure your Azure OpenAI and Bright Data credentials.
+   | Variable | Consumed by | Required |
+   | :--- | :--- | :--- |
+   | `HUNTER_API_KEY` | `env_config.py` → `hunter_linkedin_email_finder.py` (email enrichment) | For email finding |
+   | `OPENAI_BASE_URL` | `backend/config.py`, both agents' `config.py` | Yes (no default) |
+   | `OPENAI_API_KEY` | `backend/config.py`, both agents' `config.py` | Yes |
+   | `OPENAI_MODEL` | `backend/config.py`, both agents' `config.py` | Yes |
+   | `OPENAI_MODELS` | both agents' `config.py` (comma-separated rotation list; overrides `OPENAI_MODEL`) | Optional |
+   | `OPENAI_INPUT_COST_PER_M`, `OPENAI_OUTPUT_COST_PER_M` | both agents' `config.py` (USD per million tokens for cost reporting) | Optional |
+   | `RATE_LIMIT_CYCLE_WAIT_SECONDS` | both agents' `config.py` | Optional (default `65`) |
+   | `BRIGHT_DATA_MCP_URL` | both agents' `config.py` | Yes |
+   | `BRIGHT_DATA_API_KEY` | both agents' `config.py`, `printbrightdatatools.py` | Yes |
+   | `SERPAPI_API_KEY` | `Linkedin Finder Agent/config.py` | Yes |
+   | `LOG_LEVEL`, `LOG_DIR` | `logging_utils` | Optional (defaults `INFO`, `logs`) |
+   | `CENTRAL_LOG_URL`, `CENTRAL_LOG_BATCH_SIZE`, `CENTRAL_LOG_FLUSH_INTERVAL_S` | `logging_utils` | Optional |
+   | `VITE_API_BASE_URL` | `frontend/src/api.js` | Optional (default `http://localhost:8000`) |
+
+   Accepted fallback aliases: `HUNTER_KEY` / `API_KEY` for `HUNTER_API_KEY`,
+   and `BRIGHTDATA_TOKEN` for `BRIGHT_DATA_API_KEY`.
+
+   `PIPELINE_RUN_ID` is injected at runtime by `backend/main.py` — do not set it in `.env`.
 
 ---
 
@@ -193,13 +192,11 @@ Ensure you have the following installed on your machine:
 
 #### 1. Start the Backend
 ```bash
+# From the repo root: install Python dependencies (all components)
+pip install -r requirements.txt
+
 # Navigate to backend directory
 cd backend
-
-# Install Python dependencies
-pip install -r requirements.txt
-pip install -r "../Linkedin Finder Agent/requirements.txt"
-pip install -r "../Shortlister Agent/requirements.txt"
 
 # Run FastAPI backend
 python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
@@ -228,7 +225,7 @@ python hunter_linkedin_email_finder.py -l "https://www.linkedin.com/in/alexisoha
 ```
 Options:
 - `-l`, `--linkedin`: LinkedIn profile URL or handle (required)
-- `-k`, `--api-key`: Hunter.io API key (optional if set in `.env`)
+- `-k`, `--api-key`: Hunter.io API key (optional if set in the root `.env`)
 - `--domain`: Optional company domain (e.g. `reddit.com`)
 - `--json`: Output response in raw JSON format
 
@@ -257,7 +254,7 @@ The FastAPI backend exposes the following primary endpoints:
 
 ## 🛡️ Security & Privacy Best Practices
 
-- **Never Commit `.env` Files**: `.env` files contain active API keys and are listed in `.gitignore`. Always use `.env.example` templates for deployment.
+- **Never Commit `.env` Files**: `.env` files contain active API keys and are listed in `.gitignore`. Always use the root `.env.example` template for deployment.
 - **Redaction**: All logging handlers use `logging_utils/redact.py` to scrub tokens, bearer authorization headers, and API keys before broadcasting to WebSockets.
 - **Data Protection**: Ensure lead generation activities strictly follow applicable local data privacy laws (GDPR, CAN-SPAM, CCPA).
 

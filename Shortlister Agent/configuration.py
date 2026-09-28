@@ -20,9 +20,9 @@ class Configuration(BaseModel):
     max_structured_output_retries: int = Field(default=3)
     
     # Model configuration
-    query_model: str = Field(default=os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-5-mini-2"))
-    verifier_model: str = Field(default=os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-5-mini-2"))
-    compression_model: str = Field(default=os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-5-mini-2"))
+    query_model: str = Field(default=os.getenv("OPENAI_MODEL", "gpt-4o-mini"))
+    verifier_model: str = Field(default=os.getenv("OPENAI_MODEL", "gpt-4o-mini"))
+    compression_model: str = Field(default=os.getenv("OPENAI_MODEL", "gpt-4o-mini"))
     
     # Pruning limit
     token_prune_limit: int = Field(default=350000)

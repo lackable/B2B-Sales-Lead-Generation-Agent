@@ -1,7 +1,9 @@
 import os
+from pathlib import Path
+
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 # Screener defaults
 SCREENER_MARKET       = "india"          # tradingview market key
@@ -20,17 +22,20 @@ REPORTS_OUTPUT_DIR    = "output/reports/"
 BRIGHT_DATA_MCP_URL   = os.getenv("BRIGHT_DATA_MCP_URL")
 BRIGHT_DATA_API_KEY   = os.getenv("BRIGHT_DATA_API_KEY")
 
-# Azure OpenAI
-AZURE_ENDPOINT        = os.getenv("AZURE_OPENAI_ENDPOINT")
-AZURE_API_KEY         = os.getenv("AZURE_OPENAI_API_KEY")
-AZURE_DEPLOYMENT      = os.getenv("AZURE_OPENAI_DEPLOYMENT", "GPT-5-mini 2")
-AZURE_DEPLOYMENT_FALLBACK = os.getenv("AZURE_OPENAI_DEPLOYMENT_FALLBACK", os.getenv("AZURE_OPENAI_DEPLOYMENT_2", "GPT-5-mini 3"))
+# OpenAI-compatible LLM endpoint
+OPENAI_BASE_URL       = os.getenv("OPENAI_BASE_URL")
+OPENAI_API_KEY        = os.getenv("OPENAI_API_KEY")
+OPENAI_MODEL          = os.getenv("OPENAI_MODEL")
 
-raw_deployments = os.getenv("AZURE_OPENAI_DEPLOYMENTS")
-if raw_deployments:
-    AZURE_DEPLOYMENTS = [d.strip() for d in raw_deployments.split(",") if d.strip()]
+raw_models = os.getenv("OPENAI_MODELS")
+if raw_models:
+    OPENAI_MODELS = [m.strip() for m in raw_models.split(",") if m.strip()]
+elif OPENAI_MODEL:
+    OPENAI_MODELS = [OPENAI_MODEL]
 else:
-    AZURE_DEPLOYMENTS = [AZURE_DEPLOYMENT, AZURE_DEPLOYMENT_FALLBACK]
+    OPENAI_MODELS = []
 
 RATE_LIMIT_CYCLE_WAIT_SECONDS = int(os.getenv("RATE_LIMIT_CYCLE_WAIT_SECONDS", "65"))
-AZURE_API_VERSION     = os.getenv("AZURE_OPENAI_API_VERSION")
+
+PER_MILLION_INPUT_TK_COST  = float(os.getenv("OPENAI_INPUT_COST_PER_M", "0.150"))
+PER_MILLION_OUTPUT_TK_COST = float(os.getenv("OPENAI_OUTPUT_COST_PER_M", "0.600"))

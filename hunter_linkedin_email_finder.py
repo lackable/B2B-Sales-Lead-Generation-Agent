@@ -14,31 +14,13 @@ import argparse
 from typing import Optional, Dict, Any
 import requests
 
-# Load environment variables from .env file if present
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    # Basic fallback to parse .env manually if python-dotenv is missing
-    env_file = os.path.join(os.getcwd(), ".env")
-    if os.path.exists(env_file):
-        with open(env_file, "r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if line and not line.startswith("#") and "=" in line:
-                    k, v = line.split("=", 1)
-                    os.environ.setdefault(k.strip(), v.strip().strip("'\""))
+import env_config
 
 HUNTER_EMAIL_FINDER_URL = "https://api.hunter.io/v2/email-finder"
 
 def get_hunter_api_key(provided_key: Optional[str] = None) -> Optional[str]:
-    """Retrieve API key from argument or environment variables (loaded from .env)."""
-    return (
-        provided_key
-        or os.environ.get("HUNTER_API_KEY")
-        or os.environ.get("HUNTER_KEY")
-        or os.environ.get("API_KEY")
-    )
+    """Retrieve API key from argument or environment (root .env via env_config)."""
+    return provided_key or env_config.HUNTER_API_KEY
 
 
 def extract_linkedin_handle(linkedin_input: str) -> str:
@@ -196,7 +178,7 @@ def main():
     api_key = get_hunter_api_key(args.api_key)
     if not api_key:
         print("Error: Hunter.io API key not found.", file=sys.stderr)
-        print("Please add HUNTER_API_KEY=your_key to a .env file in the current directory,", file=sys.stderr)
+        print("Please add HUNTER_API_KEY=your_key to the .env file in the repo root,", file=sys.stderr)
         print("or pass --api-key / set HUNTER_API_KEY environment variable.", file=sys.stderr)
         print("You can get a free API key at: https://hunter.io/api-keys", file=sys.stderr)
         sys.exit(1)
