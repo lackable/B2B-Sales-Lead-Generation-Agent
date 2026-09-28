@@ -32,6 +32,17 @@ pnpm-debug.log*
 logs/
 *.log
 
+# Runtime artifacts (per-run reports, exports, memory DBs, JSONL telemetry)
+var/
+~$*.xlsx
+*.db-shm
+*.db-wal
+
+# Tooling caches
+.ruff_cache/
+.pytest_cache/
+*.egg-info/
+
 # IDE & OS Metadata
 .vscode/
 !.vscode/extensions.json
